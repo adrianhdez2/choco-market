@@ -1,0 +1,29 @@
+:root {
+    --font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
+
+    --background-color: #2B2B2B;
+
+    --primary: #5D7B09;
+    --primary-50: rgb(93, 123, 9, 0.5);
+
+    --secondary: #88B40B;
+
+    --gray: #5E5E5E;
+    --gray-secondary: #898989;
+
+    --black: #000;
+    --black-14: rgba(0, 0, 0, 0.14);
+    --black-27: rgba(0, 0, 0, 0.27);
+    --black-31: rgba(0, 0, 0, 0.31);
+
+    --white: #fff;
+    --white-23: rgba(255, 255, 255, 0.62);
+    --white-37: rgba(255, 255, 255, 0.37);
+    --white-56: rgba(255, 255, 255, 0.56);
+    --white-62: rgba(255, 255, 255, 0.62);
+
+    --border-input: #88B40B;
+
+    --background-panel-user: #101010;
+    --background-log-out: #893030;
+}
