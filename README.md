@@ -42,3 +42,21 @@ Iniciar el servidor
 ```bash
   npm run dev
 ```
+
+## En App van todos los componentes que se van a renderizar
+
+```javascript
+import Component from 'my-project'
+import Component2 from 'my-project2'
+
+function App() {
+  return (
+    <main>
+      <Component />
+      <Component2 />
+    </main>
+  );
+}
+
+export default App
+```
