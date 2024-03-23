@@ -13,58 +13,63 @@ html {
     font-family: var(--font-family);
 }
 
-body {
-    margin: 0;
+/* Estilos generales de los enlaces para quitar decoraciones, más bien el subrayado */
+a {    
+    text-decoration: none;
+}
+
+#root {
+    width: 100%;
     display: flex;
     align-items: center;
     justify-content: center;
+}
+
+body {
     width: 100%;
-    min-height: 100vh;
-    text-align: center;
-}
-
-h1 {
-    font-size: 3.2em;
-    line-height: 1.1;
-    color: var(--primary);
-}
-
-p {
-    margin-top: 20px;
-    color: var(--secondary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .footer {
-    position: fixed;
-    left: 0;
-    bottom: 10px; 
     width: 100%;
-    background-color: #333; 
+    height: 238px;
+    background-color: var(--black-27); 
     display: flex;
     justify-content: space-around; 
     align-items: flex-start; 
-    padding-bottom: 20px; 
+    padding: 30px 90px;
 }
 
 .footer > div {
-    margin: 0 10px; 
-    height: 160px; 
+    display: flex;
+    flex-direction: column;
+}
+
+.footer .title_footer {
+    margin-top: 27px;
 }
 
 .footer p {
     font-weight: bold;
-    margin-bottom: 10px; 
+    margin-bottom: 7px; 
+    color: var(--primary);
 }
 
 .footer a {
-    text-decoration: none;
-    color: var(--gray); 
+    color: var(--white-48);
     text-decoration: underline;
+    margin-bottom: 7px;
+    transition: all .3s ease-in-out
 }
 
 .footer a:hover {
     color: var(--white)
 }
 
+@media (width <= 1040px) {
+    /* Aqui pones el responsive del footer que seria que todo el footer sea column en lugar de row */
+}
 
 
