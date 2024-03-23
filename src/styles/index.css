@@ -131,9 +131,10 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
+    column-gap: 15px;
 }
 
-.header_btns button {
+.header_btns button:not(:last-child) {
     height: 50px;
     font-size: 16PX;
     border: none;
@@ -147,7 +148,6 @@ body {
 .header_btns_btn_login {
     width: 120px;
     background-color: var(--black-14);
-    margin-right: 15px;
 }
 
 .header_btns_btn_login:hover {
@@ -230,20 +230,18 @@ body {
 }
 
 .header_btns_user_menu {
-    width: 50px;
-    height: 50px;
-    display: flex;
+    display: none;
     align-items: center;
     justify-content: center;
-    color: var(--white);
+    width: 50px;
+    height: 50px;
     border: 2px solid var(--gray);
-    border-radius: 10px;
     transition: all .3s ease-in-out;
-}
-
-.header_btns_user a:last-child,
-.header_btns a {
-    display: none;
+    cursor: pointer;
+    background-color: transparent;
+    font-size: 16px;
+    border-radius: 10px;
+    color: var(--white);
 }
 
 .header_btns_user_menu:hover {
@@ -251,11 +249,10 @@ body {
 }
 
 .header_btns_user_menu:active {
-    border: 4px solid var(--gray-secondary);
+    border: 4px solid var(--gray);
 }
 
 /* MENU LATERAL */
-
 .menu {
     position: absolute;
     top: 0;
@@ -266,8 +263,17 @@ body {
     display: flex;
     align-items: flex-start;
     justify-content: center;
-    padding: 100px 10px;
     z-index: 999;
+    padding: 100px 10px;
+    transform: translateX(-100%);
+}
+
+.menu.show {
+    animation: show .3s forwards;
+}
+
+.menu.hidden {
+    animation: hidden .3s forwards;
 }
 
 .menu > button {
@@ -416,8 +422,25 @@ body {
 .footer a:hover {
     color: var(--white)
 }
+/*  ANIMACIONES DE MENU LATERAL */
 
+@keyframes show {
+    from {
+        transform: translateX(-100%);
+    }
+    to {
+        transform: translateX(0%);
+    }
+}
 
+@keyframes hidden {
+    from {
+        transform: translateX(0%);
+    }
+    to {
+        transform: translateX(-100%);
+    }
+}
 
 @media (width <=1040px) {
 
@@ -426,8 +449,8 @@ body {
         display: none;
     }
 
-    .header_btns_user a:last-child,
-    .header_btns a  {
+    .header_btns a,
+    .header_btns_user_menu  {
         display: flex;
     }
 }
