@@ -40,7 +40,7 @@ Instalar dependencias
 Iniciar el servidor
 
 ```bash
-  npm run dev
+  npm run baby
 ```
 
 ## En App van todos los componentes que se van a renderizar
