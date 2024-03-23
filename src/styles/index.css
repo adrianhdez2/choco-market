@@ -276,7 +276,7 @@ body {
     animation: hidden .3s forwards;
 }
 
-.menu > button {
+.menu>button {
     position: absolute;
     top: 10px;
     right: 10px;
@@ -291,11 +291,11 @@ body {
     cursor: pointer;
 }
 
-.menu > button:hover {
+.menu>button:hover {
     background-color: var(--gray-secondary);
 }
 
-.menu > button:active {
+.menu>button:active {
     border: 4px solid var(--gray-secondary);
 }
 
@@ -380,6 +380,7 @@ body {
     background-color: var(--primary);
     opacity: 1;
 }
+
 .header_menu_filters a:active {
     background-color: var(--primary);
     opacity: 1;
@@ -422,12 +423,14 @@ body {
 .footer a:hover {
     color: var(--white)
 }
+
 /*  ANIMACIONES DE MENU LATERAL */
 
 @keyframes show {
     from {
         transform: translateX(-100%);
     }
+
     to {
         transform: translateX(0%);
     }
@@ -437,6 +440,7 @@ body {
     from {
         transform: translateX(0%);
     }
+
     to {
         transform: translateX(-100%);
     }
@@ -450,7 +454,7 @@ body {
     }
 
     .header_btns a,
-    .header_btns_user_menu  {
+    .header_btns_user_menu {
         display: flex;
     }
 }
@@ -460,7 +464,17 @@ body {
         padding: 15px;
     }
 
+    .header_temp {
+        width: 100px;
+    }
+
     .header_nav_search {
         display: none;
+    }
+
+    .header_btns_btn_login,
+    .header_btns_btn_create {
+        width: fit-content;
+        padding-inline: 15px;
     }
 }
