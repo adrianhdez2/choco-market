@@ -2,7 +2,7 @@ import { useState } from "react"
 import Menu from "./Menu"
 
 function Header() {
-    const [isLogin, setIsLogin] = useState(true)
+    const [isLogin, setIsLogin] = useState(false)
     const [isShow, setIsShow] = useState(false)
 
     const handleMenu = (e) => {
