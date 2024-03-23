@@ -14,7 +14,7 @@ html {
 }
 
 /* Estilos generales de los enlaces para quitar decoraciones, más bien el subrayado */
-a {    
+a {
     text-decoration: none;
 }
 
@@ -24,6 +24,7 @@ a {
     align-items: center;
     justify-content: center;
     flex-direction: column;
+    position: relative;
 }
 
 body {
@@ -33,17 +34,364 @@ body {
     justify-content: center;
 }
 
+/* HEADER */
+
+.header {
+    width: 100%;
+    min-height: 110px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 15px 40px;
+}
+
+.header_temp {
+    width: 160px;
+    height: 70px;
+    background-color: grey;
+    border-radius: 20px;
+}
+
+.header_nav {
+    width: auto;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.header_nav_search {
+    width: 478px;
+    height: 50px;
+    background-color: var(--black-31);
+    border-radius: 10px;
+    position: relative;
+    margin-bottom: 17px;
+}
+
+.header_nav_search input {
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+    border: none;
+    outline: none;
+    padding: 10px 60px 10px 10px;
+    background-color: transparent;
+    color: var(--white);
+    font-size: 16px;
+}
+
+.header_nav_search input::placeholder {
+    color: var(--white-23);
+}
+
+.header_nav_btnSearch {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 50px;
+    height: 50px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: none;
+    outline: none;
+    background-color: var(--primary);
+    transition: all .3s ease-in-out;
+    color: var(--white);
+}
+
+.header_nav_btnSearch:hover,
+.header_nav_btnSearch:active {
+    background-color: var(--primary-hover);
+    cursor: pointer;
+}
+
+.header_nav_filters {
+    width: 478px;
+    height: auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.header_nav_filters a {
+    color: var(--primary);
+    font-weight: 600;
+    transition: all .3s ease-in-out;
+}
+
+.header_nav_filters a:hover {
+    color: var(--primary-hover);
+}
+
+.header_btns {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.header_btns button {
+    height: 50px;
+    font-size: 16PX;
+    border: none;
+    outline: none;
+    color: var(--white);
+    border-radius: 10px;
+    transition: all .3s ease-in-out;
+    cursor: pointer;
+}
+
+.header_btns_btn_login {
+    width: 120px;
+    background-color: var(--black-14);
+    margin-right: 15px;
+}
+
+.header_btns_btn_login:hover {
+    background-color: var(--black-27);
+}
+
+.header_btns_btn_create {
+    width: 140px;
+    background-color: var(--primary);
+}
+
+.header_btns_btn_create:hover {
+    background-color: var(--primary-hover);
+}
+
+.header_btns a {
+    margin-left: 15px;
+}
+
+.header_btns_user {
+    width: auto;
+    height: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    column-gap: 15px;
+}
+
+.header_btns_user a {
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--white);
+}
+
+.header_btns_user_btn {
+    background-color: var(--primary);
+    transition: all .3s ease-in-out;
+    border: none;
+    outline: none;
+    border-radius: 10px;
+}
+
+.header_btns_user_btn:hover {
+    background-color: var(--primary-hover);
+}
+
+.header_btns_user_img {
+    border-radius: 50%;
+    position: relative;
+}
+
+.header_btns_user_img img {
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+    aspect-ratio: 1;
+    border-radius: 50%;
+}
+
+.header_nav_user_state {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 15px;
+    height: 15px;
+    border-radius: 100%;
+}
+
+.header_nav_user_state.online {
+    background-color: var(--primary);
+    border: 2px solid var(--secondary);
+}
+
+.header_nav_user_state.offline {
+    background-color: var(--gray);
+    border: 2px solid var(--gray-secondary);
+}
+
+.header_btns_user_menu {
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--white);
+    border: 2px solid var(--gray);
+    border-radius: 10px;
+    transition: all .3s ease-in-out;
+}
+
+.header_btns_user a:last-child,
+.header_btns a {
+    display: none;
+}
+
+.header_btns_user_menu:hover {
+    background-color: var(--gray-secondary);
+}
+
+.header_btns_user_menu:active {
+    border: 4px solid var(--gray-secondary);
+}
+
+/* MENU LATERAL */
+
+.menu {
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: var(--background-color);
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    padding: 100px 10px;
+    z-index: 999;
+}
+
+.menu > button {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    width: 50px;
+    height: 50px;
+    border: 2px solid var(--gray);
+    border-radius: 10px;
+    transition: all .3s ease-in-out;
+    outline: none;
+    background-color: transparent;
+    color: var(--white);
+    cursor: pointer;
+}
+
+.menu > button:hover {
+    background-color: var(--gray-secondary);
+}
+
+.menu > button:active {
+    border: 4px solid var(--gray-secondary);
+}
+
+.header_menu {
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.header_menu_search {
+    min-width: 100%;
+    height: 50px;
+    background-color: var(--black-31);
+    border-radius: 10px;
+    position: relative;
+    margin-bottom: 17px;
+}
+
+.header_menu_search input {
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+    border: none;
+    outline: none;
+    padding: 10px 60px 10px 10px;
+    background-color: transparent;
+    color: var(--white);
+    font-size: 16px;
+}
+
+.header_menu_search input::placeholder {
+    color: var(--white-23);
+}
+
+.header_menu_btnSearch {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 50px;
+    height: 50px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: none;
+    outline: none;
+    background-color: var(--primary);
+    transition: all .3s ease-in-out;
+    color: var(--white);
+}
+
+.header_menu_btnSearch:hover,
+.header_menu_btnSearch:active {
+    background-color: var(--primary-hover);
+    cursor: pointer;
+}
+
+.header_menu_filters {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+    row-gap: 15px;
+}
+
+.header_menu_filters a {
+    width: 100%;
+    height: 100%;
+    background-color: var(--black-14);
+    padding: 20px 15px;
+    font-size: 20px;
+    color: var(--white);
+    opacity: .5;
+    border-radius: 10px;
+    transition: all .3s ease-in-out;
+}
+
+.header_menu_filters a:hover {
+    background-color: var(--primary);
+    opacity: 1;
+}
+.header_menu_filters a:active {
+    background-color: var(--primary);
+    opacity: 1;
+}
+
+/* FOOTER */
+
 .footer {
     width: 100%;
     height: 238px;
-    background-color: var(--black-27); 
+    background-color: var(--black-27);
     display: flex;
-    justify-content: space-around; 
-    align-items: flex-start; 
+    justify-content: space-around;
+    align-items: flex-start;
     padding: 30px 90px;
 }
 
-.footer > div {
+.footer>div {
     display: flex;
     flex-direction: column;
 }
@@ -54,7 +402,7 @@ body {
 
 .footer p {
     font-weight: bold;
-    margin-bottom: 7px; 
+    margin-bottom: 7px;
     color: var(--primary);
 }
 
@@ -69,8 +417,27 @@ body {
     color: var(--white)
 }
 
-@media (width <= 1040px) {
-    /* Aqui pones el responsive del footer que seria que todo el footer sea column en lugar de row */
+
+
+@media (width <=1040px) {
+
+    .header_nav_search,
+    .header_nav_filters {
+        display: none;
+    }
+
+    .header_btns_user a:last-child,
+    .header_btns a  {
+        display: flex;
+    }
 }
 
+@media (width <=800px) {
+    .header {
+        padding: 15px;
+    }
 
+    .header_nav_search {
+        display: none;
+    }
+}

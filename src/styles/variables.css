@@ -4,6 +4,7 @@
     --background-color: #2B2B2B;
 
     --primary: #5D7B09;
+    --primary-hover: #6a8e08;
     --primary-50: rgb(93, 123, 9, 0.5);
 
     --secondary: #88B40B;
@@ -17,7 +18,7 @@
     --black-31: rgba(0, 0, 0, 0.31);
 
     --white: #fff;
-    --white-23: rgba(255, 255, 255, 0.62);
+    --white-23: rgba(255, 255, 255, 0.23);
     --white-37: rgba(255, 255, 255, 0.37);
     --white-48: rgba(255, 255, 255, 0.48);
     --white-56: rgba(255, 255, 255, 0.56);
