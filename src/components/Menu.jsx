@@ -1,10 +1,17 @@
-import PropTypes  from "prop-types"
+import PropTypes from "prop-types"
+import { useState } from "react"
 
-function Menu({ handleMenu, isShow }) {
-    
+function Menu({ isShow, setIsShow }) {
+    const [isVisible, setIsVisible] = useState(isShow)
+
+    const toggleMenu = () => {
+        setIsVisible(!isVisible)
+        setTimeout(() => setIsShow(!isShow), 300)
+    }
+
     return (
-        <section className={`menu`}>
-            <button type="button" onClick={handleMenu}>C</button>
+        <section className={`menu ${isVisible ? 'show' : 'hidden'}`}>
+            <button type="button" onClick={toggleMenu}>C</button>
             <nav className='header_menu'>
                 <div className='header_menu_search'>
                     <input type="text" name="search" id="search" placeholder='Botanitas, pastel, dulces...' autoComplete='off' />
@@ -19,7 +26,6 @@ function Menu({ handleMenu, isShow }) {
                     <a href="#">Más</a>
                 </div>
             </nav>
-
         </section>
     )
 }
@@ -27,6 +33,6 @@ function Menu({ handleMenu, isShow }) {
 export default Menu
 
 Menu.propTypes = {
-    handleMenu: PropTypes.func.isRequired,
+    setIsShow: PropTypes.func.isRequired,
     isShow: PropTypes.bool.isRequired
 }

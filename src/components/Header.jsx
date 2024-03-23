@@ -36,18 +36,18 @@ function Header() {
                             <img src="/profile.jpg" alt="Imágen del usuario ~" />
                             <span className="header_nav_user_state online"></span>
                         </a>
-                        <a href="#" onClick={handleMenu} className="header_btns_user_menu">M</a>
+                        <button onClick={handleMenu} className="header_btns_user_menu">M</button>
                     </div>
                     :
                     <div className='header_btns'>
                         <button className='header_btns_btn_login'>Entrar</button>
                         <button className='header_btns_btn_create'>Crear cuenta</button>
-                        <a href="#" onClick={handleMenu} className="header_btns_user_menu">M</a>
+                        <button onClick={handleMenu} className="header_btns_user_menu">M</button>
                     </div>
 
             }
 
-            {isShow && <Menu handleMenu={handleMenu} isShow={isShow}/>}
+            {isShow && <Menu setIsShow={setIsShow} isShow={isShow}/>}
         </header>
     )
 }
