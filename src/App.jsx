@@ -1,3 +1,6 @@
+import Footer from './components/Footer';
+
+
 function App() {
 
   return (
@@ -8,6 +11,7 @@ function App() {
       <p className="read-the-docs">
         Pronto estará disponible.
       </p>
+      <Footer />
     </>
   )
 }
