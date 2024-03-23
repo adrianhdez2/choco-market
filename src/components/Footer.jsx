@@ -6,31 +6,31 @@ function Footer() {
         <div className="footer">
             <div>
                 <p>Nosotros</p>
-                <a href="">¿Quiénes somos?<br></br></a>
-                <a href="">Privacidad<br></br></a>
-                <a href="">Términos y condiciones<br></br></a>
+                <a href="">¿Quiénes somos?</a>
+                <a href="">Privacidad</a>
+                <a href="">Términos y condiciones</a>
 
             </div>
             <div>
                 <p>Mi cuenta</p>
-                <a href="">Ajustes<br></br></a>
-                <a href="">Cambiar estado<br></br></a>
-                <a href="">Mis ventas<br></br></a>
-                <a href="">Mis compras<br></br></a>
-                <a href="">Cerrar sesión<br></br></a>
+                <a href="">Ajustes</a>
+                <a href="">Cambiar estado</a>
+                <a href="">Mis ventas</a>
+                <a href="">Mis compras</a>
+                <a href="">Cerrar sesión</a>
             </div>
             <div>
                 <p>Ayuda</p>
-                <a href="">¿Cómo vender?<br></br></a>
-                <a href="">¿Qué puedo vender?<br></br></a>
-                <a href="">¿Dónde puedo ver mis ventas?<br></br></a>
-                <a href="">¿Cómo me registro?<br></br></a>
+                <a href="">¿Cómo vender?</a>
+                <a href="">¿Qué puedo vender?</a>
+                <a href="">¿Dónde puedo ver mis ventas?</a>
+                <a href="">¿Cómo me registro?</a>
             </div>
             <div>
                 <p>Siguenos</p>
-                <a href="">Facebook<br></br></a>
-                <p>Contacto</p>
-                <a href="">ejemplo@ejemplo.com<br></br></a>
+                <a href="">Facebook</a>
+                <p className="title_footer">Contacto</p>
+                <a href="">ejemplo@ejemplo.com</a>
             </div>
         </div>
     );
