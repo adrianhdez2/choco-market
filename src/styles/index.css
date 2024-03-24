@@ -399,7 +399,7 @@ section {
     width: 100%;
     height: 238px;
     background-color: var(--black-27);
-    display: none;
+    display: flex;
     justify-content: space-around;
     align-items: flex-start;
     padding: 30px 90px;
