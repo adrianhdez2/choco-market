@@ -3,7 +3,7 @@
 
 function Footer() {
     return (
-        <div className="footer">
+        <footer className="footer">
             <div>
                 <p>Nosotros</p>
                 <a href="">¿Quiénes somos?</a>
@@ -32,7 +32,7 @@ function Footer() {
                 <p className="title_footer">Contacto</p>
                 <a href="">ejemplo@ejemplo.com</a>
             </div>
-        </div>
+        </footer>
     );
 }
 
