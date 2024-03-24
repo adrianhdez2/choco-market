@@ -1,14 +1,24 @@
-import { useState } from "react"
+import { useEffect, useState } from "react"
+import { Link } from "react-router-dom"
 import Menu from "./Menu"
 
 function Header() {
     const [isLogin, setIsLogin] = useState(false)
     const [isShow, setIsShow] = useState(false)
+    const [isVisible, setIsVisible] = useState(null)
 
-    const handleMenu = (e) => {
-        e.preventDefault()
-        setIsShow(!isShow)
+    const handleMenu = () => {
+        if(isVisible) {
+            setIsVisible(!isVisible)
+            setTimeout(() => {setIsShow(!isShow)}, 300)
+        }else{
+            setIsShow(!isShow)
+        }
     }
+
+    useEffect(() => {
+        setIsVisible(isShow)
+    }, [isShow])
 
     return (
         <header className='header'>
@@ -40,14 +50,16 @@ function Header() {
                     </div>
                     :
                     <div className='header_btns'>
-                        <button className='header_btns_btn_login'>Entrar</button>
-                        <button className='header_btns_btn_create'>Crear cuenta</button>
-                        <button onClick={handleMenu} className="header_btns_user_menu">M</button>
+                        <Link to={"/login"} className='header_btns_btn_login' title="Iniciar sesión">Entrar</Link>
+                        <Link to={"/signup"} className='header_btns_btn_create' title="Crear nueva cuenta">Crear cuenta</Link>
+                        <button onClick={handleMenu} className="header_btns_user_menu">
+                            {isShow ? 'C' : 'M'}
+                        </button>
                     </div>
 
             }
 
-            {isShow && <Menu setIsShow={setIsShow} isShow={isShow}/>}
+            {isShow && <Menu isVisible={isVisible} />}
         </header>
     )
 }

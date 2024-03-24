@@ -32,6 +32,7 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
+    color: var(--white);
 }
 
 /* HEADER */
@@ -134,7 +135,7 @@ body {
     column-gap: 15px;
 }
 
-.header_btns button:not(:last-child) {
+.header_btns a {
     height: 50px;
     font-size: 16PX;
     border: none;
@@ -143,6 +144,9 @@ body {
     border-radius: 10px;
     transition: all .3s ease-in-out;
     cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .header_btns_btn_login {
@@ -161,10 +165,6 @@ body {
 
 .header_btns_btn_create:hover {
     background-color: var(--primary-hover);
-}
-
-.header_btns a {
-    margin-left: 15px;
 }
 
 .header_btns_user {
@@ -254,18 +254,18 @@ body {
 
 /* MENU LATERAL */
 .menu {
-    position: absolute;
+    position: fixed;
     top: 0;
-    left: 0;
+    left: -100%;
     background-color: var(--background-color);
     width: 100%;
-    min-height: 100vh;
+    min-height: calc(100vh - 110px);
     display: flex;
     align-items: flex-start;
     justify-content: center;
     z-index: 999;
-    padding: 100px 10px;
-    transform: translateX(-100%);
+    padding: 50px 10px 0;
+    /* transform: translateX(-100%); */
 }
 
 .menu.show {
@@ -310,7 +310,7 @@ body {
 
 .header_menu_search {
     min-width: 100%;
-    height: 50px;
+    height: 70px;
     background-color: var(--black-31);
     border-radius: 10px;
     position: relative;
@@ -323,7 +323,7 @@ body {
     border-radius: 10px;
     border: none;
     outline: none;
-    padding: 10px 60px 10px 10px;
+    padding: 10px 90px 10px 20px;
     background-color: transparent;
     color: var(--white);
     font-size: 16px;
@@ -337,8 +337,8 @@ body {
     position: absolute;
     top: 0;
     right: 0;
-    width: 50px;
-    height: 50px;
+    width: 70px;
+    height: 70px;
     border-radius: 10px;
     display: flex;
     align-items: center;
@@ -386,13 +386,20 @@ body {
     opacity: 1;
 }
 
+/* ESTILOS TEMPORALES DE SECTIONS */
+
+section {
+    margin: 100px auto;
+}
+
+
 /* FOOTER */
 
 .footer {
     width: 100%;
     height: 238px;
     background-color: var(--black-27);
-    display: flex;
+    display: none;
     justify-content: space-around;
     align-items: flex-start;
     padding: 30px 90px;
@@ -427,22 +434,21 @@ body {
 /*  ANIMACIONES DE MENU LATERAL */
 
 @keyframes show {
-    from {
-        transform: translateX(-100%);
-    }
-
     to {
-        transform: translateX(0%);
+        /* transform: translateX(0%); */
+        left: 0%;
     }
 }
 
 @keyframes hidden {
     from {
-        transform: translateX(0%);
+        /* transform: translateX(0%); */
+        left: 0%;
     }
 
     to {
-        transform: translateX(-100%);
+        /* transform: translateX(-100%); */
+        left: -100%;
     }
 }
 
