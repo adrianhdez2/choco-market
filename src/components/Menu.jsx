@@ -1,4 +1,4 @@
-import PropTypes from "prop-types"
+import React from "react"
 
 function Menu({ isVisible }) {
     return (
@@ -22,7 +22,3 @@ function Menu({ isVisible }) {
 }
 
 export default Menu
-
-Menu.propTypes = {
-    isVisible: PropTypes.bool.isRequired
-}
