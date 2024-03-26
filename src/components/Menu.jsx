@@ -1,7 +1,22 @@
+import { useEffect, useState } from "react"
 
-function Menu({ isVisible }) {
+function Menu({ classActive, setIsShow }) {
+    const [className, setIsClassname] = useState('')
+
+    const handleMenu = () => {
+        setIsClassname('hidden')
+        setTimeout(() => setIsShow(false), 300)
+    }
+
+    useEffect(() => {
+        setIsClassname(classActive)
+    }, [classActive])
+
     return (
-        <section className={`menu ${isVisible ? 'show' : 'hidden'}`}>
+        <section className={`menu ${className}`}>
+            <button className="header_btns_user_menu" onClick={handleMenu}>
+                X
+            </button>
             <nav className='header_menu'>
                 <div className='header_menu_search'>
                     <input type="text" name="search" id="search" placeholder='Botanitas, pastel, dulces...' autoComplete='off' />
