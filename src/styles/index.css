@@ -18,8 +18,17 @@ a {
     text-decoration: none;
 }
 
+body {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--white);
+}
+
 #root {
     width: 100%;
+    height: auto;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -27,12 +36,13 @@ a {
     position: relative;
 }
 
-body {
-    width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: var(--white);
+::-webkit-scrollbar {
+    width: 7px;
+    background-color: var(--gray-secondary);
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: var(--primary);
 }
 
 /* HEADER */
@@ -256,16 +266,17 @@ body {
 .menu {
     position: fixed;
     top: 0;
-    left: -100%;
+    left: 0;
     background-color: var(--background-color);
     width: 100%;
-    min-height: calc(100vh - 110px);
+    min-height: 100vh;
     display: flex;
     align-items: flex-start;
     justify-content: center;
+    padding: 100px 10px;
+    margin: 0;
     z-index: 999;
-    padding: 50px 10px 0;
-    /* transform: translateX(-100%); */
+    transform: translateX(-100%);
 }
 
 .menu.show {
@@ -278,8 +289,8 @@ body {
 
 .menu>button {
     position: absolute;
-    top: 10px;
-    right: 10px;
+    top: 20px;
+    right: 20px;
     width: 50px;
     height: 50px;
     border: 2px solid var(--gray);
@@ -442,20 +453,17 @@ section {
 
 @keyframes show {
     to {
-        /* transform: translateX(0%); */
-        left: 0%;
+        transform: translateX(0%);
     }
 }
 
 @keyframes hidden {
     from {
-        /* transform: translateX(0%); */
-        left: 0%;
+        transform: translateX(0%);
     }
 
     to {
-        /* transform: translateX(-100%); */
-        left: -100%;
+        transform: translateX(-100%);
     }
 }
 
