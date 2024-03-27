@@ -452,7 +452,7 @@ section {
 
 /* LOGIN */
 
-.container_login {
+.container_login { /* Container principal del login */
     width: 100%;
     height: 100%;
     display: flex;
@@ -460,7 +460,7 @@ section {
     justify-content: center;
 }
 
-.login {
+.login { /* Login como tal */
     margin: 50px auto 100px;
     width: 514px;
     height: 455px;
@@ -477,14 +477,14 @@ section {
     flex-direction: column;
 }
 
-.title {
+.title { /* titulo */
     font-size: 2rem;
     font-weight: bold;
     margin-bottom: 60px;
     color: var(--primary);
 }
 
-.form_input {
+.form_input {  /* Contenedor de cada input */
     width: 340px;
     height: 50px;
     display: flex;
@@ -495,7 +495,7 @@ section {
     padding: 5px 0;
 }
 
-.form_input_icon {
+.form_input_icon { /* Icono del input */
     width: 34px;
     height: 100%;
     display: flex;
@@ -503,7 +503,7 @@ section {
     justify-content: center;
 }
 
-.input {
+.input { /* Valores por defecto del input */
     padding: 10px;
     background-color: transparent;
     border: none;
@@ -512,23 +512,23 @@ section {
     color: var(--white);
 }
 
-.input:not(.password) {
+.input:not(.password) { /* Tamaño del input cuando no tenga la clase password */
     width: calc(100% - 34px);
 }
 
-.input::placeholder {
+.input::placeholder { /* Color del placeholder del input (las letras que aparecen cuando uno no escribe) */
     color: var(--white-23);
 }
 
-.input.password {
+.input.password { /* Tamaño del input cuando tiene la clase password */
     width: calc(100% - 68px);
 }
 
-.form_input_user {
+.form_input_user { /* Margin bottom al primer contenedor del input */
     margin-bottom: 20px;
 }
 
-#forgot_password {
+#forgot_password { 
     font-size: 1rem;
     width: 100%;
     display: flex;
@@ -544,7 +544,7 @@ section {
     text-decoration: underline;
 }
 
-.btn {
+.btn { /* Valores por defecto del boton de entrar */
     border: none;
     outline: none;
     padding: 15px 70px;
@@ -552,7 +552,7 @@ section {
     font-size: 16px;
 }
 
-.btn_primary {
+.btn_primary { /* Se cambia el color y el fondo al boton de entrar */
     background-color: var(--primary);
     color: var(--white);
 }
@@ -563,19 +563,13 @@ section {
     cursor: pointer;
 }
 
-#forgot-password {
-    color: var(--primary);
-    text-decoration: none;
-    font-size: 0.9em;
-}
-
-.not_account {
+.not_account { /* Texto debajo del botón */
     color: var(--primary);
     font-size: 14px;
     margin-top: 8px;
 }
 
-#signup_link {
+#signup_link { /* Enlace de registro */
     color: var(--white-56);
     font-size: 14px;
     margin-left: 5px;
