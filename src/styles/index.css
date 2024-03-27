@@ -493,6 +493,7 @@ section {
     background-color: var(--black-22);
     border-radius: 10px;
     padding: 5px 0;
+    border: 1px solid var(--border-input);
 }
 
 .form_input_icon { /* Icono del input */
