@@ -399,13 +399,90 @@ body {
     opacity: 1;
 }
 
-/* ESTILOS TEMPORALES DE SECTIONS */
+/* SECTION HOME */
 
-section {
-    margin: 100px auto;
+#home {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: flex-start;
+    justify-content: start;
+    flex-direction: column;
+    padding: 0 60px;
 }
 
+/* USERS */
+.container_users_list {
+    max-width: 1340px;
+    width: 100%;
+    height: auto;
+    display: flex;
+    align-items: start;
+    justify-content: center;
+    flex-direction: column;
+    margin: auto;
+    background-color: var(--black-27);
+    border-radius: 20px;
+    padding: 10px 15px;
+    margin-top: 60px;
+    margin-bottom: 60px;
+}
 
+.title_users_list {
+    font-size: 12px;
+    color: var(--primary);
+    margin-bottom: 10px;
+    font-weight: 500;
+}
+
+.users_list {
+    width: 100%;
+    height: auto;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 10px;
+    overflow-x: auto;
+    padding-bottom: 5px;
+    scroll-snap-type: x mandatory;
+}
+
+.users_list::-webkit-scrollbar {
+    height: 5px;
+    background-color: var(--gray-secondary);
+    border-radius: 10px;
+}
+
+.users_list::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+}
+
+.user {
+    width: 35px;
+    height: 35px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    transition: opacity .5s ease;
+    cursor: pointer;
+}
+
+.user:not(:hover) {
+    opacity: .5;
+}
+
+.user img {
+    width: auto;
+    height: 100%;
+    opacity: .7;
+    border-radius: 100%;
+}
+
+.user span {
+    width: 10px;
+    height: 10px;
+}
 /* FOOTER */
 
 
@@ -453,7 +530,8 @@ section {
 
 /* LOGIN */
 
-.container_login { /* Container principal del login */
+.container_login {
+    /* Container principal del login */
     width: 100%;
     height: 100%;
     display: flex;
@@ -461,7 +539,8 @@ section {
     justify-content: center;
 }
 
-.login { /* Login como tal */
+.login {
+    /* Login como tal */
     margin: 50px auto 100px;
     width: 514px;
     height: 455px;
@@ -478,14 +557,16 @@ section {
     flex-direction: column;
 }
 
-.title { /* titulo */
+.title {
+    /* titulo */
     font-size: 2rem;
     font-weight: bold;
     margin-bottom: 60px;
     color: var(--primary);
 }
 
-.form_input {  /* Contenedor de cada input */
+.form_input {
+    /* Contenedor de cada input */
     width: 340px;
     height: 50px;
     display: flex;
@@ -497,7 +578,8 @@ section {
     border: 1px solid var(--border-input);
 }
 
-.form_input_icon { /* Icono del input */
+.form_input_icon {
+    /* Icono del input */
     width: 34px;
     height: 100%;
     display: flex;
@@ -505,7 +587,8 @@ section {
     justify-content: center;
 }
 
-.input { /* Valores por defecto del input */
+.input {
+    /* Valores por defecto del input */
     padding: 10px;
     background-color: transparent;
     border: none;
@@ -514,23 +597,27 @@ section {
     color: var(--white);
 }
 
-.input:not(.password) { /* Tamaño del input cuando no tenga la clase password */
+.input:not(.password) {
+    /* Tamaño del input cuando no tenga la clase password */
     width: calc(100% - 34px);
 }
 
-.input::placeholder { /* Color del placeholder del input (las letras que aparecen cuando uno no escribe) */
+.input::placeholder {
+    /* Color del placeholder del input (las letras que aparecen cuando uno no escribe) */
     color: var(--white-23);
 }
 
-.input.password { /* Tamaño del input cuando tiene la clase password */
+.input.password {
+    /* Tamaño del input cuando tiene la clase password */
     width: calc(100% - 68px);
 }
 
-.form_input_user { /* Margin bottom al primer contenedor del input */
+.form_input_user {
+    /* Margin bottom al primer contenedor del input */
     margin-bottom: 20px;
 }
 
-.icon{
+.icon {
     fill: var(--primary);
     width: 17px;
     height: 17px;
@@ -545,7 +632,7 @@ section {
     transition: all .3s ease-in-out;
 }
 
-#forgot_password { 
+#forgot_password {
     width: 100%;
     display: flex;
     align-items: center;
@@ -565,7 +652,8 @@ section {
     text-decoration: underline;
 }
 
-.btn { /* Valores por defecto del boton de entrar */
+.btn {
+    /* Valores por defecto del boton de entrar */
     border: none;
     outline: none;
     padding: 15px 70px;
@@ -574,7 +662,8 @@ section {
     transition: background .3s ease-in-out;
 }
 
-.btn_primary { /* Se cambia el color y el fondo al boton de entrar */
+.btn_primary {
+    /* Se cambia el color y el fondo al boton de entrar */
     background-color: var(--primary);
     color: var(--white);
 }
@@ -585,13 +674,15 @@ section {
     cursor: pointer;
 }
 
-.not_account { /* Texto debajo del botón */
+.not_account {
+    /* Texto debajo del botón */
     color: var(--primary);
     font-size: 14px;
     margin-top: 8px;
 }
 
-#signup_link { /* Enlace de registro */
+#signup_link {
+    /* Enlace de registro */
     color: var(--white-56);
     font-size: 14px;
     margin-left: 5px;
@@ -640,6 +731,10 @@ section {
     .header_btns_user_menu {
         display: flex;
     }
+
+    #home {
+        padding: 10px;
+    }
 }
 
 @media screen and (max-width: 768px) {
@@ -682,7 +777,7 @@ section {
 
 @media screen and (max-width: 550px) {
     .login {
-        
+
         border-radius: 0;
     }
 }
