@@ -676,7 +676,13 @@ section {
 
     .login {
         padding: 10px;
-        border-radius: 0;
         box-shadow: none;
+    }
+}
+
+@media screen and (max-width: 550px) {
+    .login {
+        
+        border-radius: 0;
     }
 }
