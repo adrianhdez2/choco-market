@@ -43,20 +43,8 @@ Iniciar el servidor
   npm run baby
 ```
 
-## En App van todos los componentes que se van a renderizar
-
-```javascript
-import Component from 'my-project'
-import Component2 from 'my-project2'
-
-function App() {
-  return (
-    <main>
-      <Component />
-      <Component2 />
-    </main>
-  );
-}
-
-export default App
-```
+## Colaboradores 👑
+  
+<a href="https://github.com/adrianhdez2/juchi-market/graphs/contributors">
+  <img src="https://contrib.rocks/image?repo=adrianhdez2/juchi-market" />
+</a>
