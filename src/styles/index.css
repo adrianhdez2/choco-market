@@ -11,6 +11,7 @@
 html {
     background-color: var(--background-color);
     font-family: var(--font-family);
+    user-select: none;
 }
 
 /* Estilos generales de los enlaces para quitar decoraciones, más bien el subrayado */
@@ -529,19 +530,38 @@ section {
     margin-bottom: 20px;
 }
 
+.icon{
+    fill: var(--primary);
+    width: 17px;
+    height: 17px;
+}
+
+.show_pass .icon:hover {
+    fill: var(--primary-hover);
+}
+
+.show_pass .icon {
+    cursor: pointer;
+    transition: all .3s ease-in-out;
+}
+
 #forgot_password { 
-    font-size: 1rem;
     width: 100%;
     display: flex;
     align-items: center;
     justify-content: start;
     margin-top: 5px;
-    color: var(--primary);
     margin-bottom: 45px;
 }
 
-#forgot_password:hover,
-#forgot_password:active {
+#forgot_password a {
+    font-size: 1rem;
+    color: var(--primary);
+
+}
+
+#forgot_password a:hover,
+#forgot_password a:active {
     text-decoration: underline;
 }
 
@@ -551,6 +571,7 @@ section {
     padding: 15px 70px;
     border-radius: 10px;
     font-size: 16px;
+    transition: background .3s ease-in-out;
 }
 
 .btn_primary { /* Se cambia el color y el fondo al boton de entrar */
@@ -578,6 +599,14 @@ section {
 
 #signup_link:hover {
     text-decoration: underline;
+}
+
+.error {
+    border: 1px solid red;
+}
+
+.check {
+    border: 1px solid green;
 }
 
 /*  ANIMACIONES DE MENU LATERAL */
