@@ -1,8 +1,9 @@
+import Users from "../components/Users"
 
 function Home() {
   return (
-    <section>
-      <h2>Home</h2>
+    <section id="home">
+      <Users/>
     </section>
   )
 }
