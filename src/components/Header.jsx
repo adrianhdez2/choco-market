@@ -1,4 +1,5 @@
 import { useState } from "react"
+import UsePortals from '../customHooks/UsePortals'
 import { Link } from "react-router-dom"
 import Menu from "./Menu"
 
@@ -52,7 +53,12 @@ function Header() {
                     </div>
 
             }
-            {isShow && <Menu classActive={classActive} setIsShow={setIsShow}/>}
+            {
+                isShow &&
+                <UsePortals>
+                    <Menu classActive={classActive} setIsShow={setIsShow} />
+                </UsePortals>
+            }
         </header>
     )
 }
