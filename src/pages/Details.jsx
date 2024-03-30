@@ -19,7 +19,6 @@ function Details() {
         setQuantity(value)
         setSearchParams({ cantidad: quantity.toString() })
         navigate(`/product/details/${id}?cantidad=${encodeURIComponent(value)}`);
-        window.location.reload()
     }
 
     useEffect(() => {
