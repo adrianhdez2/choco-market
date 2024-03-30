@@ -19,6 +19,7 @@ function Details() {
         setQuantity(value)
         setSearchParams({ cantidad: quantity.toString() })
         navigate(`/product/details/${id}?cantidad=${encodeURIComponent(value)}`);
+        window.location.reload()
     }
 
     useEffect(() => {
@@ -42,7 +43,10 @@ function Details() {
         }
     }, [id]);
 
-
+    const addToCard = (evt) => {
+        evt.preventDefault();
+        console.log(quantity);
+    }
 
     return (
         <section id="details">
@@ -50,7 +54,7 @@ function Details() {
                 <h1>imganenes</h1>
             </aside>
             <aside className="details_info_box">
-                <div className="info_box">
+                <form className="info_box" onSubmit={addToCard}>
                     <div className="details_container_stars">
                         <span className="star">&#9733;</span>
                         {product.stars}
@@ -72,10 +76,10 @@ function Details() {
                     </div>
 
                     <div className="details_container_buttons">
-                        <button className="details_btn_buy btn btn_primary">Comprar</button>
-                        <button className="details_btn_cart btn btn_secondary">Agregar al carrito</button>
+                        <button type="button" className="details_btn_buy btn btn_primary">Comprar</button>
+                        <button type="submit" className="details_btn_cart btn btn_secondary">Agregar al carrito</button>
                     </div>
-                </div>
+                </form>
             </aside>
         </section>
     )
