@@ -5,6 +5,7 @@ import Home from './pages/Home'
 import Login from './pages/Login'
 import SignUp from './pages/SignUp'
 import Error from './pages/Error'
+import Details from './pages/Details'
 
 function App() {
 
@@ -14,9 +15,10 @@ function App() {
 
       <Routes>
         <Route path='/' Component={Home} />
-        <Route path='/login' Component={Login}/>
-        <Route path='/signup' Component={SignUp}/>
-        <Route path='*' Component={Error}/>
+        <Route path='/login' Component={Login} />
+        <Route path='/signup' Component={SignUp} />
+        <Route path='/product/details/:id' Component={Details} />
+        <Route path='*' Component={Error} />
       </Routes>
 
       <Footer />
