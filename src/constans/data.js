@@ -27,7 +27,7 @@ export const dataProducts = [
       "id": 4,
       "name": "Bolígrafo",
       "img": "profile.jpg",
-      "stars": 2,
+      "stars": 2.0,
       "price": 16.99,
       "descrip": "Un bolígrafo de tinta suave y duradera, ideal para escribir de forma cómoda y sin esfuerzo."
     },
@@ -43,7 +43,7 @@ export const dataProducts = [
       "id": 6,
       "name": "Papel",
       "img": "profile.jpg",
-      "stars": 3,
+      "stars": 3.0,
       "price": 17.99,
       "descrip": "Un paquete de papel de alta blancura y suavidad, ideal para imprimir documentos, notas o dibujos."
     },
@@ -59,7 +59,7 @@ export const dataProducts = [
       "id": 8,
       "name": "Cuaderno",
       "img": "profile.jpg",
-      "stars": 5,
+      "stars": 5.0,
       "price": 15.99,
       "descrip": "Un cuaderno de tapa dura y papel de calidad, ideal para tomar apuntes en clase, hacer listas o llevar un diario."
     },
@@ -67,7 +67,7 @@ export const dataProducts = [
       "id": 9,
       "name": "Calculadora",
       "img": "profile.jpg",
-      "stars": 4,
+      "stars": 4.0,
       "price": 29.99,
       "descrip": "Una calculadora con funciones básicas y avanzadas, perfecta para cálculos matemáticos en la escuela, el trabajo o en casa."
     },
