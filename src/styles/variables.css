@@ -8,6 +8,8 @@
     --primary-50: rgb(93, 123, 9, 0.5);
 
     --secondary: #88B40B;
+    --secondary-45: rgba(136, 180, 11, .45);
+    --secondary-hover: rgba(79, 102, 14, 0.45);
 
     --gray: #5E5E5E;
     --gray-secondary: #898989;
@@ -17,6 +19,7 @@
     --black-22: rgba(0, 0, 0, 0.22);
     --black-27: rgba(0, 0, 0, 0.27);
     --black-31: rgba(0, 0, 0, 0.31);
+    --black-50: rgba(0, 0, 0, 0.5);
 
     --white: #fff;
     --white-23: rgba(255, 255, 255, 0.23);
