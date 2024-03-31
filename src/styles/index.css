@@ -696,18 +696,13 @@ body {
 }
 
 .icon {
-    fill: var(--primary);
-    width: 17px;
-    height: 17px;
-}
-
-.show_pass .icon:hover {
-    fill: var(--primary-hover);
-}
-
-.show_pass .icon {
+    stroke: var(--primary);
     cursor: pointer;
     transition: all .3s ease-in-out;
+}
+
+.icon:hover {
+    stroke: var(--primary-hover);
 }
 
 #forgot_password {
