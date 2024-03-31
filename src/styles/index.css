@@ -207,6 +207,21 @@ body {
     border-radius: 10px;
 }
 
+.icon_notifications {
+    position: relative;
+}
+
+.notification {
+    top: 0;
+    right: 0;
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    border: 1px solid var(--black);
+    background-color: var(--background-log-out);
+}
+
 .header_btns_user_btn:hover {
     background-color: var(--primary-hover);
 }
@@ -259,11 +274,15 @@ body {
 }
 
 .header_btns_user_menu:hover {
-    background-color: var(--gray-secondary);
+    background-color: var(--gray-40);
 }
 
 .header_btns_user_menu:active {
-    border: 4px solid var(--gray);
+    border: 4px solid var(--gray-40);
+}
+
+.header_icon {
+    fill: var(--white);
 }
 
 /* MENU LATERAL */
@@ -291,7 +310,7 @@ body {
     animation: hidden .3s forwards;
 }
 
-.menu>button {
+.menu .header_btns_user_menu {
     position: absolute;
     top: 20px;
     right: 20px;
@@ -307,11 +326,11 @@ body {
 }
 
 .menu>button:hover {
-    background-color: var(--gray-secondary);
+    background-color: var(--gray-40);
 }
 
 .menu>button:active {
-    border: 4px solid var(--gray-secondary);
+    border: 4px solid var(--gray-40);
 }
 
 .header_menu {
@@ -832,11 +851,13 @@ body {
     object-fit: cover;
 }
 
-.swiper-button-next, .swiper-button-prev {
+.swiper-button-next,
+.swiper-button-prev {
     color: var(--primary);
 }
 
-.swiper-button-next:hover, .swiper-button-prev:hover {
+.swiper-button-next:hover,
+.swiper-button-prev:hover {
     color: var(--primary-hover);
 }
 
@@ -861,9 +882,9 @@ body {
     padding: 20px;
 }
 
-.details_container_stars {  
+.details_container_stars {
     height: 15px;
-    width: 100%;  
+    width: 100%;
     display: flex;
     align-items: center;
     justify-content: flex-end;
@@ -1072,14 +1093,16 @@ body {
     }
 
     .gallery_box {
-        padding: 0 20px;max-height: 300px;
+        padding: 0 20px;
+        max-height: 300px;
     }
 
     .details_info_box {
         width: 100%;
     }
 
-    .info_box {
+    .info_box,
+    .login {
         background-color: transparent;
         box-shadow: none;
     }
@@ -1100,7 +1123,7 @@ body {
 
     .card_product {
         width: 80%;
-    } 
+    }
 }
 
 @media screen and (max-width: 300px) {
