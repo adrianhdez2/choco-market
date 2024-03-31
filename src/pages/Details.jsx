@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { useParams, useSearchParams, useNavigate } from "react-router-dom"
 import { dataProducts } from '../constans/data'
 import Gallery from "../components/Gallery";
+import { Star } from "lucide-react";
 
 function Details() {
     const { id } = useParams()
@@ -58,8 +59,8 @@ function Details() {
             <div className="details_movile">
                 <div className="container_details_movile">
                     <div className="details_container_stars">
-                        <span className="star">&#9733;</span>
-                        {product.stars}
+                        <Star size={13} className="star_icon" />
+                        <span className="star_title">{product.stars}</span>
                     </div>
                     <h3 className="details_title">
                         {product.name}
@@ -73,10 +74,10 @@ function Details() {
             </aside>
             <aside className="details_info_box">
                 <form className="info_box" onSubmit={addToCard}>
-                    <div className="details_container_stars no_movile">
-                        <span className="star">&#9733;</span>
-                        {product.stars}
-                    </div>
+                    <span className="details_container_stars no_movile">
+                        <Star size={13} className="star_icon" />
+                        <span className="star_title">{product.stars}</span>
+                    </span>
                     <h3 className="details_title no_movile">{product.name}</h3>
                     <p className="details_description">{product.descrip}</p>
                     <h3 className="details_price">$ {product.price}</h3>

@@ -1,8 +1,8 @@
 import { Link } from "react-router-dom"
+import { Star } from "lucide-react"
 
-
-function Product({product}) {
-  const {id, name, descrip, img, stars, price} = product
+function Product({ product }) {
+  const { id, name, descrip, img, stars, price } = product
   let newDescrip = descrip.trim().length > 70 ? descrip.substring(0, 70) + "..." : descrip
 
   return (
@@ -10,8 +10,8 @@ function Product({product}) {
       <div className="card_product_img_container">
         <img className="card_product_img" src={`/${img}`} alt="" />
         <span className="card_product_stars">
-          <span className="star">&#9733;</span>
-          {stars}
+          <Star size={13} className="star_icon"/>
+          <span className="star_title">{stars}</span>
         </span>
       </div>
       <div className="card_product_details_container">
