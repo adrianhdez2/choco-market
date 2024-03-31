@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { useParams, useSearchParams, useNavigate } from "react-router-dom"
 import { dataProducts } from '../constans/data'
+import Gallery from "../components/Gallery";
 
 function Details() {
     const { id } = useParams()
@@ -48,18 +49,35 @@ function Details() {
         console.log(quantity);
     }
 
+    const img = [
+        "profile.jpg", "profile.jpg",
+    ]
+
     return (
         <section id="details">
-            <aside className="details_gallery">
-                <h1>imganenes</h1>
-            </aside>
-            <aside className="details_info_box">
-                <form className="info_box" onSubmit={addToCard}>
+            <div className="details_movile">
+                <div className="container_details_movile">
                     <div className="details_container_stars">
                         <span className="star">&#9733;</span>
                         {product.stars}
                     </div>
-                    <h3 className="details_title">{product.name}</h3>
+                    <h3 className="details_title">
+                        {product.name}
+                    </h3>
+                </div>
+            </div>
+            <aside className="details_gallery">
+                <div className="gallery_box">
+                    <Gallery images={img} />
+                </div>
+            </aside>
+            <aside className="details_info_box">
+                <form className="info_box" onSubmit={addToCard}>
+                    <div className="details_container_stars no_movile">
+                        <span className="star">&#9733;</span>
+                        {product.stars}
+                    </div>
+                    <h3 className="details_title no_movile">{product.name}</h3>
                     <p className="details_description">{product.descrip}</p>
                     <h3 className="details_price">$ {product.price}</h3>
 
