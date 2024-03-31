@@ -631,6 +631,10 @@ body {
     width: 200px;
 }
 
+.login_icon {
+    stroke: var(--primary);
+}
+
 .title {
     /* titulo */
     font-size: 2rem;
