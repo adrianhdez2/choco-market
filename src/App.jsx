@@ -14,11 +14,11 @@ function App() {
       <Header />
 
       <Routes>
-        <Route path='/' Component={Home} />
-        <Route path='/login' Component={Login} />
-        <Route path='/signup' Component={SignUp} />
-        <Route path='/product/details/:id' Component={Details} />
-        <Route path='*' Component={Error} />
+        <Route path='/' element={<Home/>} />
+        <Route path='/login' element={<Login/>} />
+        <Route path='/signup' element={<SignUp/>} />
+        <Route path='/product/details/:id' element={<Details/>}/>
+        <Route path='/*' element={<Error/>} />
       </Routes>
 
       <Footer />
