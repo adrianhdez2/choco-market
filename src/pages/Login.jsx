@@ -1,6 +1,6 @@
 import { useState } from "react"
 import ShowPassword from "../components/ShowPassword"
-
+import { User, KeyRound } from "lucide-react"
 
 function Login() {
   const [isShow, setIsShow] = useState(false)
@@ -12,14 +12,14 @@ function Login() {
 
   const handleValues = (e) => {
     let { target } = e
-    const {name, value} = target
+    const { name, value } = target
 
     const newValues = {
       ...values,
       [name]: value,
     };
 
-    setValues(newValues);    
+    setValues(newValues);
   }
 
   const handleSubmit = (e) => {
@@ -38,7 +38,9 @@ function Login() {
         <h3 className="title">Iniciar sesión</h3>
         <form id="login-form" onSubmit={handleSubmit}>
           <div className="form_input_user form_input">
-            <span className="form_input_icon">O</span>
+            <span className="form_input_icon">
+              <User size={20} className="login_icon"/>
+            </span>
             <input
               className="input"
               type="text"
@@ -52,7 +54,9 @@ function Login() {
           </div>
 
           <div className="form_input_password form_input">
-            <span className="form_input_icon">O</span>
+            <span className="form_input_icon">
+              <KeyRound size={20} className="login_icon"/>
+            </span>
             <input
               className="input password"
               type={inputType}
