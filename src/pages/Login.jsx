@@ -1,6 +1,5 @@
 import { useState } from "react"
-import ShowPassword from "../components/ShowPassword"
-import { User, KeyRound } from "lucide-react"
+import { User, KeyRound, Eye, EyeOff } from "lucide-react"
 
 function Login() {
   const [isShow, setIsShow] = useState(false)
@@ -37,9 +36,9 @@ function Login() {
       <div className="login">
         <h3 className="title">Iniciar sesión</h3>
         <form id="login-form" onSubmit={handleSubmit}>
-          <div className="form_input_user form_input">
+          <label className="form_input_user form_input">
             <span className="form_input_icon">
-              <User size={20} className="login_icon"/>
+              <User size={20} className="login_icon" />
             </span>
             <input
               className="input"
@@ -51,11 +50,11 @@ function Login() {
               value={values.matricula}
               onChange={handleValues}
               required />
-          </div>
+          </label>
 
-          <div className="form_input_password form_input">
+          <label className="form_input_password form_input">
             <span className="form_input_icon">
-              <KeyRound size={20} className="login_icon"/>
+              <KeyRound size={20} className="login_icon" />
             </span>
             <input
               className="input password"
@@ -68,9 +67,12 @@ function Login() {
               onChange={handleValues}
               required />
             <span className="form_input_icon show_pass" onClick={handleShow}>
-              <ShowPassword isShow={isShow} />
+              {isShow ?
+                <EyeOff size={17} className="icon"/>
+                :
+                <Eye size={17} className="icon" />}
             </span>
-          </div>
+          </label>
 
           <div id="forgot_password">
             <a href="#" >Olvidé mi contraseña</a>
