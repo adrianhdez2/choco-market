@@ -1,5 +1,4 @@
 
-// Footer.jsx
 
 function Footer() {
     return (
