@@ -131,13 +131,13 @@ body {
     justify-content: space-between;
 }
 
-.header_nav_filters a {
+.nav_filter {
     color: var(--primary);
     font-weight: 600;
     transition: all .3s ease-in-out;
 }
 
-.header_nav_filters a:hover {
+.nav_filter:hover {
     color: var(--primary-hover);
 }
 
@@ -949,6 +949,96 @@ body {
     font-size: 16px;
 }
 
+/* ERROR PAGE */
+
+#error_page {
+    width: 100%;
+    max-width: var(--max-width);
+    margin: 50px auto;
+    padding: 0 60px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.container_error_page {
+    width: 100%;
+    height: 300px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-end;
+    position: relative;
+}
+
+.container_error_page div {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    font-size: 18rem;
+    font-weight: 900;
+    color: var(--black-14);
+    z-index: -1;
+    overflow: hidden;
+}
+
+.description_error_page {
+    font-size: 16px;
+}
+
+.btn_home_error_page {
+    color: var(--primary);
+    font-weight: 600;
+    margin-top: 5px;
+}
+
+.btn_home_error_page:hover,
+.btn_home_error_page:active {
+    text-decoration: underline;
+}
+
+.error_4:first-child {
+    transform: translateY(-100%);
+    animation: caida1 .5s forwards;
+    animation-delay: .5s;
+}
+
+.error_4:nth-child(2) {
+    transform: translateY(-100%);
+    animation: caida2 .5s forwards;
+    animation-delay: .3s;
+}
+
+.error_4:last-child{
+    transform: translateY(-100%);
+    animation: caida3 .5s forwards;
+    animation-delay: .1s;
+}
+
+@keyframes caida1 {
+    to {
+        transform: translateY(0%) translateX(30px)  rotate(20deg);
+    }
+}
+@keyframes caida2 {
+    to {
+        transform: translateY(0%) rotate(30deg);
+    }
+}
+@keyframes caida3 {
+    to {
+        transform: translateY(0%) translateX(-55px) rotate(-15deg);
+    }
+}
+
 /* FOOTER */
 
 .footer {
@@ -1123,6 +1213,19 @@ body {
 
     .card_product {
         width: 80%;
+    }
+
+    .container_error_page {
+        height: 200px;
+    }
+
+    .description_error_page,
+    .btn_home_error_page {
+        font-size: 12px;
+    }
+
+    .container_error_page div {
+        font-size: 10rem;
     }
 }
 
