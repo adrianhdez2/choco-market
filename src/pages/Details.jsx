@@ -23,7 +23,7 @@ function Details() {
         let { value } = target
         setQuantity(value)
         setSearchParams({ quantity: quantity.toString() })
-        navigate(`/product/details/${id}?quantity=${encodeURIComponent(value)}`)
+        navigate(`/products/details/${id}?quantity=${encodeURIComponent(value)}`)
     }
 
 
