@@ -90,3 +90,24 @@ export const dataProducts = [
     "descrip": "Un par de tijeras de acero inoxidable con hojas afiladas y mango ergonómico, ideales para cortar papel, tela o manualidades."
   }
 ];
+
+export const users = [
+  {
+      id: 1,
+      img: 'jorge.png',
+      state: 'online',
+      name: 'jorge'
+  },
+  {
+      id: 2,
+      img: 'jacquelina.png',
+      state: 'offline',
+      name: 'jacquelina'
+  },
+  {
+      id: 3,
+      img: 'loya.png',
+      state: 'offline',
+      name: 'loya'
+  },
+]
