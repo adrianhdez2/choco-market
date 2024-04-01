@@ -6,7 +6,7 @@ function Product({ product }) {
   let newDescrip = descrip.trim().length > 70 ? descrip.substring(0, 70) + "..." : descrip
 
   return (
-    <Link to={`/product/details/${id_unico}`} className="card_product">
+    <Link to={`/products/details/${id_unico}`} className="card_product">
       <div className="card_product_img_container">
         <img className="card_product_img" src={`/${img}`} alt="" />
         <span className="card_product_stars">
