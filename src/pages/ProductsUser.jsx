@@ -1,14 +1,11 @@
-import { useParams } from "react-router-dom"
+import { useNavigate, useParams } from "react-router-dom"
 import Product from '../components/Product'
 import { dataProducts, users } from '../constans/data'
-import UseErrorMsg from '../customHooks/UseErrorMsg'
 import { useEffect, useState } from "react"
-import Error from './Error'
-
 function ProductsUser() {
     const { user } = useParams()
     const [name, setName] = useState('')
-    const [error, setErrorMsg] = UseErrorMsg()
+    const navigate = useNavigate()
 
     useEffect(() => {
         let userExist = users.find(usEx => usEx.name === user)
@@ -16,14 +13,10 @@ function ProductsUser() {
         if (userExist) {
             setName(userExist.name)
         } else {
-            setErrorMsg("No se encontró al usuario")
+            navigate('/page-not-found')
         }
 
-    }, [user, setErrorMsg])
-
-    if (error) {
-        return <Error error={error} />
-    }
+    }, [user, navigate])
 
     return (
         <section id="products_user">

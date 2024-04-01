@@ -3,12 +3,9 @@ import { useParams, useSearchParams, useNavigate } from "react-router-dom"
 import { dataProducts } from '../constans/data'
 import Gallery from "../components/Gallery";
 import { Star } from "lucide-react";
-import UseErrorMsg from "../customHooks/UseErrorMsg";
-import Error from './Error'
 
 function Details() {
     const { id } = useParams()
-    const [error, setErrorMsg] = UseErrorMsg()
 
     const [searchParams, setSearchParams] = useSearchParams()
 
@@ -44,9 +41,9 @@ function Details() {
         if (newProduct) {
             setProduct(newProduct);
         } else {
-            setErrorMsg('Este producto ya no se encuentra disponible')
+            navigate('/page-not-found')
         }
-    }, [id, navigate, setErrorMsg]);
+    }, [id, navigate]);
 
     const addToCard = (evt) => {
         evt.preventDefault();
@@ -56,10 +53,6 @@ function Details() {
     const img = [
         "profile.jpg", "profile.jpg",
     ]
-
-    if (error) {
-        return <Error error={error} />
-    }
 
     return (
         <section id="details">
