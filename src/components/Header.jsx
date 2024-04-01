@@ -5,7 +5,7 @@ import Menu from "./Menu"
 import { Bell, Menu as MenuIcon, ShoppingCart } from "lucide-react"
 
 function Header() {
-    const [isLogin, setIsLogin] = useState(false)
+    const [isLogin, setIsLogin] = useState(true)
     const [isShow, setIsShow] = useState(false)
     const [classActive, setClassActive] = useState('')
 
@@ -23,12 +23,12 @@ function Header() {
                     <button type='button' className='header_nav_btnSearch'>B</button>
                 </div>
                 <div className='header_nav_filters'>
-                    <a href="#">Comida</a>
-                    <a href="#">Bebidas</a>
-                    <a href="#">Accesorios</a>
-                    <a href="#">Dulceria</a>
-                    <a href="#">Postres</a>
-                    <a href="#">Más</a>
+                    <Link className="nav_filter" to={"/search?q=comida"}>Comida</Link>
+                    <Link className="nav_filter" to={"/search?q=bebidas"}>Bebidas</Link>
+                    <Link className="nav_filter" to={"/search?q=accesorios"}>Accesorios</Link>
+                    <Link className="nav_filter" to={"/search?q=dulceria"}>Dulceria</Link>
+                    <Link className="nav_filter" to={"/search?q=postres"}>Postres</Link>
+                    <Link className="nav_filter" to={"/search?q=otros"}>Más</Link>
                 </div>
             </nav>
             {
@@ -40,13 +40,13 @@ function Header() {
                                 <span className="notification"></span>
                             </span>
                         </a>
-                        <a href="/cart" className='header_btns_user_btn'>
+                        <Link to={"/cart"} className='header_btns_user_btn'>
                             <ShoppingCart size={24} className="header_icon" />
-                        </a>
-                        <a href="/user" className='header_btns_user_img'>
+                        </Link>
+                        <Link to={"/user"} className='header_btns_user_img'>
                             <img src="/profile.jpg" alt="Imágen del usuario ~" />
                             <span className="header_nav_user_state online"></span>
-                        </a>
+                        </Link>
                         <button onClick={handleMenu} className="header_btns_user_menu">
                             <MenuIcon size={24} className="menu_icon" />
                         </button>
