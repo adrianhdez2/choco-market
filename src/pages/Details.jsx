@@ -44,7 +44,7 @@ function Details() {
         if (newProduct) {
             setProduct(newProduct);
         } else {
-            setErrorMsg('Este producto ya no se encuetra disponible')
+            setErrorMsg('Este producto ya no se encuentra disponible')
         }
     }, [id, navigate, setErrorMsg]);
 
