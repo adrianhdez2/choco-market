@@ -1,18 +1,64 @@
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import UsePortals from '../customHooks/UsePortals'
 import { Link } from "react-router-dom"
 import Menu from "./Menu"
 import { Bell, Menu as MenuIcon, ShoppingCart } from "lucide-react"
+import Popup from "./Popup"
 
 function Header() {
-    const [isLogin, setIsLogin] = useState(false)
+    const [isLogin] = useState(true)
     const [isShow, setIsShow] = useState(false)
     const [classActive, setClassActive] = useState('')
+    const [isWebNotif, setWebNotif] = useState(false)
+    const [menuPosition, setMenuPosition] = useState({ top: 0, left: 0 });
+
 
     const handleMenu = () => {
         setClassActive('show')
         setIsShow(true)
     }
+
+    const handleWebNotif = (event) => {
+        event.preventDefault()
+        setWebNotif(!isWebNotif)
+    }
+
+    useEffect(() => {
+        let button = document.getElementById('toggleMenu')
+        const handleResize = () => {
+            if (isWebNotif) {
+                const buttonRect = button.getBoundingClientRect()
+                const menuWidth = 350;
+                const menuHeight = 250;
+                let left = buttonRect.left;
+                let top = buttonRect.bottom;
+
+                if (buttonRect.left + menuWidth > window.innerWidth) {
+                    left = window.innerWidth - menuWidth;
+                }
+
+                if (buttonRect.bottom + menuHeight > window.innerHeight) {
+                    top = window.innerHeight - menuHeight;
+                }
+
+                setMenuPosition({
+                    left: left,
+                    top: top,
+                });
+            }
+        }
+
+
+        if (isWebNotif) {
+            window.addEventListener('resize', handleResize);
+            handleResize();
+        }
+
+        return () => {
+            window.removeEventListener('resize', handleResize);
+        };
+    }, [isWebNotif])
+
 
     return (
         <header className='header'>
@@ -34,7 +80,7 @@ function Header() {
             {
                 isLogin ?
                     <div className='header_btns_user'>
-                        <a href="#" className='header_btns_user_btn'>
+                        <a href="#" className='header_btns_user_btn' id="toggleMenu" onClick={handleWebNotif}>
                             <span className="icon_notifications">
                                 <Bell size={24} className="header_icon" />
                                 <span className="notification"></span>
@@ -65,6 +111,13 @@ function Header() {
                 isShow &&
                 <UsePortals>
                     <Menu classActive={classActive} setIsShow={setIsShow} />
+                </UsePortals>
+            }
+
+            {
+                isWebNotif &&
+                <UsePortals>
+                    <Popup top={menuPosition.top} left={menuPosition.left} />
                 </UsePortals>
             }
         </header>
