@@ -6,6 +6,7 @@ import Login from './pages/Login'
 import SignUp from './pages/SignUp'
 import Error from './pages/Error'
 import Details from './pages/Details'
+import ProductsUser from './pages/ProductsUser'
 
 function App() {
 
@@ -17,7 +18,8 @@ function App() {
         <Route path='/' element={<Home/>} />
         <Route path='/login' element={<Login/>} />
         <Route path='/signup' element={<SignUp/>} />
-        <Route path='/product/details/:id' element={<Details/>}/>
+        <Route path='/products/:user' element={<ProductsUser/>} />
+        <Route path='/products/details/:id' element={<Details/>}/>
         <Route path='/*' element={<Error/>} />
       </Routes>
 
