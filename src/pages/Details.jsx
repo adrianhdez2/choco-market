@@ -22,10 +22,10 @@ function Details() {
         let { target } = evt
         let { value } = target
         setQuantity(value)
-        setSearchParams({ cantidad: quantity.toString() })
-        navigate(`/product/details/${id}?quantity=${encodeURIComponent(value)}`);
-        window.location.reload()
+        setSearchParams({ quantity: quantity.toString() })
+        navigate(`/product/details/${id}?quantity=${encodeURIComponent(value)}`)
     }
+
 
     useEffect(() => {
         const handlePopstate = () => {
@@ -57,8 +57,8 @@ function Details() {
         "profile.jpg", "profile.jpg",
     ]
 
-    if(error) {
-        return <Error error={error}/>
+    if (error) {
+        return <Error error={error} />
     }
 
     return (
