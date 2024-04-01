@@ -3,15 +3,18 @@ import { useParams, useSearchParams, useNavigate } from "react-router-dom"
 import { dataProducts } from '../constans/data'
 import Gallery from "../components/Gallery";
 import { Star } from "lucide-react";
+import UseErrorMsg from "../customHooks/UseErrorMsg";
+import Error from './Error'
 
 function Details() {
     const { id } = useParams()
+    const [error, setErrorMsg] = UseErrorMsg()
 
     const [searchParams, setSearchParams] = useSearchParams()
 
     const navigate = useNavigate()
 
-    const [quantity, setQuantity] = useState(parseInt(searchParams.get('cantidad') || 1));
+    const [quantity, setQuantity] = useState(parseInt(searchParams.get('quantity') || 1));
 
     const [product, setProduct] = useState({})
 
@@ -20,7 +23,7 @@ function Details() {
         let { value } = target
         setQuantity(value)
         setSearchParams({ cantidad: quantity.toString() })
-        navigate(`/product/details/${id}?cantidad=${encodeURIComponent(value)}`);
+        navigate(`/product/details/${id}?quantity=${encodeURIComponent(value)}`);
         window.location.reload()
     }
 
@@ -37,13 +40,13 @@ function Details() {
     }, []);
 
     useEffect(() => {
-        let newProduct = dataProducts.find(product => product.id === parseInt(id))
+        let newProduct = dataProducts.find(product => product.id_unico === id)
         if (newProduct) {
             setProduct(newProduct);
         } else {
-            console.log("Producto no encontrado");
+            setErrorMsg('Este producto ya no se encuetra disponible')
         }
-    }, [id]);
+    }, [id, navigate, setErrorMsg]);
 
     const addToCard = (evt) => {
         evt.preventDefault();
@@ -53,6 +56,10 @@ function Details() {
     const img = [
         "profile.jpg", "profile.jpg",
     ]
+
+    if(error) {
+        return <Error error={error}/>
+    }
 
     return (
         <section id="details">

@@ -1,9 +1,9 @@
 
 
-function Error() {
+function Error({ error = 'Está página no existe' }) {
   return (
-    <section>
-        <h2>Error 404, esta página no existe</h2>
+    <section id="error_page">
+      <h2>Error 404, {error}</h2>
     </section>
   )
 }
