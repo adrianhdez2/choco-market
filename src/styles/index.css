@@ -14,21 +14,6 @@ html {
     user-select: none;
 }
 
-/* Estilos generales de los enlaces para quitar decoraciones, más bien el subrayado */
-a {
-    text-decoration: none;
-    color: var(--white);
-}
-
-body {
-    width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: var(--white);
-    position: relative;
-}
-
 #root {
     width: 100%;
     height: auto;
@@ -45,6 +30,53 @@ body {
 
 ::-webkit-scrollbar-thumb {
     background-color: var(--primary);
+}
+
+body {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--white);
+    position: relative;
+}
+
+a {
+    text-decoration: none;
+    color: var(--white);
+}
+
+/* ESTILOS GENERALES PARA BOTONES */
+
+.btn {
+    border: none;
+    outline: none;
+    padding: 15px;
+    border-radius: 10px;
+    font-size: 16px;
+    transition: all .3s ease-in-out;
+}
+
+.btn_primary {
+    background-color: var(--primary);
+    color: var(--white);
+}
+
+.btn_secondary {
+    background-color: var(--secondary-45);
+    color: var(--white);
+}
+
+.btn_primary:not(:disabled):hover,
+.btn_primary:not(:disabled):active {
+    background-color: var(--primary-hover);
+    cursor: pointer;
+}
+
+.btn_secondary:not(:disabled):hover,
+.btn_secondary:not(:disabled):active {
+    background-color: var(--secondary-hover);
+    cursor: pointer;
 }
 
 /* HEADER */
@@ -617,10 +649,9 @@ body {
     font-size: 14px;
 }
 
-/* LOGIN */
+/* FORM */
 
-.container_login {
-    /* Container principal del login */
+.container_form_general {
     width: 100%;
     height: 100%;
     display: flex;
@@ -628,17 +659,13 @@ body {
     justify-content: center;
 }
 
-.login {
-    /* Login como tal */
+.container_form {
     margin: 50px auto 100px;
-    width: 514px;
-    height: 455px;
-    max-width: 514px;
     min-width: 200px;
     padding: 20px;
     background-color: var(--black-27);
     border-radius: 20px;
-    box-shadow: 10px 10px 14px var(--black-27);
+    box-shadow: 0 0 14px var(--black-27);
     text-align: center;
     display: flex;
     align-items: center;
@@ -646,16 +673,19 @@ body {
     flex-direction: column;
 }
 
-.login .btn {
-    width: 200px;
+#login-signup-form {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }
 
-.login_icon {
+.form_icon {
     stroke: var(--primary);
 }
 
-.title {
-    /* titulo */
+.title_form {
     font-size: 2rem;
     font-weight: bold;
     margin-bottom: 60px;
@@ -663,8 +693,8 @@ body {
 }
 
 .form_input {
-    /* Contenedor de cada input */
-    width: 340px;
+    max-width: 340px;
+    width: 100%;
     height: 50px;
     display: flex;
     align-items: center;
@@ -676,7 +706,6 @@ body {
 }
 
 .form_input_icon {
-    /* Icono del input */
     width: 34px;
     height: 100%;
     display: flex;
@@ -685,7 +714,6 @@ body {
 }
 
 .input {
-    /* Valores por defecto del input */
     padding: 10px;
     background-color: transparent;
     border: none;
@@ -695,22 +723,18 @@ body {
 }
 
 .input:not(.password) {
-    /* Tamaño del input cuando no tenga la clase password */
     width: calc(100% - 34px);
 }
 
 .input::placeholder {
-    /* Color del placeholder del input (las letras que aparecen cuando uno no escribe) */
     color: var(--white-23);
 }
 
 .input.password {
-    /* Tamaño del input cuando tiene la clase password */
     width: calc(100% - 68px);
 }
 
 .form_input_user {
-    /* Margin bottom al primer contenedor del input */
     margin-bottom: 20px;
 }
 
@@ -724,74 +748,74 @@ body {
     stroke: var(--primary-hover);
 }
 
-#forgot_password {
-    width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: start;
-    margin-top: 5px;
-    margin-bottom: 45px;
-}
-
-#forgot_password a {
-    font-size: 1rem;
-    color: var(--primary);
-
-}
-
-#forgot_password a:hover,
-#forgot_password a:active {
-    text-decoration: underline;
-}
-
-.btn {
-    /* Valores por defecto del boton de entrar */
-    border: none;
-    outline: none;
-    padding: 15px;
-    border-radius: 10px;
-    font-size: 16px;
-    transition: all .3s ease-in-out;
-}
-
-.btn_primary {
-    background-color: var(--primary);
-    color: var(--white);
-}
-
-.btn_secondary {
-    background-color: var(--secondary-45);
-    color: var(--white);
-}
-
-.btn_primary:not(:disabled):hover,
-.btn_primary:not(:disabled):active {
-    background-color: var(--primary-hover);
-    cursor: pointer;
-}
-
-.btn_secondary:not(:disabled):hover,
-.btn_secondary:not(:disabled):active {
-    background-color: var(--secondary-hover);
-    cursor: pointer;
-}
-
-.not_account {
-    /* Texto debajo del botón */
+.form_link_question {
     color: var(--primary);
     font-size: 14px;
     margin-top: 8px;
 }
 
-#signup_link {
-    /* Enlace de registro */
+#form_link_account {
     color: var(--white-56);
     font-size: 14px;
     margin-left: 5px;
 }
 
-#signup_link:hover {
+#form_link_account:hover {
     text-decoration: underline;
+}
+
+/* LOGIN */
+
+.login {
+    width: 514px;
+    height: 455px;
+    max-width: 514px;
+}
+
+.login .btn {
+    width: 200px;
+}
+
+#forgot_password {
+    max-width: 340px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    margin-top: 5px;
+    margin-bottom: 45px;
+}
+
+.forgot_password_link {
+    font-size: 1rem;
+    color: var(--primary);
+
+}
+
+.forgot_password_link:hover,
+.forgot_password_link:active {
+    text-decoration: underline;
+}
+
+/* REGISTRO */
+
+.signup {
+    width: 634px;
+    height: auto;
+    max-width: 634px;
+}
+
+.signup .btn {
+    width: 180px;
+    margin-top: 35px;
+}
+
+.container_inputs_signup {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    column-gap: 20px;
 }
 
 /* DETALLES DEL PRODUCTO */
@@ -1308,9 +1332,14 @@ body {
     }
 
     .info_box,
-    .login {
+    .login,
+    .signup {
         background-color: transparent;
         box-shadow: none;
+    }
+
+    .container_inputs_signup {
+        align-items: center;
     }
 }
 
@@ -1342,6 +1371,15 @@ body {
 
     .container_error_page div {
         font-size: 10rem;
+    }
+
+    .container_inputs_signup {
+        flex-direction: column;
+    }
+
+    .login,
+    .signup {
+        margin: 0 auto 20px;
     }
 }
 
