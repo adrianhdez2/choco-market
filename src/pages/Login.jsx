@@ -1,5 +1,7 @@
 import { useState } from "react"
-import { User, KeyRound, Eye, EyeOff } from "lucide-react"
+import { User, KeyRound } from "lucide-react"
+import { Link } from "react-router-dom"
+import InputField from '../components/form/InputField'
 
 function Login() {
   const [isShow, setIsShow] = useState(false)
@@ -32,55 +34,21 @@ function Login() {
   }
 
   return (
-    <div className="container_login">
-      <div className="login">
-        <h3 className="title">Iniciar sesión</h3>
-        <form id="login-form" onSubmit={handleSubmit}>
-          <label className="form_input_user form_input">
-            <span className="form_input_icon">
-              <User size={20} className="login_icon" />
-            </span>
-            <input
-              className="input"
-              type="text"
-              id="matricula"
-              name="matricula"
-              placeholder="Ingrese su matrícula"
-              autoComplete="off"
-              value={values.matricula}
-              onChange={handleValues}
-              required />
-          </label>
+    <div className="container_form_general">
+      <div className="login container_form">
+        <h3 className="title_form">Iniciar sesión</h3>
+        <form id="login-signup-form" onSubmit={handleSubmit}>
+          <InputField type={"text"} name="matricula" value={values.matricula} placeholder="Matricula" onChange={handleValues} icon={User} />
 
-          <label className="form_input_password form_input">
-            <span className="form_input_icon">
-              <KeyRound size={20} className="login_icon" />
-            </span>
-            <input
-              className="input password"
-              type={inputType}
-              id="password"
-              name="password"
-              placeholder="Ingrese su contraseña"
-              autoComplete="off"
-              value={values.password}
-              onChange={handleValues}
-              required />
-            <span className="form_input_icon show_pass" onClick={handleShow}>
-              {isShow ?
-                <EyeOff size={17} className="icon"/>
-                :
-                <Eye size={17} className="icon" />}
-            </span>
-          </label>
+          <InputField classN="form_input_password" classInput="password" type={inputType} name="password" value={values.password} placeholder="Contraseña" onChange={handleValues} handleShow={handleShow} icon={KeyRound} isShow={isShow} login={true} />
 
           <div id="forgot_password">
-            <a href="#" >Olvidé mi contraseña</a>
+            <a className="forgot_password_link" href="#" >Olvidé mi contraseña</a>
           </div>
           <button className="btn btn_primary" type="submit">Entrar</button>
         </form>
-        <p className="not_account">¿No tienes cuenta?
-          <a href="#" id="signup_link">Registrarme</a>
+        <p className="form_link_question">¿No tienes cuenta?
+          <Link to={"/signup"} id="form_link_account">Registrarme</Link>
         </p>
       </div>
     </div>
