@@ -21,6 +21,9 @@ function Header() {
     }
 
     const handleWebNotif = () => {
+        if(isClick) {
+            setIsClick(false)
+        }
         setWebNotif(!isWebNotif)
     }
 
