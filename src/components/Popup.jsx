@@ -1,20 +1,28 @@
 import { Handshake, ShoppingBag, UserCheck } from "lucide-react"
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import { Link } from "react-router-dom"
 
-function Popup({ top, left }) {
+function Popup({ top, left, right }) {
+    const [algo, setalgo] = useState(0)
 
     const [haveNotif] = useState(true)
+    useEffect(() => {
+        let popup = document.getElementById('popup')
+        if (popup) {
+            setalgo(popup.getBoundingClientRect().width - (window.innerWidth - right) - 6);
+        }
+    }, [right])
 
     return (
         <div
+            id="popup"
             className="notifications_menu"
-            style={{ top: top, left: left }}
+            style={{ top: top, left: left, "--left": `${algo}px` }}
         >
             <div className="container_title_notifications">
                 <h3 className="title_notifications">Notificaciones</h3>
             </div>
-            <div className="notifications_container" style={{justifyContent: haveNotif ? 'flex-start' : 'center'}}>
+            <div className="notifications_container" style={{ justifyContent: haveNotif ? 'flex-start' : 'center' }}>
                 {
                     haveNotif ?
                         <>

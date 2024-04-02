@@ -1,8 +1,9 @@
 import { useEffect, useState } from "react"
-import UsePortals from '../customHooks/UsePortals'
 import { Link } from "react-router-dom"
-import Menu from "./Menu"
+import UsePortals from '../customHooks/UsePortals'
 import { Bell, Menu as MenuIcon, ShoppingCart } from "lucide-react"
+import Menu from "./Menu"
+import Nav from '../components/nav/Nav'
 import Popup from "./Popup"
 
 function Header() {
@@ -10,7 +11,7 @@ function Header() {
     const [isShow, setIsShow] = useState(false)
     const [classActive, setClassActive] = useState('')
     const [isWebNotif, setWebNotif] = useState(false)
-    const [menuPosition, setMenuPosition] = useState({ top: 0, left: 0 });
+    const [menuPosition, setMenuPosition] = useState({ top: window.innerHeight , left: window.innerWidth - 350, right: 0 });
 
 
     const handleMenu = () => {
@@ -38,12 +39,13 @@ function Header() {
                 }
 
                 if (buttonRect.bottom + menuHeight > window.innerHeight) {
-                    top = window.innerHeight - menuHeight;
+                    top = window.innerHeight;
                 }
 
                 setMenuPosition({
                     left: left,
                     top: top,
+                    right: buttonRect.right
                 });
             }
         }
@@ -63,20 +65,7 @@ function Header() {
     return (
         <header className='header'>
             <div className='header_temp'></div>
-            <nav className='header_nav'>
-                <div className='header_nav_search'>
-                    <input type="text" name="search" id="search" placeholder='Botanitas, pastel, dulces...' autoComplete='off' />
-                    <button type='button' className='header_nav_btnSearch'>B</button>
-                </div>
-                <div className='header_nav_filters'>
-                    <Link className="nav_filter" to={"/search?q=comida"}>Comida</Link>
-                    <Link className="nav_filter" to={"/search?q=bebidas"}>Bebidas</Link>
-                    <Link className="nav_filter" to={"/search?q=accesorios"}>Accesorios</Link>
-                    <Link className="nav_filter" to={"/search?q=dulceria"}>Dulceria</Link>
-                    <Link className="nav_filter" to={"/search?q=postres"}>Postres</Link>
-                    <Link className="nav_filter" to={"/search?q=otros"}>Más</Link>
-                </div>
-            </nav>
+            <Nav />
             {
                 isLogin ?
                     <div className='header_btns_user'>
@@ -117,7 +106,7 @@ function Header() {
             {
                 isWebNotif &&
                 <UsePortals>
-                    <Popup top={menuPosition.top} left={menuPosition.left} />
+                    <Popup top={menuPosition.top} left={menuPosition.left} right={menuPosition.right}/>
                 </UsePortals>
             }
         </header>
