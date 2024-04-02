@@ -11,7 +11,7 @@ function Header() {
     const [isShow, setIsShow] = useState(false)
     const [classActive, setClassActive] = useState('')
     const [isWebNotif, setWebNotif] = useState(false)
-    const [menuPosition, setMenuPosition] = useState({ top: window.innerHeight , left: window.innerWidth - 350, right: 0 });
+    const [menuPosition, setMenuPosition] = useState({ top: window.innerHeight , left: window.innerWidth - 350 });
 
 
     const handleMenu = () => {
@@ -45,7 +45,6 @@ function Header() {
                 setMenuPosition({
                     left: left,
                     top: top,
-                    right: buttonRect.right
                 });
             }
         }
@@ -106,7 +105,7 @@ function Header() {
             {
                 isWebNotif &&
                 <UsePortals>
-                    <Popup top={menuPosition.top} left={menuPosition.left} right={menuPosition.right}/>
+                    <Popup top={menuPosition.top} left={menuPosition.left}/>
                 </UsePortals>
             }
         </header>

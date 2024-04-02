@@ -1,23 +1,15 @@
 import { Handshake, ShoppingBag, UserCheck } from "lucide-react"
-import { useEffect, useState } from "react"
+import { useState } from "react"
 import { Link } from "react-router-dom"
 
-function Popup({ top, left, right }) {
+function Popup({ top, left }) {
 
     const [haveNotif] = useState(true)
-    useEffect(() => {
-        let popup = document.getElementById('popup')
-        if (popup) {
-            let newLeft = (popup.getBoundingClientRect().width - (window.innerWidth - right)) - 6;
-            popup.style.setProperty("--left", `${newLeft}px`);
-        }
-    }, [right])
 
     return (
         <div
-            id="popup"
             className="notifications_menu"
-            style={{ top: top, left: left}}
+            style={{ top: top, left: left }}
         >
             <div className="container_title_notifications">
                 <h3 className="title_notifications">Notificaciones</h3>
