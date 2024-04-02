@@ -3,13 +3,13 @@ import { useEffect, useState } from "react"
 import { Link } from "react-router-dom"
 
 function Popup({ top, left, right }) {
-    const [algo, setalgo] = useState(0)
 
     const [haveNotif] = useState(true)
     useEffect(() => {
         let popup = document.getElementById('popup')
         if (popup) {
-            setalgo(popup.getBoundingClientRect().width - (window.innerWidth - right) - 6);
+            let newLeft = (popup.getBoundingClientRect().width - (window.innerWidth - right)) - 6;
+            popup.style.setProperty("--left", `${newLeft}px`);
         }
     }, [right])
 
@@ -17,7 +17,7 @@ function Popup({ top, left, right }) {
         <div
             id="popup"
             className="notifications_menu"
-            style={{ top: top, left: left, "--left": `${algo}px` }}
+            style={{ top: top, left: left}}
         >
             <div className="container_title_notifications">
                 <h3 className="title_notifications">Notificaciones</h3>
