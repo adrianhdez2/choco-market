@@ -11,7 +11,8 @@ function Header() {
     const [isShow, setIsShow] = useState(false)
     const [classActive, setClassActive] = useState('')
     const [isWebNotif, setWebNotif] = useState(false)
-    const [menuPosition, setMenuPosition] = useState({ top: window.innerHeight , left: window.innerWidth - 350 });
+    const [isClick, setIsClick] = useState(false)
+    const [menuPosition, setMenuPosition] = useState({ top: window.innerHeight, left: window.innerWidth - 350 });
 
 
     const handleMenu = () => {
@@ -19,8 +20,7 @@ function Header() {
         setIsShow(true)
     }
 
-    const handleWebNotif = (event) => {
-        event.preventDefault()
+    const handleWebNotif = () => {
         setWebNotif(!isWebNotif)
     }
 
@@ -47,18 +47,34 @@ function Header() {
                     top: top,
                 });
             }
+
+
+
+            if (isClick) {
+                document.addEventListener("click", showaaa)
+            }
         }
+
+        const showaaa = () => {
+            handleWebNotif()
+            setIsClick(!isClick)
+        };
 
 
         if (isWebNotif) {
             window.addEventListener('resize', handleResize);
+            setIsClick(true)
             handleResize();
+
         }
 
         return () => {
             window.removeEventListener('resize', handleResize);
+            document.removeEventListener("click", showaaa)
         };
-    }, [isWebNotif])
+    }, [isClick, isWebNotif])
+
+
 
 
     return (
@@ -68,12 +84,12 @@ function Header() {
             {
                 isLogin ?
                     <div className='header_btns_user'>
-                        <a href="#" className='header_btns_user_btn' id="toggleMenu" onClick={handleWebNotif}>
+                        <button className='header_btns_user_btn' id="toggleMenu" onClick={handleWebNotif}>
                             <span className="icon_notifications">
                                 <Bell size={24} className="header_icon" />
                                 <span className="notification"></span>
                             </span>
-                        </a>
+                        </button>
                         <Link to={"/cart"} className='header_btns_user_btn'>
                             <ShoppingCart size={24} className="header_icon" />
                         </Link>
@@ -105,7 +121,7 @@ function Header() {
             {
                 isWebNotif &&
                 <UsePortals>
-                    <Popup top={menuPosition.top} left={menuPosition.left}/>
+                    <Popup top={menuPosition.top} left={menuPosition.left} />
                 </UsePortals>
             }
         </header>

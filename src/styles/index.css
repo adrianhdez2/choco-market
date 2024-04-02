@@ -222,13 +222,19 @@ a {
     column-gap: 15px;
 }
 
-.header_btns_user a {
+.header_btns_user a,
+#toggleMenu {
     width: 50px;
     height: 50px;
     display: flex;
     align-items: center;
     justify-content: center;
     color: var(--white);
+}
+
+#toggleMenu:hover,
+#toggleMenu:active {
+    cursor: pointer;
 }
 
 .header_btns_user_btn {
@@ -1078,6 +1084,7 @@ a {
     align-items: center;
     justify-content: flex-start;
     border-radius: 10px;
+    z-index: 100;
 }
 
 .notifications_menu.show {
