@@ -1080,6 +1080,16 @@ a {
     border-radius: 10px;
 }
 
+.notifications_menu::before {
+    content: '';
+    position: absolute;
+    top: -10px;
+    left: var(--left);
+    border-bottom: 10px solid var(--black-80);
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+}
+
 .notifications_menu.show {
     animation: show .3s forwards;
 }
@@ -1127,7 +1137,7 @@ a {
 }
 
 .notification_item:hover {
-    background-color: var(--white-23);
+    background-color: var(--white-08);
 }
 
 .icon_notification {
