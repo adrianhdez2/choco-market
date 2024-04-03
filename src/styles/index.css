@@ -1193,7 +1193,7 @@ a {
     margin-bottom: 30px;
 }
 
-.cart_container {
+.cart_container{
     width: 100%;
     height: 100%;
     display: flex;
@@ -1348,7 +1348,7 @@ a {
 }
 
 .cart_box_container {
-    max-width: 556px;
+    max-width: 456px;
     width: 100%;
     height: auto;
     background-color: var(--black-27);
@@ -1398,6 +1398,21 @@ a {
 .cart_box_container .btn {
     width: 100%;
     margin-top: 40px;
+}
+
+.cart_empty  {
+    width: 100%;
+    padding: 0 30px;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    flex-direction: column;
+    row-gap: 10px;
+    font-size: 14px;
+}
+
+.cart_empty .btn_home_error_page {
+    text-decoration: underline;
 }
 
 /* FOOTER */
@@ -1607,6 +1622,10 @@ a {
     .signup {
         background-color: transparent;
         box-shadow: none;
+    }
+
+    .cart_empty {
+        align-items: center;
     }
 
     .container_inputs_signup {
