@@ -10,24 +10,33 @@ export function CartProvider({ children }) {
     localStorage.setItem('cart', JSON.stringify(cart));
   }, [cart]);
 
-  const addToCart = product => {
+  const addToCart = (product, qnty = 1) => {
     const productInCartIndex = cart.findIndex(item => item.id === product.id);
 
     if (productInCartIndex >= 0) {
       const newCart = [...cart];
-      if (newCart[productInCartIndex].quantity < product.stock) {
+
+      if (qnty > 1) {
+        newCart[productInCartIndex].quantity += qnty;
+      }else{
         newCart[productInCartIndex].quantity += 1;
       }
-      setCart(newCart);
-    } else {
-      setCart(prevState => ([
-        ...prevState,
-        {
-          ...product,
-          quantity: 1
-        }
-      ]));
+      
+      if (newCart[productInCartIndex].quantity >= product.stock) {
+        newCart[productInCartIndex].quantity = product.stock
+        return setCart(newCart);
+      }
+
+      return setCart(newCart);
     }
+
+    setCart(prevState => ([
+      ...prevState,
+      {
+        ...product,
+        quantity: qnty
+      }
+    ]));
   };
 
   const removeItemFromCart = product => {
