@@ -102,7 +102,7 @@ function Details() {
 
                     <div className="details_container_buttons">
                         <button type="button" className="details_btn_buy btn btn_primary">Comprar</button>
-                        <button type="button" disabled={isLoading ? 'true' : undefined} onClick={addCartitem} className="details_btn_cart btn btn_secondary">
+                        <button type="button" disabled={isLoading ? true : undefined} onClick={addCartitem} className="details_btn_cart btn btn_secondary">
                             {
                                 isLoading ?
                                     <div className="loading"></div>
