@@ -1,52 +1,54 @@
-import { createContext, useState } from 'react'
+import { createContext, useState, useEffect } from 'react';
 
-export const Cartcontext = createContext()
-
+export const Cartcontext = createContext();
 
 export function CartProvider({ children }) {
-  const [cart, setCart] = useState([])
-  
-  
+  const initialCart = JSON.parse(localStorage.getItem('cart')) || [];
+  const [cart, setCart] = useState(initialCart);
+
+  useEffect(() => {
+    localStorage.setItem('cart', JSON.stringify(cart));
+  }, [cart]);
 
   const addToCart = product => {
-    const productInCartIndex = cart.findIndex(item => item.id === product.id)
+    const productInCartIndex = cart.findIndex(item => item.id === product.id);
 
     if (productInCartIndex >= 0) {
-      const newCart = structuredClone(cart)
+      const newCart = [...cart];
       if (newCart[productInCartIndex].quantity < product.stock) {
-        newCart[productInCartIndex].quantity += 1
+        newCart[productInCartIndex].quantity += 1;
       }
-      return setCart(newCart)
+      setCart(newCart);
+    } else {
+      setCart(prevState => ([
+        ...prevState,
+        {
+          ...product,
+          quantity: 1
+        }
+      ]));
     }
-
-    setCart(prevState => ([
-      ...prevState,
-      {
-        ...product,
-        quantity: 1
-      }
-    ]))
-  }
+  };
 
   const removeItemFromCart = product => {
-    const productInCartIndex = cart.findIndex(item => item.id === product.id)
+    const productInCartIndex = cart.findIndex(item => item.id === product.id);
 
     if (productInCartIndex >= 0) {
-      const newCart = structuredClone(cart)
-      if(newCart[productInCartIndex].quantity > 1) {
-        newCart[productInCartIndex].quantity -= 1
+      const newCart = [...cart];
+      if (newCart[productInCartIndex].quantity > 1) {
+        newCart[productInCartIndex].quantity -= 1;
       }
-      return setCart(newCart)
+      setCart(newCart);
     }
-  }
+  };
 
   const clearCart = () => {
-    setCart([])
-  }
+    setCart([]);
+  };
 
   const removeFromCart = product => {
-    setCart(prevState => prevState.filter(item => item.id !== product.id))
-  }
+    setCart(prevState => prevState.filter(item => item.id !== product.id));
+  };
 
   return (
     <Cartcontext.Provider value={{
@@ -58,5 +60,5 @@ export function CartProvider({ children }) {
     }}>
       {children}
     </Cartcontext.Provider>
-  )
+  );
 }
