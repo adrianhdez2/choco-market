@@ -7,24 +7,27 @@ import SignUp from './pages/SignUp'
 import Error from './pages/Error'
 import Details from './pages/Details'
 import ProductsUser from './pages/ProductsUser'
+import Cart from './pages/Cart'
+import { CartProvider } from './components/context/cart'
 
 function App() {
 
   return (
-    <>
+    <CartProvider>
       <Header />
 
       <Routes>
-        <Route path='/' element={<Home/>} />
-        <Route path='/login' element={<Login/>} />
-        <Route path='/signup' element={<SignUp/>} />
-        <Route path='/products/:user' element={<ProductsUser/>} />
-        <Route path='/products/details/:id' element={<Details/>}/>
-        <Route path='/*' element={<Error/>} />
+        <Route path='/' element={<Home />} />
+        <Route path='/login' element={<Login />} />
+        <Route path='/signup' element={<SignUp />} />
+        <Route path='/cart' element={<Cart />} />
+        <Route path='/products/:user' element={<ProductsUser />} />
+        <Route path='/products/details/:id' element={<Details />} />
+        <Route path='/*' element={<Error />} />
       </Routes>
 
       <Footer />
-    </>
+    </CartProvider>
   )
 }
 
