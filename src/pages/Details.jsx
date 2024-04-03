@@ -55,7 +55,7 @@ function Details() {
     const addCartitem = () => {
         setIsLoading(true)
         setTimeout(() => {
-            addToCart(product)
+            addToCart(product, parseInt(quantity))
             setIsLoading(false)
         }, 500);
     }
