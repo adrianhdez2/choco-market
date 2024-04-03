@@ -6,6 +6,7 @@ import { useCart } from "../customHooks/useCart"
 function Cart() {
 
     const { cart, addToCart, removeFromCart, removeItemFromCart } = useCart()
+    const totalAmount = cart.reduce((total, item) => total + (item.price * item.quantity), 0);
 
     return (
         <section id="cart">
@@ -33,12 +34,12 @@ function Cart() {
                                 </div>
                                 <div className="cart_box_item">
                                     <p className="cart_box_subtotal">Productos</p>
-                                    <p className="cart_box_subtotal">$ 300.00</p>
+                                    <p className="cart_box_subtotal">$ {totalAmount.toFixed(2)}</p>
                                 </div>
                                 <hr className="cart_box_hr" color="transparent" />
                                 <div className="cart_box_item">
                                     <p className="cart_box_total">Total</p>
-                                    <p className="cart_box_total">$ 300.00</p>
+                                    <p className="cart_box_total">$ {totalAmount.toFixed(2)}</p>
                                 </div>
                                 <button className="btn btn_primary">Comprar</button>
                             </div>
