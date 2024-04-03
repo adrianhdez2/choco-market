@@ -7,8 +7,6 @@ function Cart() {
 
     const { cart, addToCart, removeFromCart, removeItemFromCart } = useCart()
 
-    console.log(cart);
-
     return (
         <section id="cart">
             <h3 className="title_cart">Carrito de compras</h3>
