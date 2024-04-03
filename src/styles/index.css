@@ -977,6 +977,12 @@ a {
     font-size: 16px;
 }
 
+.details_btn_cart {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
 /* PRODUCTS USER */
 
 #products_user {
@@ -1437,6 +1443,15 @@ a {
     color: var(--white);
 }
 
+/* LOADING */
+.loading {
+    width: 20px;
+    height: 20px;
+    border-radius: 100%;
+    border-top: 3px solid var(--primary-hover);
+    animation: loading .9s infinite linear;
+}
+
 /*  ANIMACIONES DE MENU LATERAL */
 
 @keyframes show {
@@ -1455,6 +1470,8 @@ a {
     }
 }
 
+/* ANIMACIONES DE CAIDA NUMEROS 404 */
+
 @keyframes caida1 {
     to {
         transform: translateY(0%) translateX(30px) rotate(20deg);
@@ -1470,6 +1487,14 @@ a {
 @keyframes caida3 {
     to {
         transform: translateY(0%) translateX(-55px) rotate(-15deg);
+    }
+}
+
+/* ANIMACIONES DE LOADING */
+
+@keyframes loading {
+    to {
+        transform: rotate(360deg);
     }
 }
 
