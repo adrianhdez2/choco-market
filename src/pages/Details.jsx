@@ -3,6 +3,7 @@ import { useParams, useSearchParams, useNavigate } from "react-router-dom"
 import { dataProducts } from '../constans/data'
 import Gallery from "../components/Gallery";
 import { Star } from "lucide-react";
+import { useCart } from "../customHooks/useCart";
 
 function Details() {
     const { id } = useParams()
@@ -14,6 +15,7 @@ function Details() {
     const [quantity, setQuantity] = useState(parseInt(searchParams.get('quantity') || 1));
 
     const [product, setProduct] = useState({})
+    const { addToCart } = useCart()
 
     const handleIncreaseQuantity = (evt) => {
         let { target } = evt
@@ -45,11 +47,6 @@ function Details() {
         }
     }, [id, navigate]);
 
-    const addToCard = (evt) => {
-        evt.preventDefault();
-        console.log(quantity);
-    }
-
     const img = [
         "profile.jpg", "profile.jpg",
     ]
@@ -73,7 +70,7 @@ function Details() {
                 </div>
             </aside>
             <aside className="details_info_box">
-                <form className="info_box" onSubmit={addToCard}>
+                <form className="info_box">
                     <span className="details_container_stars no_movile">
                         <Star size={13} className="star_icon" />
                         <span className="star_title">{product.stars}</span>
@@ -91,12 +88,12 @@ function Details() {
                             <option value="4">4 pzas</option>
                             <option value="5">5 pzas</option>
                         </select>
-                        <small>(10 disponibles)</small>
+                        <small>({product.stock} disponibles)</small>
                     </div>
 
                     <div className="details_container_buttons">
                         <button type="button" className="details_btn_buy btn btn_primary">Comprar</button>
-                        <button type="submit" className="details_btn_cart btn btn_secondary">Agregar al carrito</button>
+                        <button type="button" onClick={() => addToCart(product)} className="details_btn_cart btn btn_secondary">Agregar al carrito</button>
                     </div>
                 </form>
             </aside>
