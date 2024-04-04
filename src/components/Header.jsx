@@ -96,7 +96,7 @@ function Header() {
                         <Link to={"/cart"} className='header_btns_user_btn'>
                             <ShoppingCart size={24} className="header_icon" />
                         </Link>
-                        <Link to={"/user/home"} className='header_btns_user_img'>
+                        <Link to={"/user"} className='header_btns_user_img'>
                             <img src="/profile.jpg" alt="Imágen del usuario ~" />
                             <span className="header_nav_user_state online"></span>
                         </Link>
