@@ -1,4 +1,4 @@
-import { Routes, Route, Navigate } from 'react-router-dom'
+import { Routes, Route } from 'react-router-dom'
 import Footer from './components/Footer'
 import Header from './components/Header'
 import Home from './pages/Home'
@@ -30,8 +30,7 @@ function App() {
         <Route path="/products/details/:id" element={<Details />} />
         <Route path="*" element={<Error />} />
         <Route path="/user" element={<User />}>
-          <Route path="/user" element={<Navigate to="/user/home" />} />
-          <Route path="home" element={<HomeUser />} />
+          <Route index element={<HomeUser />} />
           <Route path="compras" element={<Purchases />} />
           <Route path="estadisticas" element={<Statistics />} />
           <Route path="settings" element={<Settings />} />
