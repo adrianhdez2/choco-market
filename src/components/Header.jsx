@@ -2,9 +2,9 @@ import { useEffect, useState } from "react"
 import { Link } from "react-router-dom"
 import UsePortals from '../customHooks/UsePortals'
 import { Bell, Menu as MenuIcon, ShoppingCart } from "lucide-react"
-import Menu from "./Menu"
+import Menu from "./portals/Menu"
 import Nav from '../components/nav/Nav'
-import Popup from "./Popup"
+import Popup from "./portals/Popup"
 
 function Header() {
     const [isLogin] = useState(true)
