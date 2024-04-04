@@ -1,4 +1,4 @@
-import { Routes, Route } from 'react-router-dom'
+import { Routes, Route, Navigate } from 'react-router-dom'
 import Footer from './components/Footer'
 import Header from './components/Header'
 import Home from './pages/Home'
@@ -22,18 +22,19 @@ function App() {
 
       <Header />
       <Routes>
-        <Route path='/' Component={Home} />
-        <Route path='/login' Component={Login} />
-        <Route path='/signup' Component={SignUp} />
-        <Route path='/cart' Component={Cart} />
-        <Route path='/products/:user' Component={ProductsUser} />
-        <Route path='/products/details/:id' Component={Details} />
-        <Route path='/*' Component={Error} />
-        <Route path='/user' Component={User}>
-          <Route path='/user/home' Component={HomeUser} />
-          <Route path='/user/compras' Component={Purchases} />
-          <Route path='/user/estadisticas' Component={Statistics} />
-          <Route path='/user/settings' Component={Settings} />
+        <Route path="/" element={<Home />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/signup" element={<SignUp />} />
+        <Route path="/cart" element={<Cart />} />
+        <Route path="/products/:user" element={<ProductsUser />} />
+        <Route path="/products/details/:id" element={<Details />} />
+        <Route path="*" element={<Error />} />
+        <Route path="/user" element={<User />}>
+          <Route path="/user" element={<Navigate to="/user/home" />} />
+          <Route path="home" element={<HomeUser />} />
+          <Route path="compras" element={<Purchases />} />
+          <Route path="estadisticas" element={<Statistics />} />
+          <Route path="settings" element={<Settings />} />
         </Route>
       </Routes>
       <Footer />
