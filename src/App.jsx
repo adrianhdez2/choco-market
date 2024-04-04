@@ -14,6 +14,8 @@ import Purchases from './components/user/Purchases'
 import Settings from './components/user/Settings'
 import Statistics from './components/user/Statistics'
 import HomeUser from './components/user/HomeUser'
+import ProductList from './components/user/ProductList'
+import ProductDetails from './components/user/ProductDetails'
 
 function App() {
 
@@ -34,6 +36,8 @@ function App() {
           <Route path="compras" element={<Purchases />} />
           <Route path="estadisticas" element={<Statistics />} />
           <Route path="settings" element={<Settings />} />
+          <Route path="productos" element={<ProductList />} />
+          <Route path="productos/:idProducto" element={<ProductDetails/>} />
         </Route>
       </Routes>
       <Footer />
