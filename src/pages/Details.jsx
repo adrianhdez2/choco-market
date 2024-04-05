@@ -22,10 +22,9 @@ function Details() {
         let { target } = evt
         let { value } = target
         setQuantity(value)
-        setSearchParams({ quantity: quantity.toString() })
+        setSearchParams({ quantity: value.toString() })
         navigate(`/products/details/${id}?quantity=${encodeURIComponent(value)}`)
     }
-
 
     useEffect(() => {
         const handlePopstate = () => {
@@ -38,6 +37,20 @@ function Details() {
             window.removeEventListener("popstate", handlePopstate);
         };
     }, []);
+
+    useEffect(() => {
+        if (quantity > 5) {
+            let quanti = '5';
+            setQuantity(quanti)
+            setSearchParams({ quantity: '5' })
+        }
+
+        if (quantity <= 0) {
+            let quanti = '1';
+            setQuantity(quanti)
+            setSearchParams({ quantity: '1' })
+        }
+    }, [id, navigate, quantity, setSearchParams])
 
     useEffect(() => {
         let newProduct = dataProducts.find(product => product.id_unico === id)
@@ -90,7 +103,7 @@ function Details() {
 
                     <div className="details_container_quantity">
                         <span className="details_title_quantity">Cantidad: </span>
-                        <select name="quantity" id="quantity" onChange={handleIncreaseQuantity} defaultValue={quantity}>
+                        <select name="quantity" id="quantity" onChange={handleIncreaseQuantity} value={quantity}>
                             <option value="1">1 pza</option>
                             <option value="2">2 pzas</option>
                             <option value="3">3 pzas</option>
