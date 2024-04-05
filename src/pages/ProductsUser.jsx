@@ -1,5 +1,5 @@
 import { useNavigate, useParams } from "react-router-dom"
-import Product from '../components/Product'
+import Product from '../components/home/Product'
 import { dataProducts, users } from '../constans/data'
 import { useEffect, useState } from "react"
 function ProductsUser() {

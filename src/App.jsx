@@ -1,6 +1,6 @@
 import { Routes, Route } from 'react-router-dom'
-import Footer from './components/Footer'
-import Header from './components/Header'
+import Footer from './components/global/Footer'
+import Header from './components/global/Header'
 import Home from './pages/Home'
 import Login from './pages/Login'
 import SignUp from './pages/SignUp'
@@ -10,13 +10,13 @@ import ProductsUser from './pages/ProductsUser'
 import Cart from './pages/Cart'
 import { CartProvider } from './components/context/cart'
 import User from './pages/User'
-import Purchases from './components/user/Purchases'
-import Settings from './components/user/Settings'
-import Statistics from './components/user/Statistics'
-import HomeUser from './components/user/HomeUser'
-import ProductList from './components/user/ProductList'
-import ProductDetails from './components/user/ProductDetails'
-import AddProduct from './components/portals/AddProduct'
+import HomeUser from './pages/user/HomeUser'
+import Purchases from './pages/user/Purchases'
+import Statistics from './pages/user/Statistics'
+import Settings from './pages/user/Settings'
+import ProductList from './pages/user/ProductList'
+import ProductDetails from './pages/user/ProductDetails'
+import AddProduct from './pages/user/AddProduct'
 
 function App() {
 
@@ -39,7 +39,7 @@ function App() {
           <Route path="settings" element={<Settings />} />
           <Route path="productos" element={<ProductList />} />
           <Route path="productos/add/new" element={<AddProduct />} />
-          <Route path="productos/:idProducto" element={<ProductDetails/>} />
+          <Route path="productos/:idProducto" element={<ProductDetails />} />
         </Route>
       </Routes>
       <Footer />

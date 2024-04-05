@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { useParams, useSearchParams, useNavigate } from "react-router-dom"
 import { dataProducts } from '../constans/data'
-import Gallery from "../components/Gallery";
+import Gallery from "../components/details/Gallery";
 import { Star } from "lucide-react";
 import { useCart } from "../customHooks/useCart";
 
