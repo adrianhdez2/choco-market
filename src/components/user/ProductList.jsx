@@ -1,6 +1,7 @@
 import { ArrowDownWideNarrow, LayoutGrid, Plus } from "lucide-react"
 import { dataProducts } from "../../constans/data"
 import CardProductUser from "../CardProductUser"
+import { Link } from "react-router-dom"
 
 
 function ProductList() {
@@ -25,7 +26,7 @@ function ProductList() {
           ))
         }
       </article>
-      <button className="user_page_right_add_product"><Plus size={30}/></button>
+      <Link to={"/user/productos/add/new"} className="user_page_right_add_product"><Plus size={30}/></Link>
     </section>
   )
 }
