@@ -106,18 +106,27 @@ export const users = [
       id: 1,
       img: 'jorge.png',
       state: 'online',
-      name: 'jorge'
+      name: 'jorge',
+      order: 'ORD12382',
+      div: 'DACITY',
+      edi: 'Edicio H'
   },
   {
       id: 2,
       img: 'jacquelina.png',
       state: 'offline',
-      name: 'jacquelina'
+      name: 'jacquelina',
+      order: 'ORD12345',
+      div: 'DAIA',
+      edi: 'Edicio A'
   },
   {
       id: 3,
       img: 'loya.png',
       state: 'offline',
-      name: 'loya'
+      name: 'loya',
+      order: 'ORD12398',
+      div: 'DACB',
+      edi: 'Edicio X'
   },
 ]
