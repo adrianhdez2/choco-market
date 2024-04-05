@@ -1,11 +1,11 @@
 import { Link } from 'react-router-dom'
-
+import { Search } from 'lucide-react'
 function Nav() {
     return (
         <nav className='header_nav'>
             <div className='header_nav_search'>
                 <input type="text" name="search" id="search" placeholder='Botanitas, pastel, dulces...' autoComplete='off' />
-                <button type='button' className='header_nav_btnSearch'>B</button>
+                <button type='button' className='header_nav_btnSearch'><Search/></button>
             </div>
             <div className='header_nav_filters'>
                 <Link className="nav_filter" to={"/search?q=comida"}>Comida</Link>
