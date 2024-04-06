@@ -8,18 +8,18 @@ export const useDate = date => {
     let month = ''
 
     const months = [
-        "Enero",
-        "Febrero",
-        "Marzo",
-        "Abril",
-        "Mayo",
-        "Junio",
-        "Julio",
-        "Agosto",
-        "Septiembre",
-        "Octubre",
-        "Noviembre",
-        "Diciembre"]
+        "En",
+        "Feb",
+        "Mar",
+        "Abr",
+        "May",
+        "Jun",
+        "Jul",
+        "Agto",
+        "Sept",
+        "Oct",
+        "Nov",
+        "Dic"]
 
     month = months[monthIndex]
 
