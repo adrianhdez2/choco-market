@@ -119,7 +119,7 @@ export const users = [
     state: 'online',
     name: 'jorge',
     order: 'ORD12382',
-    div: 'DACITY',
+    div: 'DACYTI',
     edi: 'Edicio H'
   },
   {
