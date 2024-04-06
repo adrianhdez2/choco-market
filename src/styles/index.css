@@ -1835,7 +1835,7 @@ input[type="number"]::-webkit-outer-spin-button {
 /* USER - ORDERS */
 
 .card_orders,
-.card_orders_more  {
+.card_orders_more {
     width: 100%;
     max-width: 170px;
     height: 100px;
@@ -1930,14 +1930,237 @@ input[type="number"]::-webkit-outer-spin-button {
     color: var(--white-23);
 }
 
-.card_orders_more .ver{
+.card_orders_more .ver {
     color: var(--primary);
     font-weight: bold;
     font-size: 16px;
 }
-.card_orders_more .mas{
+
+.card_orders_more .mas {
     font-size: 16px;
     font-weight: bold;
+}
+
+/* USER - EDITAR */
+
+.settings_container {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    overflow-y: auto;
+}
+
+.settings_container_top {
+    width: 100%;
+    height: 90%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-direction: column;
+}
+
+.settings_container_top_info {
+    width: 100%;
+    height: 30%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.settings_container_top_info_user {
+    width: 50%;
+    height: 100%;
+    display: flex;
+    align-items: start;
+    justify-content: start;
+}
+
+.settings_img_user_container {
+    width: 25%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    justify-content: center;
+    row-gap: 10px;
+}
+
+.settings_details_user_container {
+    width: 75%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    justify-content: center;
+    color: var(--white-48);
+    padding: 0 10px;
+}
+
+.img_user {
+    width: 80px;
+    height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    border-radius: 100%;
+    cursor: pointer;
+    transition: all .3s ease-in-out;
+}
+
+.settings_img_user {
+    width: 100%;
+    height: 100%;
+}
+
+.img_user:hover .hover_cam {
+    display: flex;
+}
+
+.hover_cam {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 100%;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--black-50);
+    transition: all .3s ease-in-out;
+}
+
+.icon_hover_cam {
+    stroke: var(--gray-secondary);
+}
+
+.settings_img_user_div {
+    font-size: 16px;
+    font-weight: bold;
+    color: var(--white-48);
+}
+
+.settings_user_id {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.settings_user_type {
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.settings_container_top_info_state {
+    width: 50%;
+    height: 100%;
+    align-items: start;
+    justify-content: end;
+    display: flex;
+}
+
+.settings_container_top_changes {
+    width: 100%;
+    height: 55%;
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    justify-content: space-evenly;
+}
+
+.settings_container_inputs {
+    width: 100%;
+    height: auto;
+    display: flex;
+    align-items: center;
+    justify-content: start;
+    column-gap: 10px;
+    padding-top: 10px;
+}
+
+.settings_input_label {
+    font-size: 16px;
+    font-weight: 700;
+}
+
+.settings_input {
+    width: 200px;
+    font-size: 16px;
+    background-color: transparent;
+    border: 1px solid transparent;
+    outline: none;
+    padding: 5px;
+    margin: 0;
+    color: var(--white);
+    border-radius: 5px;
+    transition: all .3s ease-in-out;
+    background-color: var(--white-08);
+}
+
+.settings_input:focus:not(:read-only) {
+    border: 1px solid var(--secondary);
+}
+
+.settings_input_icon {
+    stroke: var(--white-48);
+    cursor: pointer;
+    transition: all .3s ease-in-out;
+}
+
+.settings_input_icon:hover {
+    stroke: var(--white);
+}
+
+.settings_container_top_password {
+    width: 100%;
+    height: 15%;
+    display: flex;
+    align-items: center;
+    justify-content: start;
+    column-gap: 10px;
+}
+
+.settings_container_bottom {
+    width: 100%;
+    height: 10%;
+    display: flex;
+    align-items: end;
+    justify-content: space-between;
+}
+
+.settings_date {
+    color: var(--white-23);
+    font-size: 14px;
+}
+
+.settings_container_bottom button {
+    padding: 8px 20px;
+    border-radius: 10px;
+    border: none;
+    outline: none;
+    background-color: var(--background-log-out);
+    color: var(--white);
+    cursor: pointer;
+    transition: all .3s ease-in-out;
+    font-size: 14px;
+}
+
+.settings_container_bottom button:hover,
+.settings_container_bottom button :active {
+    background-color: var(--background-log-out-hover);
+}
+
+.settings_container_top_password .btn_primary {
+    background-color: var(--primary-50);
+}
+
+.settings_container_top_password .btn_primary:not(:disabled):hover,
+.settings_container_top_password .btn_primary:not(:disabled):active {
+    background-color: var(--primary-80);
+    cursor: pointer;
 }
 
 /* FOOTER */
@@ -2060,6 +2283,82 @@ input[type="number"]::-webkit-outer-spin-button {
     .addProduct_container_top {
         flex-direction: column;
         justify-content: start;
+    }
+
+    .settings_container {
+        justify-content: start;
+    }
+
+    .settings_container_top {
+        height: auto;
+    }
+
+    .settings_container_top_info {
+        flex-direction: column;
+        height: 100%;
+        justify-content: center;
+    }
+
+    .settings_container_top_info_state {
+        justify-content: start;
+        margin-top: 10px;
+    }
+
+    .settings_container_top_info_user,
+    .settings_container_top_info_state {
+        width: 100%;
+    }
+
+    .settings_container_top_changes {
+        margin-top: 20px;
+        height: 100%;
+        row-gap: 10px;
+    }
+
+    .settings_container_inputs {
+        flex-direction: column;
+        align-items: start;
+    }
+
+    .settings_input_label {
+        margin-bottom: 5px;
+    }
+
+    .settings_input {
+        max-width: 340px;
+        width: 100%;
+    }
+
+    .settings_container_top_password {
+        height: 100%;
+        flex-direction: column;
+        align-items: start;
+        row-gap: 10px;
+        margin-top: 20px;
+        justify-content: start;
+        margin-top: 20px;
+    }
+
+    .settings_container_bottom button {
+        padding: 15px;
+    }
+
+    .settings_img_user_container,
+    .settings_details_user_container {
+        width: 50%;
+    }
+
+    .settings_details_user_container {
+        align-items: end;
+    }
+
+    .settings_container_bottom {
+        height: auto;
+        flex-direction: column-reverse;
+        justify-content: center;
+        align-items: start;
+        margin-top: 20px;
+        row-gap: 10px;
     }
 
     .addProduct_container_top_left,
