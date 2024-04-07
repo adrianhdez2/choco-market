@@ -1,8 +1,16 @@
 import { Camera, KeyRound, Settings as SettingIcon } from "lucide-react"
 import { useState } from "react"
 import InputEdit from "../../components/form/InputEdit"
+import UsePortals from '../../customHooks/UsePortals'
+import DeleteAccount from "../../components/portals/DeleteAccount"
 
 function Settings() {
+
+  const [isShow, setIsShow] = useState(false)
+
+  const handleModal = () => {
+    setIsShow(!isShow)
+  }
 
   const [values, setValues] = useState({
     nameUser: 'Antonio de Jesús',
@@ -53,11 +61,11 @@ function Settings() {
             </div>
           </div>
           <div className="settings_container_top_changes">
-            <InputEdit type="text" name="nameUser" value={values.nameUser} labelString={"Nombre(s)"} onChange={handleValues}/>
-            <InputEdit type="text" name="lastnameP" value={values.lastnameP} labelString={"Apellido paterno"} onChange={handleValues}/>
-            <InputEdit type="text" name="lastnameM" value={values.lastnameM} labelString={"Apellido materno"} onChange={handleValues}/>
-            <InputEdit type="tel" name="phone" value={values.phone} labelString={"Teléfono"} onChange={handleValues}/>
-            <InputEdit type="email" name="email" value={values.email} labelString={"Correo electrónico"} onChange={handleValues}/>
+            <InputEdit type="text" name="nameUser" value={values.nameUser} labelString={"Nombre(s)"} onChange={handleValues} />
+            <InputEdit type="text" name="lastnameP" value={values.lastnameP} labelString={"Apellido paterno"} onChange={handleValues} />
+            <InputEdit type="text" name="lastnameM" value={values.lastnameM} labelString={"Apellido materno"} onChange={handleValues} />
+            <InputEdit type="tel" name="phone" value={values.phone} labelString={"Teléfono"} onChange={handleValues} />
+            <InputEdit type="email" name="email" value={values.email} labelString={"Correo electrónico"} onChange={handleValues} />
           </div>
           <div className="settings_container_top_password">
             <label className="form_input">
@@ -77,9 +85,16 @@ function Settings() {
         </form>
         <div className="settings_container_bottom">
           <span className="settings_date">Último acceso 9-feb-2024</span>
-          <button type="button">Eliminar mi cuenta</button>
+          <button type="button" onClick={handleModal}>Eliminar mi cuenta</button>
         </div>
       </div>
+
+      {
+        isShow &&
+        <UsePortals>
+          <DeleteAccount handleModal={handleModal} isShow={isShow}/>
+        </UsePortals>
+      }
     </div>
   )
 }
