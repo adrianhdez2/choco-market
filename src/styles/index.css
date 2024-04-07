@@ -1975,7 +1975,6 @@ input[type="number"]::-webkit-outer-spin-button {
     height: 100%;
     display: flex;
     align-items: start;
-    justify-content: start;
 }
 
 .settings_img_user_container {
@@ -1983,9 +1982,9 @@ input[type="number"]::-webkit-outer-spin-button {
     height: 100%;
     display: flex;
     flex-direction: column;
-    align-items: start;
-    justify-content: center;
+    align-items: center;
     row-gap: 10px;
+    justify-content: center;
 }
 
 .settings_details_user_container {
@@ -2163,6 +2162,91 @@ input[type="number"]::-webkit-outer-spin-button {
     cursor: pointer;
 }
 
+/* MODAL CERRAR SESION */
+
+.container_dialog {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;    
+    background-color: var(--black-14);
+    backdrop-filter: blur(10px);
+    text-align: center;
+    row-gap: 20px;
+}
+
+.dialog {
+    width: 100%;
+    max-width: 530px;
+    height: 100%;
+    height: 350px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    background-color: var(--black-50);
+    border-radius: 30px;
+    padding: 30px 50px;
+}
+
+.dialog_title {
+    font-size: 24px;
+    font-weight: bold;
+    color: var(--primary);
+}
+
+.dialog_question {
+    font-size: 16px;
+    font-weight: bold;
+    color: var(--white);
+}
+
+.dialog_terms, .dialog_terms a {
+    font-size: 13px;
+    font-weight: bold;
+    color: var(--gray);
+}
+
+.dialog_terms a {
+    text-decoration: underline;
+}
+
+.dialog_btns {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.btn_dialog {
+    padding: 6px 20px;
+    border-radius: 10px;
+    border: none;
+    outline: none;
+    transition: all .3s ease-in-out;
+    font-size: 14px;
+}
+
+.btn_cancel {
+    background-color: var(--white-5);
+    color: var(--white);
+    cursor: pointer;
+}
+
+.btn_cancel:hover,
+.btn_cancel:active {
+    background-color: var(--white-15);
+}
+
+.expand {
+    transform: scale(.5);
+    animation: expand .3s forwards;
+}
+
 /* FOOTER */
 
 .footer {
@@ -2261,6 +2345,14 @@ input[type="number"]::-webkit-outer-spin-button {
     }
 }
 
+/* ANIMACION DE MODAL */
+
+@keyframes expand {
+    to {
+        transform: scale(1);
+    }  
+} 
+
 /* MEDIA QUERIES */
 
 @media screen and (max-width: 1040px) {
@@ -2346,6 +2438,14 @@ input[type="number"]::-webkit-outer-spin-button {
     .settings_img_user_container,
     .settings_details_user_container {
         width: 50%;
+    }
+
+    .settings_img_user_container {
+        align-items: start;
+    }
+
+    .settings_img_user_div {
+        margin-left: 10px;
     }
 
     .settings_details_user_container {
@@ -2472,6 +2572,10 @@ input[type="number"]::-webkit-outer-spin-button {
 
     .container_inputs_signup {
         align-items: center;
+    }
+
+    .dialog {
+        padding: 20px;
     }
 }
 
