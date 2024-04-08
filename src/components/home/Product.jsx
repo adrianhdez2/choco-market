@@ -5,7 +5,7 @@ import { useSubstring } from "../../customHooks/useSubstring"
 function Product({ product }) {
   const { name, descrip, img, stars, price, id_unico } = product
 
-  const { text } = useSubstring(descrip, 70)
+  const { text } = useSubstring(descrip, 60)
 
   return (
     <Link to={`/products/details/${id_unico}`} className="card_product">
