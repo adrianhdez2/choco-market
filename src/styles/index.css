@@ -2249,6 +2249,74 @@ input[type="number"]::-webkit-outer-spin-button {
     cursor: pointer;
 }
 
+/* USER - COMPRAS */
+
+.purchases.user_page_rigth_header_container {
+    width: 100%;
+    flex-direction: column;
+    overflow-y: auto;
+    justify-content: start;
+    row-gap: 15px;
+}
+
+.purchases_container {
+    width: 100%;
+    height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--black-31);
+    padding: 10px;
+    transition: all .3s ease-in-out;
+}
+
+.purchases_container:hover,
+.purchases_container:active {
+    background-color: var(--black-50);
+}
+
+.purchases_container_img {
+    width: 5%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: start;
+}
+
+.purchases_container_img img {
+    width: 100%;
+    height: auto;
+}
+
+.purchases_container_details {
+    width: 75%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    justify-content: space-between;
+    padding: 0 10px;
+}
+
+.purchases_container_details h4 {
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.purchases_container small {
+    font-size: 14px;
+    color: var(--white-48);
+}
+
+.purchases_container_total {
+    width: 20%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: end;
+    justify-content: space-between;
+}
+
 /* MODAL CERRAR SESION */
 
 .container_dialog {
