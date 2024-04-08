@@ -17,33 +17,36 @@ import Settings from './pages/user/Settings'
 import ProductList from './pages/user/ProductList'
 import ProductDetails from './pages/user/ProductDetails'
 import AddProduct from './pages/user/AddProduct'
+import Search from './pages/Search'
+import { FilterProvider } from './components/context/filters'
 
 function App() {
 
   return (
     <CartProvider>
-
-      <Header />
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/login" element={<Login />} />
-        <Route path="/signup" element={<SignUp />} />
-        <Route path="/cart" element={<Cart />} />
-        <Route path="/products/:user" element={<ProductsUser />} />
-        <Route path="/products/details/:id" element={<Details />} />
-        <Route path="*" element={<Error />} />
-        <Route path="/user" element={<User />}>
-          <Route index element={<HomeUser />} />
-          <Route path="compras" element={<Purchases />} />
-          <Route path="estadisticas" element={<Statistics />} />
-          <Route path="settings" element={<Settings />} />
-          <Route path="productos" element={<ProductList />} />
-          <Route path="productos/add/new" element={<AddProduct />} />
-          <Route path="productos/:idProducto" element={<ProductDetails />} />
-        </Route>
-      </Routes>
-      <Footer />
-
+      <FilterProvider>
+        <Header />
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/signup" element={<SignUp />} />
+          <Route path="/cart" element={<Cart />} />
+          <Route path="/products/:user" element={<ProductsUser />} />
+          <Route path="/products/details/:id" element={<Details />} />
+          <Route path='/search' element={<Search />} />
+          <Route path="/user" element={<User />}>
+            <Route index element={<HomeUser />} />
+            <Route path="compras" element={<Purchases />} />
+            <Route path="estadisticas" element={<Statistics />} />
+            <Route path="settings" element={<Settings />} />
+            <Route path="productos" element={<ProductList />} />
+            <Route path="productos/add/new" element={<AddProduct />} />
+            <Route path="productos/:idProducto" element={<ProductDetails />} />
+          </Route>
+          <Route path="*" element={<Error />} />
+        </Routes>
+        <Footer />
+      </FilterProvider>
     </CartProvider>
   )
 }
