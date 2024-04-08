@@ -543,11 +543,11 @@ a {
 
 #products {
     width: 100%;
-    display: flex;
-    flex-wrap: wrap;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+    justify-items: center;
+    align-content: start;
     gap: 15px;
-    align-items: start;
-    justify-content: center;
 }
 
 .card_product {
