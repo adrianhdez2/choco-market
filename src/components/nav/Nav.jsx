@@ -1,19 +1,25 @@
-import { Link } from 'react-router-dom'
 import { Search } from 'lucide-react'
+
 function Nav() {
     return (
         <nav className='header_nav'>
-            <div className='header_nav_search'>
-                <input type="text" name="search" id="search" placeholder='Botanitas, pastel, dulces...' autoComplete='off' />
-                <button type='button' className='header_nav_btnSearch'><Search/></button>
-            </div>
+            <form action="/search" className='header_nav_search'>
+                <input
+                    type="text"
+                    name="q"
+                    id="search"
+                    placeholder='Botanitas, pastel, dulces...'
+                    autoComplete='off'
+                />
+                <button type='submit' className='header_nav_btnSearch'><Search /></button>
+            </form>
             <div className='header_nav_filters'>
-                <Link className="nav_filter" to={"/search?q=comida"}>Comida</Link>
-                <Link className="nav_filter" to={"/search?q=bebidas"}>Bebidas</Link>
-                <Link className="nav_filter" to={"/search?q=accesorios"}>Accesorios</Link>
-                <Link className="nav_filter" to={"/search?q=dulceria"}>Dulceria</Link>
-                <Link className="nav_filter" to={"/search?q=postres"}>Postres</Link>
-                <Link className="nav_filter" to={"/search?q=otros"}>Más</Link>
+                <a className="nav_filter" href="/search?c=comida">Comida</a>
+                <a className="nav_filter" href="/search?c=bebidas">Bebidas</a>
+                <a className="nav_filter" href="/search?c=accesorios">Accesorios</a>
+                <a className="nav_filter" href="/search?c=dulceria">Dulceria</a>
+                <a className="nav_filter" href="/search?c=postres">Postres</a>
+                <a className="nav_filter" href="/search?c=all">Todos</a>
             </div>
         </nav>
     )
