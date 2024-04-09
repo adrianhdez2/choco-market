@@ -19,6 +19,7 @@ import ProductDetails from './pages/user/ProductDetails'
 import AddProduct from './pages/user/AddProduct'
 import Search from './pages/Search'
 import { FilterProvider } from './components/context/filters'
+import DetailsPurch from './pages/user/DetailsPurch'
 
 function App() {
 
@@ -37,6 +38,7 @@ function App() {
           <Route path="/user" element={<User />}>
             <Route index element={<HomeUser />} />
             <Route path="compras" element={<Purchases />} />
+            <Route path="compras/:id" element={<DetailsPurch />} />
             <Route path="estadisticas" element={<Statistics />} />
             <Route path="settings" element={<Settings />} />
             <Route path="productos" element={<ProductList />} />
