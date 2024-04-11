@@ -743,6 +743,7 @@ a {
 
 .details_movile {
     display: none;
+    color: var(--black);
 }
 
 .details_gallery {
@@ -831,6 +832,7 @@ a {
     text-align: left;
     margin-bottom: 10px;
     text-wrap: pretty;
+    color: var(--black);
 }
 
 .details_description {
