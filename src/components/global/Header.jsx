@@ -97,8 +97,7 @@ function Header() {
                             <ShoppingCart size={24} className="header_icon" />
                         </Link>
                         <Link to={"/user"} className='header_btns_user_img'>
-                            <img src="/profile.jpg" alt="Imágen del usuario ~" />
-                            <span className="header_nav_user_state online"></span>
+                            <img src="/profile.jpg" alt="Imágen del usuario" />
                         </Link>
                         <button onClick={handleMenu} className="header_btns_user_menu">
                             <MenuIcon size={24} className="menu_icon" />

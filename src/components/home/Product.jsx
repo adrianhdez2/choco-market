@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom"
-import { Star } from "lucide-react"
+import { Star, Tag } from "lucide-react"
 import { useSubstring } from "../../customHooks/useSubstring"
 
 function Product({ product }) {
@@ -9,19 +9,21 @@ function Product({ product }) {
 
   return (
     <Link to={`/products/details/${id_unico}`} className="card_product">
-      <div className="card_product_img_container">
-        <img className="card_product_img" src={`/${img}`} alt="" />
-        <span className="card_product_stars">
-          <Star size={13} className="star_icon" />
-          <span className="star_title">{stars}</span>
-        </span>
+
+      <span className="card_product_stars">
+        <Star size={14} className="star_icon"/>
+        {stars.toFixed(1)}
+      </span>
+      <div className="card_product_tag">
+        <Tag size={14} className="star_icon" />
+      </div>
+      <img src={`/${img}`} alt="images ilustrativa del producto" className="card_product_img" />
+      <div className="card_product_price_container">
+        <span className="price">${price.toFixed(2)}</span>
       </div>
       <div className="card_product_details_container">
         <h4 className="card_product_title">{name}</h4>
         <p className="card_product_description">{text}</p>
-      </div>
-      <div className="card_product_price_container">
-        <span className="card_product_price">$ {price}</span>
       </div>
     </Link>
   )

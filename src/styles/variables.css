@@ -1,10 +1,13 @@
 :root {
     --font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
 
-    --background-color: #2B2B2B;
+    --background-color: #ebebeb;
 
-    --primary: #5D7B09;
-    --primary-hover: #6a8e08;
+    --primary: #f68e41;
+    --primary-hover: #e45612;
+    --primary-300: #f9b778;
+    --primary-200: #fcd5ac;
+    --primary-100: #feecd6;
     --primary-50: rgb(93, 123, 9, 0.5);
     --primary-80: rgb(93, 123, 9, 0.8);
 
@@ -14,7 +17,7 @@
 
     --gray: #5E5E5E;
     --gray-secondary: #898989;
-    --gray-hr: #4E4E4E;
+    --gray-hr: #93939340;
     --gray-40: rgba(137, 137, 137, .4);
 
     --black: #000;
@@ -35,6 +38,7 @@
     --white-56: rgba(255, 255, 255, 0.56);
     --white-62: rgba(255, 255, 255, 0.62);
     --white-08: rgba(255, 255, 255, 0.089);
+    --white-235: rgb(235, 235, 235);
 
     --border-input: #88b40b73;
 
