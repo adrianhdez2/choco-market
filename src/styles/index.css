@@ -281,21 +281,21 @@ a {
     justify-content: center;
     width: 50px;
     height: 50px;
-    border: 2px solid var(--gray);
+    border: 2px solid var(--primary);
     transition: all .3s ease-in-out;
     cursor: pointer;
     background-color: transparent;
     font-size: 16px;
     border-radius: 10px;
-    color: var(--white);
+    color: var(--primary);
 }
 
 .header_btns_user_menu:hover {
-    background-color: var(--gray-40);
+    background-color: var(--primary-100);
 }
 
 .header_btns_user_menu:active {
-    border: 4px solid var(--gray-40);
+    border: 4px solid var(--primary-100);
 }
 
 .header_icon {
@@ -333,21 +333,21 @@ a {
     right: 20px;
     width: 50px;
     height: 50px;
-    border: 2px solid var(--gray);
+    border: 2px solid var(--primary);
     border-radius: 10px;
     transition: all .3s ease-in-out;
     outline: none;
     background-color: transparent;
-    color: var(--white);
+    color: var(--primary);
     cursor: pointer;
 }
 
 .menu>button:hover {
-    background-color: var(--gray-40);
+    background-color: var(--primary-100);
 }
 
 .menu>button:active {
-    border: 4px solid var(--gray-40);
+    border: 4px solid var(--primary-100);
 }
 
 .header_menu {
@@ -362,7 +362,7 @@ a {
 .header_menu_search {
     min-width: 100%;
     height: 70px;
-    background-color: var(--black-31);
+    background-color: var(--white);
     border-radius: 10px;
     position: relative;
     margin-bottom: 17px;
@@ -376,12 +376,12 @@ a {
     outline: none;
     padding: 10px 90px 10px 20px;
     background-color: transparent;
-    color: var(--white);
+    color: var(--black);
     font-size: 16px;
 }
 
 .header_menu_search input::placeholder {
-    color: var(--white-23);
+    color: var(--black-27);
 }
 
 .header_menu_btnSearch {
@@ -418,23 +418,19 @@ a {
 .header_menu_filters a {
     width: 100%;
     height: 100%;
-    background-color: var(--black-14);
+    background-color: var(--primary-100);
     padding: 20px 15px;
     font-size: 20px;
-    color: var(--white);
-    opacity: .5;
+    color: var(--primary);
     border-radius: 10px;
     transition: all .3s ease-in-out;
+    border: 1px solid var(--primary-200);
 }
 
-.header_menu_filters a:hover {
-    background-color: var(--primary);
-    opacity: 1;
-}
-
+.header_menu_filters a:hover,
 .header_menu_filters a:active {
     background-color: var(--primary);
-    opacity: 1;
+    color: var(--white);
 }
 
 /* SECTION HOME */
