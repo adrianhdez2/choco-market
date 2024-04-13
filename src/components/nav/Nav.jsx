@@ -10,6 +10,7 @@ function Nav() {
                     id="search"
                     placeholder='Botanitas, pastel, dulces...'
                     autoComplete='off'
+                    required
                 />
                 <button type='submit' className='header_nav_btnSearch'><Search /></button>
             </form>

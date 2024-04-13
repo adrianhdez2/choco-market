@@ -20,7 +20,7 @@ function Menu({ classActive, setIsShow }) {
             </button>
             <nav className='header_menu'>
                 <form action="/search" className='header_menu_search'>
-                    <input type="text" name="q" id="search" placeholder='Botanitas, pastel, dulces...' autoComplete='off' />
+                    <input type="text" name="q" id="search" placeholder='Botanitas, pastel, dulces...' autoComplete='off' required/>
                     <button type='submit' className='header_menu_btnSearch'>
                         <Search size={24} />
                     </button>
