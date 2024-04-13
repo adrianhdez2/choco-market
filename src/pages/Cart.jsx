@@ -48,7 +48,7 @@ function Cart() {
                     :
                     <div className="cart_empty">
                         <p>Aún no has agregado productos al carrito</p>
-                        <Link to={"/"} className="btn_home_error_page">Descubir productos</Link>
+                        <Link to={"/"} className="btn_home_error_page">Descubrir productos</Link>
                     </div>
             }
         </section>
