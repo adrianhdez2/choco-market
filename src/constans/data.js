@@ -247,7 +247,7 @@ export const users = [
     id: 1,
     img: 'jorge.png',
     state: 'online',
-    name: 'jorge',
+    name: 'Jorge',
     order: 'ORD12382',
     div: 'DACYTI',
     edi: 'Edicio H'
@@ -256,7 +256,7 @@ export const users = [
     id: 2,
     img: 'jacquelina.png',
     state: 'offline',
-    name: 'jacquelina',
+    name: 'Jacquelina',
     order: 'ORD12345',
     div: 'DAIA',
     edi: 'Edicio A'
@@ -265,7 +265,7 @@ export const users = [
     id: 3,
     img: 'loya.png',
     state: 'offline',
-    name: 'loya',
+    name: 'Antonio',
     order: 'ORD12398',
     div: 'DACB',
     edi: 'Edicio X'
