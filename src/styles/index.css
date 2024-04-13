@@ -1760,10 +1760,9 @@ a {
 .styles_input_prod {
     width: 100%;
     padding: 15px 20px;
-    border: 1px solid var(--border-input);
+    border: 1px solid var(--primary-400);
     outline: none;
-    color: var(--white);
-    background-color: var(--black-22);
+    color: var(--black);
     border-radius: 10px;
     font-size: 14px;
 }
@@ -1786,7 +1785,7 @@ a {
 }
 
 .styles_input_prod::placeholder {
-    color: var(--white-23);
+    color: var(--black-27);
 }
 
 .styles_input_prod.select option {
