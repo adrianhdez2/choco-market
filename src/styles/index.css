@@ -23,11 +23,11 @@ html {
 
 ::-webkit-scrollbar {
     width: 7px;
-    background-color: var(--gray-secondary);
+    background-color: var(--black-50);
 }
 
 ::-webkit-scrollbar-thumb {
-    background-color: var(--primary);
+    background-color: var(--primary-400);
 }
 
 body {
@@ -35,7 +35,7 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    color: var(--white);
+    color: var(--black);
     position: relative;
 }
 
@@ -56,18 +56,18 @@ a {
 }
 
 .btn_primary {
-    background-color: var(--primary);
+    background-color: var(--primary-400);
     color: var(--white);
 }
 
 .btn_secondary {
     background-color: var(--primary-100);
-    color: var(--primary);
+    color: var(--primary-400);
 }
 
 .btn_primary:not(:disabled):hover,
 .btn_primary:not(:disabled):active {
-    background-color: var(--primary-hover);
+    background-color: var(--primary-800);
     cursor: pointer;
 }
 
@@ -142,14 +142,14 @@ a {
     justify-content: center;
     border: none;
     outline: none;
-    background-color: var(--primary);
+    background-color: var(--primary-400);
     transition: all .3s ease-in-out;
     color: var(--white);
 }
 
 .header_nav_btnSearch:hover,
 .header_nav_btnSearch:active {
-    background-color: var(--primary-hover);
+    background-color: var(--primary-800);
     cursor: pointer;
 }
 
@@ -162,13 +162,13 @@ a {
 }
 
 .nav_filter {
-    color: var(--primary);
+    color: var(--primary-400);
     font-weight: 600;
     transition: all .3s ease-in-out;
 }
 
 .nav_filter:hover {
-    color: var(--primary-hover);
+    color: var(--primary-800);
 }
 
 .header_btns {
@@ -205,11 +205,11 @@ a {
 .header_btns_btn_create {
     width: 140px;
     text-align: center;
-    background-color: var(--primary);
+    background-color: var(--primary-400);
 }
 
 .header_btns_btn_create:hover {
-    background-color: var(--primary-hover);
+    background-color: var(--primary-800);
 }
 
 .header_btns_user {
@@ -237,7 +237,7 @@ a {
 }
 
 .header_btns_user_btn {
-    background-color: var(--primary);
+    background-color: var(--primary-400);
     transition: all .3s ease-in-out;
     border: none;
     outline: none;
@@ -260,7 +260,7 @@ a {
 }
 
 .header_btns_user_btn:hover {
-    background-color: var(--primary-hover);
+    background-color: var(--primary-800);
 }
 
 .header_btns_user_img {
@@ -281,13 +281,13 @@ a {
     justify-content: center;
     width: 50px;
     height: 50px;
-    border: 2px solid var(--primary);
+    border: 2px solid var(--primary-400);
     transition: all .3s ease-in-out;
     cursor: pointer;
     background-color: transparent;
     font-size: 16px;
     border-radius: 10px;
-    color: var(--primary);
+    color: var(--primary-400);
 }
 
 .header_btns_user_menu:hover {
@@ -333,12 +333,12 @@ a {
     right: 20px;
     width: 50px;
     height: 50px;
-    border: 2px solid var(--primary);
+    border: 2px solid var(--primary-400);
     border-radius: 10px;
     transition: all .3s ease-in-out;
     outline: none;
     background-color: transparent;
-    color: var(--primary);
+    color: var(--primary-400);
     cursor: pointer;
 }
 
@@ -396,14 +396,14 @@ a {
     justify-content: center;
     border: none;
     outline: none;
-    background-color: var(--primary);
+    background-color: var(--primary-400);
     transition: all .3s ease-in-out;
     color: var(--white);
 }
 
 .header_menu_btnSearch:hover,
 .header_menu_btnSearch:active {
-    background-color: var(--primary-hover);
+    background-color: var(--primary-800);
     cursor: pointer;
 }
 
@@ -421,7 +421,7 @@ a {
     background-color: var(--primary-100);
     padding: 20px 15px;
     font-size: 20px;
-    color: var(--primary);
+    color: var(--primary-400);
     border-radius: 10px;
     transition: all .3s ease-in-out;
     border: 1px solid var(--primary-200);
@@ -429,7 +429,7 @@ a {
 
 .header_menu_filters a:hover,
 .header_menu_filters a:active {
-    background-color: var(--primary);
+    background-color: var(--primary-400);
     color: var(--white);
 }
 
@@ -569,9 +569,9 @@ a {
     margin: 50px auto 100px;
     min-width: 200px;
     padding: 20px;
-    background-color: var(--black-27);
+    background-color: var(--white);
     border-radius: 20px;
-    box-shadow: 0 0 14px var(--black-27);
+    box-shadow: 0 0 14px var(--black-14);
     text-align: center;
     display: flex;
     align-items: center;
@@ -588,14 +588,14 @@ a {
 }
 
 .form_icon {
-    stroke: var(--primary);
+    stroke: var(--primary-400);
 }
 
 .title_form {
     font-size: 24px;
     font-weight: bold;
     margin-bottom: 60px;
-    color: var(--primary);
+    color: var(--primary-400);
 }
 
 .form_input {
@@ -605,10 +605,9 @@ a {
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: var(--black-22);
     border-radius: 10px;
     padding: 5px 0;
-    border: 1px solid var(--border-input);
+    border: 1px solid var(--primary-400);
 }
 
 .form_input_icon {
@@ -625,7 +624,7 @@ a {
     border: none;
     outline: none;
     height: 100%;
-    color: var(--white);
+    color: var(--black);
 }
 
 .input:not(.password) {
@@ -633,7 +632,7 @@ a {
 }
 
 .input::placeholder {
-    color: var(--white-23);
+    color: var(--black-27);
 }
 
 .input.password {
@@ -645,23 +644,23 @@ a {
 }
 
 .icon {
-    stroke: var(--primary);
+    stroke: var(--primary-400);
     cursor: pointer;
     transition: all .3s ease-in-out;
 }
 
 .icon:hover {
-    stroke: var(--primary-hover);
+    stroke: var(--primary-800);
 }
 
 .form_link_question {
-    color: var(--primary);
+    color: var(--primary-400);
     font-size: 14px;
     margin-top: 8px;
 }
 
 #form_link_account {
-    color: var(--white-56);
+    color: var(--black);
     font-size: 14px;
     margin-left: 5px;
 }
@@ -694,7 +693,7 @@ a {
 
 .forgot_password_link {
     font-size: 1rem;
-    color: var(--primary);
+    color: var(--primary-400);
 
 }
 
@@ -789,7 +788,7 @@ a {
 
 .swiper-button-next:hover,
 .swiper-button-prev:hover {
-    color: var(--primary-hover);
+    color: var(--primary-800);
 }
 
 .details_info_box {
@@ -948,7 +947,7 @@ a {
 }
 
 .btn_home_error_page {
-    color: var(--primary);
+    color: var(--primary-400);
     font-weight: 600;
     margin-top: 5px;
 }
@@ -1016,7 +1015,7 @@ a {
 
 .title_notifications {
     font-size: 14px;
-    color: var(--primary);
+    color: var(--primary-400);
 }
 
 .notifications_container {
@@ -1047,34 +1046,8 @@ a {
 }
 
 .icon_notification {
-    stroke: var(--primary);
+    stroke: var(--primary-400);
     margin-right: 10px;
-}
-
-.notification_btn_close {
-    position: absolute;
-    top: 30px;
-    right: 30px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 50px;
-    height: 50px;
-    border: 2px solid var(--gray);
-    transition: all .3s ease-in-out;
-    cursor: pointer;
-    background-color: transparent;
-    font-size: 16px;
-    border-radius: 10px;
-    color: var(--white);
-}
-
-.notification_btn_close:hover {
-    background-color: var(--gray-40);
-}
-
-.notification_btn_close:active {
-    border: 4px solid var(--gray-40);
 }
 
 /* CARRITO DE COMPRAS */
@@ -1093,7 +1066,7 @@ a {
 
 .title_cart {
     font-size: 24px;
-    color: var(--primary);
+    color: var(--primary-400);
     padding: 0 30px;
     margin-bottom: 30px;
 }
@@ -1169,7 +1142,7 @@ a {
     margin-top: 10px;
     position: absolute;
     bottom: 10px;
-    right: 10px;
+    right: 15px;
 }
 
 .cart_item_title {
@@ -1178,16 +1151,16 @@ a {
     text-align: left;
 }
 
-.cart_item_delte_btn {
+.cart_item_delete_btn {
     background-color: transparent;
     border: none;
     outline: none;
-    color: var(--black-27);
+    color: var(--black-50);
     text-decoration: underline;
     font-size: 12px;
 }
 
-.cart_item_delte_btn:hover {
+.cart_item_delete_btn:hover {
     cursor: pointer;
 }
 
@@ -1218,7 +1191,7 @@ a {
     display: flex;
     align-items: center;
     justify-content: center;
-    color: var(--primary);
+    color: var(--primary-400);
     cursor: pointer;
 }
 
@@ -1295,7 +1268,7 @@ a {
 .cart_box_hr {
     width: 100%;
     margin-bottom: 20px;
-    color: var(--gray-hr);
+    color: var(--black-14);
 }
 
 .cart_box_total {
@@ -1374,7 +1347,7 @@ a {
 }
 
 .products_search_count p {
-    color: var(--gray);
+    color: var(--black-50);
 }
 
 .products_search_select_container {
@@ -1430,7 +1403,7 @@ a {
     flex-direction: column;
     align-items: center;
     justify-content: space-between;
-    background-color: var(--background-panel-user);
+    background-color: var(--white);
 }
 
 .user_left_container_user {
@@ -1466,7 +1439,7 @@ a {
 
 .user_left_card_type {
     font-size: 12px;
-    color: var(--white-23);
+    color: var(--black-50);
 }
 
 .user_left_container_links {
@@ -1490,6 +1463,7 @@ a {
     padding: 40px;
     font-size: 16px;
     font-weight: bold;
+    color: var(--primary-400);
 }
 
 .user_left a:hover {
@@ -1566,14 +1540,14 @@ a {
 
 #order {
     background-color: var(--background-color);
-    color: var(--white);
+    color: var(--black);
     border: none;
     outline: none;
     font-size: 14px;
 }
 
 .user_page_icon {
-    stroke: var(--primary);
+    stroke: var(--primary-400);
 }
 
 .user_page_right_products {
@@ -1593,17 +1567,18 @@ a {
     width: 100%;
     max-width: 320px;
     height: 100px;
-    background-color: var(--black-31);
+    background-color: var(--white);
     border-radius: 10px;
     display: flex;
     align-items: center;
     justify-content: center;
     transition: all .3s ease-in-out;
     padding: 10px;
+    color: var(--black);
 }
 
 .card_user_page:hover {
-    background-color: var(--black-50);
+    background-color: var(--black-14);
 }
 
 .card_user_page_img {
@@ -1657,7 +1632,7 @@ a {
 .card_user_page_quantity,
 .card_user_page_date {
     font-size: 14px;
-    color: var(--white-48);
+    color: var(--black-80);
 }
 
 .user_page_right_add_product {
@@ -1666,7 +1641,7 @@ a {
     right: 0;
     width: 50px;
     height: 50px;
-    background-color: var(--primary);
+    background-color: var(--primary-400);
     border: none;
     outline: none;
     display: flex;
@@ -1679,7 +1654,7 @@ a {
 }
 
 .user_page_right_add_product:hover {
-    background-color: var(--primary-hover);
+    background-color: var(--primary-800);
 }
 
 /* USER - PRODUCTOS - AGREGAR */
@@ -1691,7 +1666,7 @@ a {
     align-items: center;
     justify-content: center;
     flex-direction: column;
-    color: var(--primary);
+    color: var(--primary-400);
 }
 
 .addProduct_container_top {
@@ -1723,7 +1698,7 @@ a {
 
 .selector_img_prod {
     width: 70%;
-    border: 4px dashed var(--primary);
+    border: 4px dashed var(--primary-400);
     height: 400px;
     display: flex;
     align-items: center;
@@ -1837,7 +1812,7 @@ input[type="number"]::-webkit-outer-spin-button {
     width: 100%;
     max-width: 170px;
     height: 100px;
-    background-color: var(--black-31);
+    background-color: var(--white);
     border-radius: 10px;
     display: flex;
     flex-direction: column;
@@ -1845,12 +1820,13 @@ input[type="number"]::-webkit-outer-spin-button {
     justify-content: center;
     padding: 10px;
     transition: all .3s ease-in-out;
+    color: var(--black);
 }
 
 .card_orders:hover,
 .card_orders_more:hover {
-    background-color: var(--black-50);
-    box-shadow: 0px 0px 10px var(--black-50);
+    background-color: var(--white-235);
+    box-shadow: 0px 0px 10px var(--black-14);
 }
 
 .card_orders_top {
@@ -1877,7 +1853,7 @@ input[type="number"]::-webkit-outer-spin-button {
 
 .orders_location {
     font-size: 10px;
-    color: var(--white-23);
+    color: var(--black-50);
 }
 
 .orders_quantity {
@@ -1906,7 +1882,7 @@ input[type="number"]::-webkit-outer-spin-button {
 
 .orders_division {
     text-transform: uppercase;
-    color: var(--primary-50);
+    color: var(--primary-300);
 }
 
 .card_orders_bottom span {
@@ -1921,15 +1897,14 @@ input[type="number"]::-webkit-outer-spin-button {
     width: 20px;
     height: 20px;
     border-radius: 100%;
-    opacity: .5;
 }
 
 .orders_user {
-    color: var(--white-23);
+    color: var(--black-50);
 }
 
 .card_orders_more .ver {
-    color: var(--primary);
+    color: var(--primary-400);
     font-weight: bold;
     font-size: 16px;
 }
@@ -1982,7 +1957,7 @@ input[type="number"]::-webkit-outer-spin-button {
     flex-direction: column;
     align-items: center;
     row-gap: 10px;
-    justify-content: center;
+    justify-content: center; 
 }
 
 .settings_details_user_container {
@@ -1992,7 +1967,7 @@ input[type="number"]::-webkit-outer-spin-button {
     flex-direction: column;
     align-items: start;
     justify-content: center;
-    color: var(--white-48);
+    color: var(--black-50);
     padding: 0 10px;
 }
 
@@ -2032,13 +2007,13 @@ input[type="number"]::-webkit-outer-spin-button {
 }
 
 .icon_hover_cam {
-    stroke: var(--gray-secondary);
+    stroke: var(--primary-800);
 }
 
 .settings_img_user_div {
     font-size: 16px;
-    font-weight: bold;
-    color: var(--white-48);
+    font-weight: bold;   
+    color: var(--black-50);
 }
 
 .settings_user_id {
@@ -2091,24 +2066,13 @@ input[type="number"]::-webkit-outer-spin-button {
     outline: none;
     padding: 5px;
     margin: 0;
-    color: var(--white);
+    color: var(--black);
     border-radius: 5px;
     transition: all .3s ease-in-out;
-    background-color: var(--white-08);
 }
 
 .settings_input:focus:not(:read-only) {
-    border: 1px solid var(--secondary);
-}
-
-.settings_input_icon {
-    stroke: var(--white-48);
-    cursor: pointer;
-    transition: all .3s ease-in-out;
-}
-
-.settings_input_icon:hover {
-    stroke: var(--white);
+    border: 1px solid var(--primary-300);
 }
 
 .settings_container_top_password {
@@ -2151,12 +2115,12 @@ input[type="number"]::-webkit-outer-spin-button {
 }
 
 .settings_container_top_password .btn_primary {
-    background-color: var(--primary-50);
+    background-color: var(--primary-400);
 }
 
 .settings_container_top_password .btn_primary:not(:disabled):hover,
 .settings_container_top_password .btn_primary:not(:disabled):active {
-    background-color: var(--primary-80);
+    background-color: var(--primary-800);
     cursor: pointer;
 }
 
@@ -2176,14 +2140,15 @@ input[type="number"]::-webkit-outer-spin-button {
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: var(--black-31);
+    background-color: var(--white);
     padding: 10px;
     transition: all .3s ease-in-out;
+    color: var(--black);
 }
 
 .purchases_container:hover,
 .purchases_container:active {
-    background-color: var(--black-50);
+    background-color: var(--black-14);
 }
 
 .purchases_container_img {
@@ -2216,7 +2181,7 @@ input[type="number"]::-webkit-outer-spin-button {
 
 .purchases_container small {
     font-size: 14px;
-    color: var(--white-48);
+    color: var(--black-80);
 }
 
 .purchases_container_total {
@@ -2254,7 +2219,7 @@ input[type="number"]::-webkit-outer-spin-button {
     flex-direction: column;
     align-items: center;
     justify-content: space-between;
-    background-color: var(--black-50);
+    background-color: var(--white);
     border-radius: 30px;
     padding: 30px 50px;
 }
@@ -2262,20 +2227,20 @@ input[type="number"]::-webkit-outer-spin-button {
 .dialog_title {
     font-size: 24px;
     font-weight: bold;
-    color: var(--primary);
+    color: var(--primary-400);
 }
 
 .dialog_question {
     font-size: 16px;
     font-weight: bold;
-    color: var(--white);
+    color: var(--black);
 }
 
 .dialog_terms,
 .dialog_terms a {
     font-size: 13px;
-    font-weight: bold;
-    color: var(--gray);
+    font-weight: 600;
+    color: var(--black-50);
 }
 
 .dialog_terms a {
@@ -2299,14 +2264,15 @@ input[type="number"]::-webkit-outer-spin-button {
 }
 
 .btn_cancel {
-    background-color: var(--white-5);
-    color: var(--white);
+    background-color: transparent;
+    color: var(--primary-800);
+    border: 1px solid transparent;
     cursor: pointer;
 }
 
 .btn_cancel:hover,
 .btn_cancel:active {
-    background-color: var(--white-15);
+    border: 1px solid var(--primary-400);
 }
 
 .expand {
@@ -2362,7 +2328,7 @@ input[type="number"]::-webkit-outer-spin-button {
     width: 20px;
     height: 20px;
     border-radius: 100%;
-    border-top: 3px solid var(--primary-hover);
+    border-top: 3px solid var(--primary-800);
     animation: loading .9s infinite linear;
 }
 
