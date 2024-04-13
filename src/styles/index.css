@@ -944,6 +944,7 @@ a {
 
 .description_error_page {
     font-size: 16px;
+    color: var(--black);
 }
 
 .btn_home_error_page {
