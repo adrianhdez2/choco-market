@@ -3,22 +3,11 @@
 
     --background-color: #ebebeb;
 
-    --primary: #f68e41;
-    --primary-hover: #e45612;
+    --primary-400: #f68e41;
+    --primary-800: #e45612;
     --primary-300: #f9b778;
     --primary-200: #fcd5ac;
     --primary-100: #feecd6;
-    --primary-50: rgb(93, 123, 9, 0.5);
-    --primary-80: rgb(93, 123, 9, 0.8);
-
-    --secondary: #88B40B;
-    --secondary-45: rgba(136, 180, 11, .45);
-    --secondary-hover: rgba(79, 102, 14, 0.45);
-
-    --gray: #5E5E5E;
-    --gray-secondary: #898989;
-    --gray-hr: #93939340;
-    --gray-40: rgba(137, 137, 137, .4);
 
     --black: #000;
     --black-10: rgba(0, 0, 0, 0.1);
@@ -39,10 +28,7 @@
     --white-62: rgba(255, 255, 255, 0.62);
     --white-08: rgba(255, 255, 255, 0.089);
     --white-235: rgb(235, 235, 235);
-
-    --border-input: #88b40b73;
-
-    --background-panel-user: #101010;
+    
     --background-log-out: #893030;
     --background-log-out-hover: #6b1c1c;
 
