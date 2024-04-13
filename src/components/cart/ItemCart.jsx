@@ -22,7 +22,7 @@ function ItemCart({name, img, price, addToCart, quantity, removeFromCart, remove
                 </div>
             </div>
             <div className="cart_item_details">
-                <button className="cart_item_delte_btn" onClick={removeFromCart}>Eliminar</button>
+                <button className="cart_item_delete_btn" onClick={removeFromCart}>Eliminar</button>
             </div>
         </div>
     )
