@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { LayoutGrid } from "lucide-react";
 import { UseImagePreviews } from "../../customHooks/UseImagePreviews"
+import { LINKS } from '../../constans/data'
 
 function AddProduct() {
     const [imagePreviews, setImagePreviews] = useState([]);
@@ -58,12 +59,11 @@ function AddProduct() {
                             <h4 className="title_prod_add">Categría del producto</h4>
                             <div className="container_top_left_inputs_container">
                                 <select name="category_pro" id="category_pro" className="styles_input_prod select" onChange={handleValues} defaultValue={values.category_pro} required>
-                                    <option value="comida">Comida</option>
-                                    <option value="bebidas">Bebidas</option>
-                                    <option value="accesorios">Accesorios</option>
-                                    <option value="dulceria">Dulceria</option>
-                                    <option value="postres">Postres</option>
-                                    <option value="otros">Otros</option>
+                                    {
+                                        LINKS.filter(item => item.id !== 1).map(({id, title, filter}) => (
+                                            <option key={id} value={filter}>{title}</option>
+                                        ))
+                                    }
                                 </select>
                             </div>
                         </div>
