@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { LayoutGrid } from "lucide-react";
+import { UseImagePreviews } from "../../customHooks/UseImagePreviews"
 
 function AddProduct() {
     const [imagePreviews, setImagePreviews] = useState([]);
@@ -9,43 +10,28 @@ function AddProduct() {
         price_c: '',
         price_v: '',
         category_pro: 'comida'
-      })
-    
-      const handleValues = (e) => {
+    })
+
+    const handleValues = (e) => {
         let { target } = e
         const { name, value } = target
-    
+
         const newValues = {
-          ...values,
-          [name]: value,
+            ...values,
+            [name]: value,
         };
-    
+
         setValues(newValues);
-      }
-    
-      const handleSubmit = (e) => {
+    }
+
+    const handleSubmit = (e) => {
         e.preventDefault()
         console.log(values);
         console.log(imagePreviews)
-      }
+    }
 
     const handleFileChange = (event) => {
-        const files = event.target.files;
-        const previews = [];
-
-        for (let i = 0; i < files.length; i++) {
-            const file = files[i];
-            const reader = new FileReader();
-
-            reader.onload = (e) => {
-                previews.push(e.target.result);
-                if (previews.length === files.length) {
-                    setImagePreviews(previews);
-                }
-            };
-
-            reader.readAsDataURL(file);
-        }
+        UseImagePreviews(event, setImagePreviews)
     };
 
     return (
@@ -58,14 +44,14 @@ function AddProduct() {
                     <div className="addProduct_container_top_left">
                         <h3 className="appProduct_title">Nuevo producto</h3>
                         <div className="container_top_left_inputs">
-                            <input type="text" name="name_pro" id="name_pro" placeholder="Nombre del producto" className="styles_input_prod name" required autoComplete="off" onChange={handleValues} value={values.name_pro}/>
+                            <input type="text" name="name_pro" id="name_pro" placeholder="Nombre del producto" className="styles_input_prod name" required autoComplete="off" onChange={handleValues} value={values.name_pro} />
                             <textarea name="descrip_pro" id="descrip_pro" cols="30" rows="10" placeholder="Descripción del producto" className="styles_input_prod textarea" required autoComplete="off" onChange={handleValues} value={values.descrip_pro}></textarea>
                         </div>
                         <div className="container_top_left_inputs">
                             <h4 className="title_prod_add">Precios del producto</h4>
                             <div className="container_top_left_inputs_container">
-                                <input type="number" name="price_c" id="price_c" placeholder="Compra" className="styles_input_prod" required autoComplete="off"  onChange={handleValues} value={values.price_c} min={0} max={1000000}/>
-                                <input type="number" name="price_v" id="price_v" placeholder="Venta al público" className="styles_input_prod" required autoComplete="off" onChange={handleValues} value={values.price_v} max={1000000} min={0}/>
+                                <input type="number" name="price_c" id="price_c" placeholder="Compra" className="styles_input_prod" required autoComplete="off" onChange={handleValues} value={values.price_c} min={0} max={1000000} />
+                                <input type="number" name="price_v" id="price_v" placeholder="Venta al público" className="styles_input_prod" required autoComplete="off" onChange={handleValues} value={values.price_v} max={1000000} min={0} />
                             </div>
                         </div>
                         <div className="container_top_left_inputs">

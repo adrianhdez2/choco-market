@@ -3,10 +3,12 @@ import { useState } from "react"
 import InputEdit from "../../components/form/InputEdit"
 import UsePortals from '../../customHooks/UsePortals'
 import DeleteAccount from "../../components/portals/DeleteAccount"
+import { UseImagePreviews } from "../../customHooks/UseImagePreviews"
 
 function Settings() {
 
   const [isShow, setIsShow] = useState(false)
+  const [imagePreviews, setImagePreviews] = useState(['/users/loya.png'])
 
   const handleModal = () => {
     setIsShow(!isShow)
@@ -32,6 +34,10 @@ function Settings() {
     setValues(newValues);
   }
 
+  const handleFileChange = (event) => {
+    UseImagePreviews(event, setImagePreviews)
+  }
+
   return (
     <div className="user_page_rigth_container">
       <header className="user_page_rigth_header">
@@ -43,13 +49,12 @@ function Settings() {
             <div className="settings_container_top_info_user">
               <div className="settings_img_user_container">
                 <label className="img_user">
-                  <img src="/users/loya.png" alt="" className="settings_img_user" />
+                  <img src={imagePreviews} alt="" className="settings_img_user" />
                   <span className="hover_cam">
                     <Camera size={25} className="icon_hover_cam" />
                   </span>
-                  <input type="file" name="" id="" hidden />
+                  <input type="file" name="img_user" id="img_user" hidden accept="image/png, image/jpg, image/wepb, image/jpeg" onChange={handleFileChange} />
                 </label>
-                <small className="settings_img_user_div">DACYTI</small>
               </div>
               <div className="settings_details_user_container">
                 <span className="settings_user_id">#0012AD98</span>
@@ -92,7 +97,7 @@ function Settings() {
       {
         isShow &&
         <UsePortals>
-          <DeleteAccount handleModal={handleModal} isShow={isShow}/>
+          <DeleteAccount handleModal={handleModal} isShow={isShow} />
         </UsePortals>
       }
     </div>
