@@ -11,7 +11,6 @@ import { CartProvider } from './components/context/cart'
 import User from './pages/User'
 import HomeUser from './pages/user/HomeUser'
 import Purchases from './pages/user/Purchases'
-import Statistics from './pages/user/Statistics'
 import Settings from './pages/user/Settings'
 import ProductList from './pages/user/ProductList'
 import ProductDetails from './pages/user/ProductDetails'
@@ -37,7 +36,6 @@ function App() {
             <Route index element={<HomeUser />} />
             <Route path="compras" element={<Purchases />} />
             <Route path="compras/:id" element={<DetailsPurch />} />
-            <Route path="estadisticas" element={<Statistics />} />
             <Route path="settings" element={<Settings />} />
             <Route path="productos" element={<ProductList />} />
             <Route path="productos/add/new" element={<AddProduct />} />
