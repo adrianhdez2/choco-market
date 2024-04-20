@@ -1,4 +1,5 @@
 import { Search } from 'lucide-react'
+import { LINKS } from '../../constans/data'
 
 function Nav() {
     return (
@@ -15,12 +16,11 @@ function Nav() {
                 <button type='submit' className='header_nav_btnSearch'><Search /></button>
             </form>
             <div className='header_nav_filters'>
-                <a className="nav_filter" href="/search?c=comida">Comida</a>
-                <a className="nav_filter" href="/search?c=bebidas">Bebidas</a>
-                <a className="nav_filter" href="/search?c=accesorios">Accesorios</a>
-                <a className="nav_filter" href="/search?c=dulceria">Dulceria</a>
-                <a className="nav_filter" href="/search?c=postres">Postres</a>
-                <a className="nav_filter" href="/search?c=all">Todos</a>
+                {
+                    LINKS.map(({ id, title, filter }) => (
+                        <a key={id} className="nav_filter" href={`/search?c=${filter}`}>{title}</a>
+                    ))
+                }
             </div>
         </nav>
     )

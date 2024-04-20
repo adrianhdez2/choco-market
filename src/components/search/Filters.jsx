@@ -1,4 +1,5 @@
 import { useFilters } from "../../customHooks/useFilters"
+import { LINKS } from '../../constans/data'
 
 function Filters({ count = 0 }) {
 
@@ -27,12 +28,11 @@ function Filters({ count = 0 }) {
                 <div className="products_search_select_container">
                     <label>Filtrar por:</label>
                     <select onChange={handleChangeCategory} value={filters.category} className="products_search_select">
-                        <option value="all">Todos</option>
-                        <option value="comida">Comida</option>
-                        <option value="bebidas">Bebidas</option>
-                        <option value="postres">Postres</option>
-                        <option value="dulceria">Dulceria</option>
-                        <option value="accesorios">Accesorios</option>
+                        {
+                            LINKS.map(({id, filter, title}) => (
+                                <option key={id} value={filter}>{title}</option>
+                            ))
+                        }
                     </select>
                 </div>
             </div>

@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react"
 import { X, Search } from "lucide-react"
+import { LINKS } from "../../constans/data"
 
 function Menu({ classActive, setIsShow }) {
     const [className, setIsClassname] = useState('')
@@ -26,12 +27,11 @@ function Menu({ classActive, setIsShow }) {
                     </button>
                 </form>
                 <div className='header_menu_filters'>
-                    <a className="nav_filter" href="/search?c=comida">Comida</a>
-                    <a className="nav_filter" href="/search?c=bebidas">Bebidas</a>
-                    <a className="nav_filter" href="/search?c=accesorios">Accesorios</a>
-                    <a className="nav_filter" href="/search?c=dulceria">Dulceria</a>
-                    <a className="nav_filter" href="/search?c=postres">Postres</a>
-                    <a className="nav_filter" href="/search?c=all">Todos</a>
+                    {
+                        LINKS.map(({id, title, filter}) => (
+                            <a key={id} className="nav_filter" href={`/search?c=${filter}`}>{title}</a>
+                        ))
+                    }
                 </div>
             </nav>
         </section>
