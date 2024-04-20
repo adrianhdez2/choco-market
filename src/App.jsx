@@ -39,7 +39,7 @@ function App() {
             <Route path="settings" element={<Settings />} />
             <Route path="productos" element={<ProductList />} />
             <Route path="productos/add/new" element={<AddProduct />} />
-            <Route path="productos/:idProducto" element={<ProductDetails />} />
+            <Route path="productos/:idProducto/edit" element={<ProductDetails />} />
           </Route>
           <Route path="*" element={<Error />} />
         </Routes>

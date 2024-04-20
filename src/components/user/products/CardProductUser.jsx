@@ -9,7 +9,7 @@ function CardProductUser({ product }) {
     const { month, year, day } = useDate(date)
 
     return (
-        <Link to={`/user/productos/${id_unico}`} className="card_user_page">
+        <Link to={`/user/productos/${id_unico}/edit`} className="card_user_page">
             <div className="card_user_page_container_img">
                 <img src={`/${img}`} alt="" className="card_user_page_img" />
             </div>
