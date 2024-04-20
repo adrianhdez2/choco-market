@@ -22,13 +22,13 @@ Este proyecto está enfocada en compras y ventas de productos (e-commerce) y va 
 Clonar el repositorio (proyecto)
 
 ```bash
-  git clone https://github.com/adrianhdez2/juchi-market.git
+  git clone https://github.com/adrianhdez2/choco-market.git
 ```
 
 Ir a la carpeta
 
 ```bash
-  cd juchi-market
+  cd choco-market
 ```
 
 Instalar dependencias
@@ -45,6 +45,6 @@ Iniciar el servidor
 
 ## Colaboradores 👑
   
-<a href="https://github.com/adrianhdez2/juchi-market/graphs/contributors">
-  <img src="https://contrib.rocks/image?repo=adrianhdez2/juchi-market" />
+<a href="https://github.com/adrianhdez2/choco-market/graphs/contributors">
+  <img src="https://contrib.rocks/image?repo=adrianhdez2/choco-market" />
 </a>
