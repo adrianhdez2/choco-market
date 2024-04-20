@@ -15,7 +15,6 @@ function User() {
                 <div className="user_left_container_links">
                     <NavLink className={({ isActive }) => isActive ? 'background_select' : ''} to={"/user"} end>Principal</NavLink>
                     <NavLink className={({ isActive }) => isActive ? 'background_select' : ''} to={"/user/compras"}>Mis compras</NavLink>
-                    <NavLink className={({ isActive }) => isActive ? 'background_select' : ''} to={"/user/estadisticas"}>Mis estadisticas</NavLink>
                     <NavLink className={({ isActive }) => isActive ? 'background_select' : ''} to={"/user/productos"}>Mis productos</NavLink>
                     <NavLink className={({ isActive }) => isActive ? 'background_select' : ''} to={"/user/settings"}>Ajustes</NavLink>
                 </div>
