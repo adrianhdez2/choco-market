@@ -237,7 +237,7 @@ export const dataProducts = [
     "id_unico": "T6U7V8W9X1",
     "descrip": "Un conjunto de rotuladores permanentes de punta fina, ideales para escribir en superficies como plástico, metal o vidrio.",
     "date": "2024-02-02",
-    "category": "quesos"
+    "category": "otros"
   }
 ];
 
@@ -292,5 +292,10 @@ export const LINKS = [
     id: 4,
     title: "Quesos",
     filter: "quesos"
+  },
+  {
+    id: 5,
+    title: "Otros",
+    filter: "otros"
   }
 ]
