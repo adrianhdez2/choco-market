@@ -1387,6 +1387,12 @@ a {
     color: var(--black);
 }
 
+.not-results {
+    font-size: 16px;
+    color: var(--black);
+    font-weight: 600;
+}
+
 /* USER - PRODUCTOS */
 #user_page {
     min-width: 100%;
