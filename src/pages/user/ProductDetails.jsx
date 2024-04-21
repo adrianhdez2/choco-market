@@ -1,20 +1,23 @@
 import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom"
-import { dataProducts } from "../../constans/data";
+import { useFetchData } from '../../customHooks/useFetchData'
 
 function ProductDetails() {
+    const { products, loading } = useFetchData({ url: '/api/data.json' })
     const navigate = useNavigate()
     const { idProducto } = useParams()
     const [product, setProduct] = useState({})
 
     useEffect(() => {
-        let newProduct = dataProducts.find(product => product.id_unico === idProducto)
-        if (newProduct) {
-            setProduct(newProduct);
-        } else {
-            navigate('/user/productos')
+        if (!loading) {
+            let newProduct = products.find(product => product.id_unico === idProducto)
+            if (newProduct) {
+                setProduct(newProduct);
+            } else {
+                navigate('/user/productos')
+            }
         }
-    }, [idProducto, navigate]);
+    }, [idProducto, loading, navigate, products]);
 
     return (
         <div>Detalles del producto {product.name}</div>

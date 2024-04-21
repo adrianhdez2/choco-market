@@ -1,6 +1,8 @@
-function DetailsPurch() {
+
+const DetailsPurch = () => {
+
   return (
-    <div>DetailsPurch</div>
+    <div>Detalles de compras</div>
   )
 }
 

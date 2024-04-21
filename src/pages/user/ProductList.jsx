@@ -1,12 +1,14 @@
 import { ArrowDownWideNarrow, LayoutGrid, Plus } from "lucide-react"
-import { dataProducts } from "../../constans/data"
+
 import CardProductUser from "../../components/user/products/CardProductUser"
 import { Link } from "react-router-dom"
 import { useState } from "react";
+import { useFetchData } from "../../customHooks/useFetchData";
 
 
 function ProductList() {
   const [orderBy, setOrderBy] = useState(window.localStorage.getItem('orderBy') || 'A-Z');
+  const { products } = useFetchData({ url: '/api/data.json' })
 
   const handleChangeOrder = (e) => {
     const selectedOrder = e.target.value;
@@ -17,13 +19,13 @@ function ProductList() {
   const sortedProducts = () => {
     switch (orderBy) {
       case 'A-Z':
-        return dataProducts.slice().sort((a, b) => a.name.localeCompare(b.name));
+        return products.slice().sort((a, b) => a.name.localeCompare(b.name));
       case 'recientes':
-        return dataProducts.slice().sort((a, b) => new Date(b.date) - new Date(a.date));
+        return products.slice().sort((a, b) => new Date(b.date) - new Date(a.date));
       case 'antiguos':
-        return dataProducts.slice().sort((a, b) => new Date(a.date) - new Date(b.date));
+        return products.slice().sort((a, b) => new Date(a.date) - new Date(b.date));
       default:
-        return dataProducts;
+        return products;
     }
   };
 

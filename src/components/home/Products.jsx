@@ -1,15 +1,27 @@
 import Product from './Product'
-import { dataProducts } from '../../constans/data'
-
-
+import { useFetchData } from "../../customHooks/useFetchData"
 
 function Products() {
+
+  const { products, error, loading } = useFetchData({ url: '/api/data.json' })
+
+  if (loading) {
+    return <div>Cargando...</div>;
+  }
+
+  if (error) {
+    return <div>Oops! Parece que ocurrió un eror :c</div>;
+  }
+
   return (
     <section id="products">
       {
-        dataProducts.map((item) => (
-          <Product key={item.id} product={item} />
-        ))
+        products.length > 0 ?
+          products.map((item) => (
+            <Product key={item.id} product={item} />
+          ))
+          :
+          <p>No hay productos disponibles por el momento</p>
       }
     </section>
   )
