@@ -48,3 +48,31 @@ Iniciar el servidor
 <a href="https://github.com/adrianhdez2/choco-market/graphs/contributors">
   <img src="https://contrib.rocks/image?repo=adrianhdez2/choco-market" />
 </a>
+
+```c:
+Console.Write("Ingrese a: "); String a = Console.ReadLine();
+Console.Write("Ingrese X0: "); String x0 = Console.ReadLine();
+Console.Write("Iteraciones: "); int iter = Console.Read();
+
+int i = 0;
+
+while (i <= iter) {
+        Console.WriteLine();
+        int result = int.Parse(a) * int.Parse(x0);
+
+        int longitud = result.ToString().Length;
+        int posicionInicial = longitud / 2 - 2; // Calcula la posición inicial (resta 2 para centrar los números)
+        int longitudSubcadena = 4; // Cantidad de números centrales
+        string subcadena = result.ToString().Substring(posicionInicial, longitudSubcadena);
+
+        Console.WriteLine();
+        Console.WriteLine(i + " (" + a + ")" + " (" + x0 + ") " + "= " + result + " x" + i + " = " + subcadena + " y" + i + " = " + "0." + subcadena);
+
+
+        int xi = int.Parse(subcadena);
+        x0 = xi.ToString();
+
+        Console.WriteLine();
+        i++;
+ }
+```
