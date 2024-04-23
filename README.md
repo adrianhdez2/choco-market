@@ -49,7 +49,7 @@ Iniciar el servidor
   <img src="https://contrib.rocks/image?repo=adrianhdez2/choco-market" />
 </a>
 
-```c:
+```c
 Console.Write("Ingrese a: "); String a = Console.ReadLine();
 Console.Write("Ingrese X0: "); String x0 = Console.ReadLine();
 Console.Write("Iteraciones: "); int iter = Console.Read();
