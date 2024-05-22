@@ -466,14 +466,13 @@ a {
     min-width: 250px;
     max-width: 350px;
     height: auto;
-    background-color: var(--white);
+    /* background-color: var(--white); */
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: start;
     position: relative;
     padding-bottom: 10px;
-    box-shadow: 5px 5px 10px var(--black-14);
     overflow: hidden;
     transition: all .3s ease-in-out;
     color: var(--black);
@@ -481,8 +480,8 @@ a {
 }
 
 .card_product:hover,
-.card_product:active { 
-    background-color: var(--white-235);
+.card_product:active {     
+    box-shadow: 0 0 10px var(--black-14);
 }
 
 .card_product_stars {
