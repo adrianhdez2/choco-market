@@ -5,7 +5,7 @@ import { GoogleOAuthProvider } from '@react-oauth/google';
 import { BrowserRouter } from 'react-router-dom'
 import React from 'react'
 
-const api_key = import.meta.env.VITE_GOOGLE_API_KEY || process.env.VITE_GOOGLE_API_KEY
+const api_key = import.meta.env.VITE_SECRET_API_KEY || process.env.VITE_SECRET_API_KEY
 
 
 ReactDOM.createRoot(document.getElementById('root')).render(
