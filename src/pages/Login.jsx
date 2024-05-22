@@ -2,6 +2,8 @@ import { useState } from "react"
 import { User, KeyRound } from "lucide-react"
 import { Link } from "react-router-dom"
 import InputField from '../components/form/InputField'
+import { GoogleLogin } from '@react-oauth/google';
+import { jwtDecode } from "jwt-decode";
 
 function Login() {
   const [isShow, setIsShow] = useState(false)
@@ -37,6 +39,12 @@ function Login() {
     <div className="container_form_general">
       <div className="login container_form">
         <h3 className="title_form">Iniciar sesión</h3>
+        <GoogleLogin
+          onSuccess={credentialResponse => {
+            const decoded = jwtDecode(credentialResponse?.credential);
+            console.log(decoded);
+          }}
+        />
         <form id="login-signup-form" onSubmit={handleSubmit}>
           <InputField type={"text"} name="matricula" value={values.matricula} placeholder="Matricula" onChange={handleValues} icon={User} />
 
