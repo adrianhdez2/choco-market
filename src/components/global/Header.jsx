@@ -7,13 +7,12 @@ import Nav from '../nav/Nav'
 import Popup from "../portals/Popup"
 
 function Header() {
-    const [isLogin] = useState(true)
+    const [isLogin] = useState(localStorage.getItem('site'))
     const [isShow, setIsShow] = useState(false)
     const [classActive, setClassActive] = useState('')
     const [isWebNotif, setWebNotif] = useState(false)
     const [isClick, setIsClick] = useState(false)
     const [menuPosition, setMenuPosition] = useState({ top: window.innerHeight, left: window.innerWidth - 350 });
-
 
     const handleMenu = () => {
         setClassActive('show')
