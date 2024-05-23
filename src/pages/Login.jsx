@@ -2,8 +2,10 @@ import { useState } from "react"
 import { User, KeyRound } from "lucide-react"
 import { Link } from "react-router-dom"
 import InputField from '../components/form/InputField'
+import { useAuth } from "../components/context/authProvider"
 
 function Login() {
+  const auth = useAuth()
   const [isShow, setIsShow] = useState(false)
   const [inputType, setInputType] = useState('password')
   const [values, setValues] = useState({
@@ -25,7 +27,8 @@ function Login() {
 
   const handleSubmit = (e) => {
     e.preventDefault()
-    console.log(values);
+    auth.loginAction(values)
+    // console.log(values);
   }
 
   const handleShow = () => {

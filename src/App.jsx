@@ -18,6 +18,8 @@ import AddProduct from './pages/user/AddProduct'
 import Search from './pages/Search'
 import { FilterProvider } from './components/context/filters'
 import DetailsPurch from './pages/user/DetailsPurch'
+import AuthProvider from './components/context/authProvider'
+import PrivateRoute from './pages/user/PrivateRoute'
 
 function App() {
 
@@ -25,24 +27,29 @@ function App() {
     <CartProvider>
       <FilterProvider>
         <Header />
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/login" element={<Login />} />
-          <Route path="/signup" element={<SignUp />} />
-          <Route path="/cart" element={<Cart />} />
-          <Route path="/products/details/:id" element={<Details />} />
-          <Route path='/search' element={<Search />} />
-          <Route path="/user" element={<User />}>
-            <Route index element={<HomeUser />} />
-            <Route path="compras" element={<Purchases />} />
-            <Route path="compras/:id" element={<DetailsPurch />} />
-            <Route path="settings" element={<Settings />} />
-            <Route path="productos" element={<ProductList />} />
-            <Route path="productos/add/new" element={<AddProduct />} />
-            <Route path="productos/:idProducto/edit" element={<ProductDetails />} />
-          </Route>
-          <Route path="*" element={<Error />} />
-        </Routes>
+        <AuthProvider>
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/login" element={<Login />} />
+            <Route path="/signup" element={<SignUp />} />
+            <Route path="/cart" element={<Cart />} />
+            <Route path="/products/details/:id" element={<Details />} />
+            <Route path='/search' element={<Search />} />
+            <Route element={<PrivateRoute />}>
+              <Route path="/user" element={<User />}>
+                <Route index element={<HomeUser />} />
+                <Route path="compras" element={<Purchases />} />
+                <Route path="compras/:id" element={<DetailsPurch />} />
+                <Route path="settings" element={<Settings />} />
+                <Route path="productos" element={<ProductList />} />
+                <Route path="productos/add/new" element={<AddProduct />} />
+                <Route path="productos/:idProducto/edit" element={<ProductDetails />} />
+              </Route>
+            </Route>
+
+            <Route path="*" element={<Error />} />
+          </Routes>
+        </AuthProvider>
         <Footer />
       </FilterProvider>
     </CartProvider>

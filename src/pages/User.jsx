@@ -1,7 +1,10 @@
 import { LogOut } from "lucide-react"
 import { NavLink, Outlet } from "react-router-dom"
+import { useAuth } from "../components/context/authProvider"
 
 function User() {
+    const auth = useAuth()
+
     return (
         <section id="user_page">
             <div className="user_left">
@@ -19,7 +22,7 @@ function User() {
                     <NavLink className={({ isActive }) => isActive ? 'background_select' : ''} to={"/user/settings"}>Ajustes</NavLink>
                 </div>
                 <div className="user_left_container_button">
-                    <button>
+                    <button onClick={() => auth.logOut()}>
                         <LogOut size={20} />
                         Cerrar sesión
                     </button>
