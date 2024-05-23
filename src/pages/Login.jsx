@@ -10,7 +10,7 @@ function Login() {
   const [inputType, setInputType] = useState('password')
   const [localError, setLocalError] = useState(error)
   const [values, setValues] = useState({
-    matricula: '',
+    email: '',
     password: ''
   })
 
@@ -58,7 +58,7 @@ function Login() {
               <small className="error_dialog_text">{error}</small>
             </div>
           }
-          <InputField type={"text"} name="matricula" value={values.matricula} placeholder="Matricula" onChange={handleValues} icon={User} />
+          <InputField type={"email"} name="email" value={values.email} placeholder="Correo electrónico" onChange={handleValues} icon={User} />
 
           <InputField classN="form_input_password" classInput="password" type={inputType} name="password" value={values.password} placeholder="Contraseña" onChange={handleValues} handleShow={handleShow} icon={KeyRound} isShow={isShow} login={true} />
 
