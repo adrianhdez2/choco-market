@@ -20,6 +20,7 @@ import { FilterProvider } from './components/context/filters'
 import DetailsPurch from './pages/user/DetailsPurch'
 import AuthProvider from './components/context/authProvider'
 import PrivateRoute from './pages/user/PrivateRoute'
+import PrivateRoutesLS from './utils/PrivateRoutesLS'
 
 function App() {
 
@@ -30,8 +31,10 @@ function App() {
         <AuthProvider>
           <Routes>
             <Route path="/" element={<Home />} />
-            <Route path="/login" element={<Login />} />
-            <Route path="/signup" element={<SignUp />} />
+            <Route element={<PrivateRoutesLS/>}>
+              <Route path="/login" element={<Login />} />
+              <Route path="/signup" element={<SignUp />} />
+            </Route>
             <Route path="/cart" element={<Cart />} />
             <Route path="/products/details/:id" element={<Details />} />
             <Route path='/search' element={<Search />} />

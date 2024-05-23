@@ -19,27 +19,6 @@ const AuthProvider = ({ children }) => {
                 return;
             })
             .catch(err => console.log(err))
-
-        // try {
-        //     const response = await fetch("http://localhost:8000/login", {
-        //         method: "POST",
-        //         headers: {
-        //             "Content-Type": "application/json",
-        //         },
-        //         body: JSON.stringify(data),
-        //     });
-        //     const res = await response.json();
-        //     if (res.data) {
-        //         setUser(res.data.user);
-        //         setToken(res.token);
-        //         localStorage.setItem("site", res.token);
-        //         navigate("/user");
-        //         return;
-        //     }
-        //     throw new Error(res.message);
-        // } catch (err) {
-        //     console.error("Errooooooor" + err);
-        // }
     };
 
     const logOut = () => {
