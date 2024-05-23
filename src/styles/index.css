@@ -625,6 +625,12 @@ a {
     color: var(--black);
 }
 
+.input:-webkit-autofill,
+.input:-webkit-autofill:hover, 
+.input:-webkit-autofill:focus {
+    -webkit-box-shadow: 0 0 0px 1000px var(--white) inset;
+}
+
 .input:not(.password) {
     width: calc(100% - 34px);
 }
@@ -698,6 +704,20 @@ a {
 .forgot_password_link:hover,
 .forgot_password_link:active {
     text-decoration: underline;
+}
+
+.error_dialog {
+    width: 100%;
+    max-width: 340px;
+    margin-bottom: 15px;
+    background-color: #ff0202;
+    color: var(--white);
+    padding: 5px 15px;
+    border-radius: 5px;
+}
+
+.error_dialog_text {
+    font-size: 16px;
 }
 
 /* REGISTRO */
