@@ -18,7 +18,6 @@ import AddProduct from './pages/user/AddProduct'
 import Search from './pages/Search'
 import { FilterProvider } from './components/context/filters'
 import DetailsPurch from './pages/user/DetailsPurch'
-import AuthProvider from './components/context/authProvider'
 import PrivateRoute from './pages/user/PrivateRoute'
 import PrivateRoutesLS from './utils/PrivateRoutesLS'
 
@@ -28,7 +27,6 @@ function App() {
     <CartProvider>
       <FilterProvider>
         <Header />
-        <AuthProvider>
           <Routes>
             <Route path="/" element={<Home />} />
             <Route element={<PrivateRoutesLS/>}>
@@ -52,7 +50,6 @@ function App() {
 
             <Route path="*" element={<Error />} />
           </Routes>
-        </AuthProvider>
         <Footer />
       </FilterProvider>
     </CartProvider>
