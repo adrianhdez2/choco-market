@@ -27,29 +27,29 @@ function App() {
     <CartProvider>
       <FilterProvider>
         <Header />
-          <Routes>
-            <Route path="/" element={<Home />} />
-            <Route element={<PrivateRoutesLS/>}>
-              <Route path="/login" element={<Login />} />
-              <Route path="/signup" element={<SignUp />} />
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route element={<PrivateRoutesLS />}>
+            <Route path="/login" element={<Login />} />
+            <Route path="/signup" element={<SignUp />} />
+          </Route>
+          <Route path="/cart" element={<Cart />} />
+          <Route path="/products/details/:id" element={<Details />} />
+          <Route path='/search' element={<Search />} />
+          <Route element={<PrivateRoute />}>
+            <Route path="/user" element={<User />}>
+              <Route index element={<HomeUser />} />
+              <Route path="compras" element={<Purchases />} />
+              <Route path="compras/:id" element={<DetailsPurch />} />
+              <Route path="settings" element={<Settings />} />
+              <Route path="productos" element={<ProductList />} />
+              <Route path="productos/add/new" element={<AddProduct />} />
+              <Route path="productos/:idProducto/edit" element={<ProductDetails />} />
             </Route>
-            <Route path="/cart" element={<Cart />} />
-            <Route path="/products/details/:id" element={<Details />} />
-            <Route path='/search' element={<Search />} />
-            <Route element={<PrivateRoute />}>
-              <Route path="/user" element={<User />}>
-                <Route index element={<HomeUser />} />
-                <Route path="compras" element={<Purchases />} />
-                <Route path="compras/:id" element={<DetailsPurch />} />
-                <Route path="settings" element={<Settings />} />
-                <Route path="productos" element={<ProductList />} />
-                <Route path="productos/add/new" element={<AddProduct />} />
-                <Route path="productos/:idProducto/edit" element={<ProductDetails />} />
-              </Route>
-            </Route>
+          </Route>
 
-            <Route path="*" element={<Error />} />
-          </Routes>
+          <Route path="*" element={<Error />} />
+        </Routes>
         <Footer />
       </FilterProvider>
     </CartProvider>
