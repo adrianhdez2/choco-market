@@ -5,9 +5,10 @@ import UsePortals from '../../customHooks/UsePortals'
 import Menu from "../portals/Menu"
 import Nav from '../nav/Nav'
 import Popup from "../portals/Popup"
+import { useAuth } from "../../customHooks/useAuth"
 
 function Header() {
-    const [isLogin] = useState(localStorage.getItem('site'))
+    const { token } = useAuth()
     const [isShow, setIsShow] = useState(false)
     const [classActive, setClassActive] = useState('')
     const [isWebNotif, setWebNotif] = useState(false)
@@ -20,7 +21,7 @@ function Header() {
     }
 
     const handleWebNotif = () => {
-        if(isClick) {
+        if (isClick) {
             setIsClick(false)
         }
         setWebNotif(!isWebNotif)
@@ -84,7 +85,7 @@ function Header() {
             <div className='header_temp'></div>
             <Nav />
             {
-                isLogin ?
+                token ?
                     <div className='header_btns_user'>
                         <button className='header_btns_user_btn' id="toggleMenu" onClick={handleWebNotif}>
                             <span className="icon_notifications">

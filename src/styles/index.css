@@ -53,6 +53,10 @@ a {
     border-radius: 10px;
     font-size: 16px;
     transition: all .3s ease-in-out;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
 }
 
 .btn_primary {
@@ -63,6 +67,11 @@ a {
 .btn_secondary {
     background-color: var(--primary-100);
     color: var(--primary-400);
+}
+
+.btn_primary:disabled,
+.btn_secondary:disabled {
+    cursor: not-allowed;
 }
 
 .btn_primary:not(:disabled):hover,
@@ -479,7 +488,7 @@ a {
 }
 
 .card_product:hover,
-.card_product:active {     
+.card_product:active {
     box-shadow: 0 0 10px var(--black-14);
 }
 
@@ -626,7 +635,7 @@ a {
 }
 
 .input:-webkit-autofill,
-.input:-webkit-autofill:hover, 
+.input:-webkit-autofill:hover,
 .input:-webkit-autofill:focus {
     -webkit-box-shadow: 0 0 0px 1000px var(--white) inset;
 }
@@ -685,6 +694,10 @@ a {
     width: 200px;
 }
 
+.login .btn .loading {
+    border-top-color: var(--white);
+}
+
 #forgot_password {
     max-width: 340px;
     width: 100%;
@@ -731,6 +744,10 @@ a {
 .signup .btn {
     width: 180px;
     margin-top: 35px;
+}
+
+.signup .btn .loading {
+    border-top-color: var(--white);
 }
 
 .container_inputs_signup {
@@ -1359,7 +1376,7 @@ a {
     margin-bottom: 10px;
 }
 
-.products_search_query p span{
+.products_search_query p span {
     font-size: 18px;
     font-weight: bold;
 
@@ -1440,10 +1457,18 @@ a {
     padding: 10px;
 }
 
+.user_left_container_user .skeleton_preview {    
+    width: 65px;
+    height: 65px;
+    background-color: gray;
+    border-radius: 50%;
+}
+
 .user_left_card_img_user {
     width: 65px;
     height: 65px;
     padding: 5px;
+    border-radius: 50%;
 }
 
 .user_left_card_info_user {
@@ -2610,6 +2635,12 @@ input[type="number"]::-webkit-outer-spin-button {
     .signup {
         background-color: transparent;
         box-shadow: none;
+    }
+
+    .input:-webkit-autofill,
+    .input:-webkit-autofill:hover,
+    .input:-webkit-autofill:focus {
+        -webkit-box-shadow: 0 0 0px 1000px var(--background-color) inset;
     }
 
     .cart_empty {

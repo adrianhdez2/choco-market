@@ -1,46 +1,55 @@
 import axios from "axios";
-import { useContext, createContext, useState } from "react";
+import { createContext, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import localforage from "localforage";
 
-const AuthContext = createContext();
+export const AuthContext = createContext();
 
 const AuthProvider = ({ children }) => {
-    const [user, setUser] = useState(null);
-    const [token, setToken] = useState(localStorage.getItem("site") || "");
-    const [error, setError] = useState(""); // Estado para manejar errores
+    const [token, setToken] = useState("");
+    const [error, setError] = useState("");
+    const [loading, setLoading] = useState(false);
     const navigate = useNavigate();
+
+    useEffect(() => {
+        const loadUser = async () => {
+            try {
+                const storedToken = await localforage.getItem("token");
+                if (storedToken) {
+                    setToken(storedToken);
+                }
+            } catch (error) {
+                console.error("Failed to retrieve user from localForage", error);
+            }
+        };
+        loadUser();
+    }, []);
 
     const loginAction = async (data) => {
         try {
-            const res = await axios.post("http://localhost:8000/login", data);
-            setUser(res.data[0]); 
-            setToken(res.data[0]?.token); 
-            localStorage.setItem("site", res.data.token);
+            setLoading(true);
+            const res = await axios.post("http://localhost:8000/api/users/login", data);
+            setToken(res.data.token);
+            await localforage.setItem("token", res.data.token);
             navigate("/user");
-            window.location.reload();
+            setLoading(false);
         } catch (err) {
-            console.error(err);
             setError(err.response?.data?.error || "Error de inicio de sesión");
+            setLoading(false);
         }
     };
 
-    const logOut = () => {
-        setUser(null);
+    const logOut = async () => {
         setToken("");
-        localStorage.removeItem("site");
+        await localforage.removeItem("token");
         navigate("/login");
-        window.location.reload();
     };
 
     return (
-        <AuthContext.Provider value={{ token, user, loginAction, logOut, error }}>
+        <AuthContext.Provider value={{ token, loginAction, logOut, error, loading }}>
             {children}
         </AuthContext.Provider>
     );
 };
 
 export default AuthProvider;
-
-export const useAuth = () => {
-    return useContext(AuthContext);
-};

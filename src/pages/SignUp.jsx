@@ -1,14 +1,17 @@
-import { User, KeyRound, Phone } from "lucide-react"
+import { User, KeyRound, Mail } from "lucide-react"
 import { useState } from "react"
-import { Link } from "react-router-dom"
+import { Link, useNavigate } from "react-router-dom"
 import InputField from "../components/form/InputField"
+import Button from "../components/form/Button"
+import axios from "axios"
 
 function SignUp() {
+  const navigate = useNavigate()
   const [values, setValues] = useState({
     names: '',
     lastnameP: '',
     lastnameM: '',
-    phone: '',
+    email: '',
     password: '',
     passwordConfirm: ''
   })
@@ -25,9 +28,28 @@ function SignUp() {
     setValues(newValues);
   }
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault()
-    console.log(values);
+
+    if (values.password === values.passwordConfirm) {
+      await axios.post("http://localhost:8000/api/users/register", values)
+        .then(res => {
+          setValues({
+            names: '',
+            lastnameP: '',
+            lastnameM: '',
+            email: '',
+            password: '',
+            passwordConfirm: ''
+          })
+
+          navigate('/login')
+        })
+
+
+    } else {
+      console.error("Las contraseñas no coinciden");
+    }
   }
 
   return (
@@ -41,13 +63,13 @@ function SignUp() {
           </div>
           <div className="container_inputs_signup">
             <InputField type={"text"} name="lastnameM" value={values.lastnameM} placeholder="Apellidos maternos" onChange={handleValues} icon={User} />
-            <InputField type={"tel"} name="phone" value={values.phone} placeholder="Teléfono" onChange={handleValues} icon={Phone} />
+            <InputField type={"email"} name="email" value={values.email} placeholder="Correo electrónico" onChange={handleValues} icon={Mail} />
           </div>
           <div className="container_inputs_signup">
             <InputField type={"password"} name="password" value={values.password} placeholder="Contraseña" onChange={handleValues} icon={KeyRound} />
             <InputField type={"password"} name="passwordConfirm" value={values.passwordConfirm} placeholder="Confirmar contraseña" onChange={handleValues} icon={KeyRound} />
           </div>
-          <button className="btn btn_primary" type="submit">Registrarme</button>
+          <Button loading={false} title={'Registrarme'} />
         </form>
         <p className="form_link_question">¿Ya tienes cuenta?
           <Link to={"/login"} id="form_link_account">Entrar</Link>

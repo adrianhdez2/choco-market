@@ -1,11 +1,12 @@
 import { useEffect, useState } from "react"
-import { User, KeyRound } from "lucide-react"
+import { Mail, KeyRound } from "lucide-react"
 import { Link } from "react-router-dom"
 import InputField from '../components/form/InputField'
-import { useAuth } from "../components/context/authProvider"
+import Button from "../components/form/Button"
+import { useAuth } from "../customHooks/useAuth"
 
 function Login() {
-  const { loginAction, error } = useAuth();
+  const { loginAction, error, loading } = useAuth();
   const [isShow, setIsShow] = useState(false)
   const [inputType, setInputType] = useState('password')
   const [localError, setLocalError] = useState(error)
@@ -47,6 +48,7 @@ function Login() {
     }
   }, [error]);
 
+
   return (
     <div className="container_form_general">
       <div className="login container_form">
@@ -58,14 +60,16 @@ function Login() {
               <small className="error_dialog_text">{error}</small>
             </div>
           }
-          <InputField type={"email"} name="email" value={values.email} placeholder="Correo electrónico" onChange={handleValues} icon={User} />
+          <InputField type={"email"} name="email" value={values.email} placeholder="Correo electrónico" onChange={handleValues} icon={Mail} />
 
           <InputField classN="form_input_password" classInput="password" type={inputType} name="password" value={values.password} placeholder="Contraseña" onChange={handleValues} handleShow={handleShow} icon={KeyRound} isShow={isShow} login={true} />
 
           <div id="forgot_password">
             <a className="forgot_password_link" href="#" >Olvidé mi contraseña</a>
           </div>
-          <button className="btn btn_primary" type="submit">Entrar</button>
+          
+
+          <Button loading={loading} title={'Entrar'} />
         </form>
         <p className="form_link_question">¿No tienes cuenta?
           <Link to={"/signup"} id="form_link_account">Registrarme</Link>
