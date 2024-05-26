@@ -5,10 +5,9 @@ import UsePortals from '../../customHooks/UsePortals'
 import Menu from "../portals/Menu"
 import Nav from '../nav/Nav'
 import Popup from "../portals/Popup"
-import { useAuth } from "../../customHooks/useAuth"
 
 function Header() {
-    const { token } = useAuth()
+    const [login] = useState(false)
     const [isShow, setIsShow] = useState(false)
     const [classActive, setClassActive] = useState('')
     const [isWebNotif, setWebNotif] = useState(false)
@@ -85,7 +84,7 @@ function Header() {
             <div className='header_temp'></div>
             <Nav />
             {
-                token ?
+                login ?
                     <div className='header_btns_user'>
                         <button className='header_btns_user_btn' id="toggleMenu" onClick={handleWebNotif}>
                             <span className="icon_notifications">

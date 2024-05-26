@@ -33,26 +33,27 @@ function SignUp() {
 
   const handleSubmit = async (e) => {
     e.preventDefault()
+    setLoading(true)
 
-    try {
-      setLoading(true)
-      const res = await axios.post("http://localhost:8000/api/users/register", values)
-      if (res.status == 200) {
-        setValues({
-          names: '',
-          lastnameP: '',
-          lastnameM: '',
-          email: '',
-          password: '',
-          passwordConfirm: ''
-        })
-
-        navigate('/login')
-      }
-    } catch (err) {
-      setError(err.response?.data?.error || "Error de inicio de sesión");
-      setLoading(false);
-    }
+    axios.post("http://localhost:8000/api/users/register", values)
+      .then(res => {
+        if (res.status == 200) {
+          setValues({
+            names: '',
+            lastnameP: '',
+            lastnameM: '',
+            email: '',
+            password: '',
+            passwordConfirm: ''
+          })
+          navigate('/login')
+          setLoading(false)
+        }
+      })
+      .catch(err => {
+        setError(err.response?.data?.error || "Error de inicio de sesión")
+        setLoading(false)
+      })
   }
 
   useEffect(() => {

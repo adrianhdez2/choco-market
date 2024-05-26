@@ -1,19 +1,19 @@
 import { useEffect, useState } from "react"
 import { Mail, KeyRound } from "lucide-react"
-import { Link } from "react-router-dom"
+import { Link, useNavigate } from "react-router-dom"
 import InputField from '../components/form/InputField'
 import Button from "../components/form/Button"
-import { useAuth } from "../customHooks/useAuth"
-
+import axios from "axios"
 function Login() {
-  const { loginAction, error, loading } = useAuth();
   const [isShow, setIsShow] = useState(false)
   const [inputType, setInputType] = useState('password')
-  const [localError, setLocalError] = useState(error)
+  const [loading, setLoading] = useState(false)
+  const [error, setError] = useState("")
   const [values, setValues] = useState({
     email: '',
     password: ''
   })
+  const navigate = useNavigate()
 
   const handleValues = (e) => {
     let { target } = e
@@ -27,9 +27,22 @@ function Login() {
     setValues(newValues);
   }
 
+  axios.defaults.withCredentials = true
+
   const handleSubmit = (e) => {
     e.preventDefault()
-    loginAction(values)
+    setLoading(true)
+    axios.post("http://localhost:8000/api/users/login", values)
+      .then(res => {
+        if (res.status == 200) {
+          navigate('/user')
+          setLoading(false)
+        }
+      })
+      .catch(err => {
+        setError(err.response?.data?.error || "Error de inicio de sesión")
+        setLoading(false)
+      })
   }
 
   const handleShow = () => {
@@ -39,15 +52,14 @@ function Login() {
 
   useEffect(() => {
     if (error) {
-      setLocalError(error);
+      setError(error);
       const timer = setTimeout(() => {
-        setLocalError('');
+        setError('');
       }, 3000);
 
       return () => clearTimeout(timer);
     }
   }, [error]);
-
 
   return (
     <div className="container_form_general">
@@ -55,7 +67,7 @@ function Login() {
         <h3 className="title_form">Iniciar sesión</h3>
         <form id="login-signup-form" onSubmit={handleSubmit}>
           {
-            localError &&
+            error &&
             <div className="error_dialog">
               <small className="error_dialog_text">{error}</small>
             </div>
@@ -65,9 +77,9 @@ function Login() {
           <InputField classN="form_input_password" classInput="password" type={inputType} name="password" value={values.password} placeholder="Contraseña" onChange={handleValues} handleShow={handleShow} icon={KeyRound} isShow={isShow} login={true} />
 
           <div id="forgot_password">
-            <a className="forgot_password_link" href="#" >Olvidé mi contraseña</a>
+            <Link className="forgot_password_link" to={"/forgotPassword"} >Olvidé mi contraseña</Link>
           </div>
-          
+
 
           <Button loading={loading} title={'Entrar'} />
         </form>

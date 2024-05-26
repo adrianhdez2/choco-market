@@ -1,18 +1,19 @@
 import { Eye, EyeOff } from "lucide-react";
 
 function InputField({
-            type,
-            value,
-            name,
-            placeholder,
-            onChange,
-            icon: Icon,
-            login = false,
-            isShow = false,
-            handleShow = undefined,
-            classN = 'form_input_user',
-            classInput = ''
-        }) {
+    type,
+    value,
+    name,
+    placeholder,
+    onChange,
+    icon: Icon,
+    login = false,
+    isShow = false,
+    handleShow = undefined,
+    classN = 'form_input_user',
+    classInput = '',
+    onlyPass = false
+}) {
 
 
     return (
@@ -32,6 +33,7 @@ function InputField({
                 pattern={type === "tel" ? '[0-9]{10}' : undefined}
                 minLength={type === "password" ? '8' : undefined}
                 required
+                readOnly={onlyPass ? true : undefined}
             />
             {
                 login && <span className="form_input_icon show_pass" onClick={handleShow}>
