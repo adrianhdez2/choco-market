@@ -586,6 +586,30 @@ a {
     flex-direction: column;
 }
 
+.container_form_password {
+    margin: 50px auto 100px;
+    width: 100%;
+    max-width: 350px;
+    padding: 20px;
+    background-color: var(--white);
+    border-radius: 20px;
+    box-shadow: 0 0 14px var(--black-14);
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.container_form_password .btn_primary {
+    width: 100%;
+    max-width: 340px;
+}
+
+.container_form_password h3 {
+    margin-bottom: 30px;
+}
+
 #login-signup-form {
     width: 100%;
     display: flex;
@@ -694,7 +718,8 @@ a {
     width: 200px;
 }
 
-.login .btn .loading {
+.login .btn .loading,
+.container_form_password .btn .loading {
     border-top-color: var(--white);
 }
 
@@ -2632,7 +2657,8 @@ input[type="number"]::-webkit-outer-spin-button {
 
     .info_box,
     .login,
-    .signup {
+    .signup,
+    .container_form_password {
         background-color: transparent;
         box-shadow: none;
     }
