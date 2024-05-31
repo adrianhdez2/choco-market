@@ -1,13 +1,14 @@
 import { useEffect, useState } from "react"
-import { Link } from "react-router-dom"
+import { Link, useNavigate } from "react-router-dom"
 import { Bell, Menu as MenuIcon, ShoppingCart } from "lucide-react"
 import UsePortals from '../../customHooks/UsePortals'
 import Menu from "../portals/Menu"
 import Nav from '../nav/Nav'
 import Popup from "../portals/Popup"
+import axios from "axios"
 
 function Header() {
-    const [login] = useState(false)
+    const [login, setLogin] = useState(false)
     const [isShow, setIsShow] = useState(false)
     const [classActive, setClassActive] = useState('')
     const [isWebNotif, setWebNotif] = useState(false)
@@ -77,6 +78,16 @@ function Header() {
     }, [isClick, isWebNotif])
 
 
+    axios.defaults.withCredentials = true;
+    const navigate = useNavigate();
+
+    useEffect(() => {
+        axios.get("http://localhost:3001/users/verify")
+            .then(res => {
+                res.data.status ? setLogin(true) : setLogin(false)
+            })
+            .catch(error => console.log("Error en la verficación de usuario: ", error.response ? error.response.data : error.message));
+    }, [navigate]);
 
 
     return (

@@ -1,32 +1,61 @@
 import { NavLink, useNavigate } from 'react-router-dom'
 import { LogOut } from 'lucide-react'
 import axios from 'axios'
+import { useEffect, useState } from 'react'
 
 export default function LeftContainer() {
+    const [data, setData] = useState({})
+    const [loading, setLoading] = useState(false)
     const navigate = useNavigate()
     axios.defaults.withCredentials = true
 
     const handleLogOut = () => {
-        axios.get('http://localhost:8000/api/users/logout')
+        axios.post('http://localhost:3001/auth/logout')
             .then(res => {
-                console.log(res);
-                // navigate('/login'); 
+                if (res.data?.status) navigate('/login');
             })
             .catch(error => {
                 console.log("Error en logout:", error.response ? error.response.data : error.message);
             });
     }
 
+    useEffect(() => {
+        setLoading(true)
+        axios.get('http://localhost:3001/users/verify')
+            .then(res => {
+                if (res.data.status) {
+                    axios.post('http://localhost:3001/users/user', {status: res.data.status})
+                        .then(res => {
+                            setData(res.data)
+                            setLoading(false)
+                        })
+                        .catch(error => {
+                            console.log("Error obtener los datos de usuario:", error.response ? error.response.data : error.message);
+                            setLoading(false)
+                        });
+                }
+            })
+            .catch(error => {
+                console.log("Error en la verficación de usuario: ", error.response ? error.response.data : error.message);
+                setLoading(false)
+            });
+    }, [])
+
     return (
         <>
             <div className="user_left_container_user">
-                <img className="user_left_card_img_user" src={`/users/loya.png}`} alt={`Imagen de loya}`} />
+                {
+                    loading ?
+                        <div className="skeleton_preview"></div>
+                        :
+                        <img className="user_left_card_img_user" src={data.picture} alt={`Imagen de ${data.names}`} />
+                }
                 <div className="user_left_card_info_user">
                     <h4 className="user_left_card_title">
-                        antonio loya
+                        {loading ? 'Cargando...' : data.full_name}
                     </h4>
                     <small className="user_left_card_type">
-                        cliente
+                        {loading ? 'Cargando' : data.user_role}
                     </small>
                 </div>
             </div>

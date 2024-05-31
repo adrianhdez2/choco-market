@@ -2018,7 +2018,7 @@ input[type="number"]::-webkit-outer-spin-button {
 }
 
 .settings_container_top_info_user {
-    width: 50%;
+    width: 100%;
     height: 100%;
     display: flex;
     align-items: start;
@@ -2057,6 +2057,7 @@ input[type="number"]::-webkit-outer-spin-button {
 
 .settings_img_user {
     width: 100%;
+    min-width: 100px;
     height: 100%;
     border-radius: 50%;
 }
@@ -2160,7 +2161,7 @@ input[type="number"]::-webkit-outer-spin-button {
 }
 
 .settings_date {
-    color: var(--white-23);
+    color: var(--black-50);
     font-size: 14px;
 }
 
@@ -2174,6 +2175,7 @@ input[type="number"]::-webkit-outer-spin-button {
     cursor: pointer;
     transition: all .3s ease-in-out;
     font-size: 14px;
+    margin-right: 10px;
 }
 
 .settings_container_bottom button:hover,
@@ -2529,10 +2531,11 @@ input[type="number"]::-webkit-outer-spin-button {
         margin-top: 20px;
         justify-content: start;
         margin-top: 20px;
-    }
+    }    
 
     .settings_container_bottom button {
         padding: 15px;
+        margin-bottom: 10px;
     }
 
     .settings_img_user_container,

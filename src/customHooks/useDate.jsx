@@ -26,7 +26,8 @@ export const useDate = date => {
     return {
         month,
         year,
-        day
+        day,
+        monthIndex
     }
 
 }

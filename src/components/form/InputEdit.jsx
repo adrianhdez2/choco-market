@@ -1,4 +1,4 @@
-function InputEdit({ name, type, onChange, value, labelString, edit, onFocus }) {
+function InputEdit({ name, type, onChange, value, labelString, edit, onFocus, disabled = false }) {
     return (
         <div className="settings_container_inputs">
             <label className="settings_input_label">{labelString}:</label>
@@ -14,6 +14,7 @@ function InputEdit({ name, type, onChange, value, labelString, edit, onFocus }) 
                 autoComplete="off"
                 readOnly={edit}
                 onFocus={onFocus}
+                disabled={disabled ? true : undefined}
             />
         </div>
     )

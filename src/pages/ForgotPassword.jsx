@@ -14,13 +14,13 @@ function ForgotPassword() {
     const handleSubmit = (e) => {
         e.preventDefault()
         setLoading(true)
-        axios.post("http://localhost:8000/api/users/forgot-password", values)
+        axios.post("http://localhost:3001/auth/forgot-password", values)
             .then(res => {
                 setEstate(res.data.status);
                 setLoading(false)
             })
             .catch(err => {
-                setError(err.response?.data?.error || "Error de inicio de sesión")
+                setError(err.response?.data?.error || "Error al enviar el enlace")
                 setLoading(false)
                 setEstate(false)
             })

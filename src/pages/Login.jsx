@@ -14,7 +14,6 @@ function Login() {
     password: ''
   })
   const navigate = useNavigate()
-
   const handleValues = (e) => {
     let { target } = e
     const { name, value } = target
@@ -32,7 +31,7 @@ function Login() {
   const handleSubmit = (e) => {
     e.preventDefault()
     setLoading(true)
-    axios.post("http://localhost:8000/api/users/login", values)
+    axios.post("http://localhost:3001/auth/login", values)
       .then(res => {
         if (res.status == 200) {
           navigate('/user')

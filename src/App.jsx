@@ -20,6 +20,8 @@ import { FilterProvider } from './components/context/filters';
 import DetailsPurch from './pages/user/DetailsPurch';
 import ForgotPassword from './pages/ForgotPassword';
 import ResetPassword from './pages/ResetPassword';
+import { PrivateRoutes } from './utils/PrivateRoute';
+import { PublicRoutes } from './utils/PublicRoutes';
 
 function App() {
   return (
@@ -28,14 +30,14 @@ function App() {
         <Header />
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/login" element={<Login />} />
-          <Route path="/signup" element={<SignUp />} />
-          <Route path="/forgotPassword" element={<ForgotPassword />} />
-          <Route path="/resetPassword/:token" element={<ResetPassword />} />
+          <Route path="/login" element={<PublicRoutes element={<Login />} />} />
+          <Route path="/signup" element={<PublicRoutes element={<SignUp />}/>} />
+          <Route path="/forgotPassword" element={<PublicRoutes element={<ForgotPassword />} />} />
+          <Route path="/resetPassword/:token" element={<PublicRoutes element={<ResetPassword />} />} />
           <Route path="/cart" element={<Cart />} />
           <Route path="/products/details/:id" element={<Details />} />
           <Route path='/search' element={<Search />} />
-          <Route path="/user" element={<User />} >
+          <Route path="/user" element={<PrivateRoutes element={<User />} />} >
             <Route index element={<HomeUser />} />
             <Route path="compras" element={<Purchases />} />
             <Route path="compras/:id" element={<DetailsPurch />} />

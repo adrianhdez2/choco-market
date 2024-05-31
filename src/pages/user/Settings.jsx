@@ -1,25 +1,77 @@
 import { Camera, KeyRound, Settings as SettingIcon } from "lucide-react"
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import InputEdit from "../../components/form/InputEdit"
 import UsePortals from '../../customHooks/UsePortals'
 import DeleteAccount from "../../components/portals/DeleteAccount"
+import DisabledAccount from "../../components/portals/DisabledAccount"
 import { UseImagePreviews } from "../../customHooks/UseImagePreviews"
+import axios from "axios"
 
 function Settings() {
+  axios.defaults.withCredentials = true
 
   const [isShow, setIsShow] = useState(false)
-  const [imagePreviews, setImagePreviews] = useState(['/users/loya.png'])
+  const [isShow2, setIsShow2] = useState(false)
+  const [imagePreviews, setImagePreviews] = useState([])
+  const [loading, setLoading] = useState(false)
+  const [selectedFile, setSelectedFile] = useState(null);
+
 
   const handleModal = () => {
     setIsShow(!isShow)
   }
 
+  const handleModal2 = () => {
+    setIsShow2(!isShow2)
+  }
+
+  const handleSubmit = (e) => {
+    e.preventDefault()
+
+    const formData = new FormData();
+    formData.append('img_user', selectedFile);
+
+    axios.post('http://localhost:8000/api/users/upload', formData, {
+      headers: {
+        'Content-Type': 'multipart/form-data',
+      },
+    })
+      .then((response) => {
+        console.log('Imagen subida exitosamente:', response.data);
+        // Manejar la respuesta exitosa aquí
+      })
+      .catch((error) => {
+        console.error('Error al subir la imagen:', error);
+        // Manejar el error aquí
+      });
+  }
+
+  const handleFileChange = (event) => {
+    const files = event.target.files;
+    setSelectedFile(files[0]);
+    const previews = [];
+    const reader = new FileReader();
+
+    reader.onload = (e) => {
+      previews.push(e.target.result);
+      if (previews.length === files.length) {
+        setImagePreviews(previews);
+      }
+    };
+
+    for (let i = 0; i < files.length; i++) {
+      reader.readAsDataURL(files[i]);
+    }
+  };
+
   const [values, setValues] = useState({
-    nameUser: 'Antonio de Jesús',
-    lastnameP: 'Loya',
-    lastnameM: 'Castillo',
-    phone: '9123219898',
-    email: 'ejemplo@ejemplo.com'
+    full_name: 'Antonio de Jesús',
+    last_name_p: 'Loya',
+    last_name_m: 'Castillo',
+    phone: '000 000 00 00',
+    email: 'ejemplo@ejemplo.com',
+    picture: '',
+    user_role: ''
   })
 
   const handleValues = (e) => {
@@ -34,9 +86,32 @@ function Settings() {
     setValues(newValues);
   }
 
-  const handleFileChange = (event) => {
-    UseImagePreviews(event, setImagePreviews)
-  }
+  // const handleFileChange = (event) => {
+  //   UseImagePreviews(event, setImagePreviews)
+  // }
+
+  useEffect(() => {
+    setLoading(true)
+    axios.get('http://localhost:8000/api/users/verify')
+      .then(res => {
+        if (res.data.status) {
+          axios.post('http://localhost:8000/api/users/user', { status: res.data.status })
+            .then(res => {
+              setValues(res.data)
+              setImagePreviews(res.data.picture)
+              setLoading(false)
+            })
+            .catch(error => {
+              console.log("Error obtener los datos de usuario:", error.response ? error.response.data : error.message);
+              setLoading(false)
+            });
+        }
+      })
+      .catch(error => {
+        console.log("Error en la verficación de usuario: ", error.response ? error.response.data : error.message);
+        setLoading(false)
+      });
+  }, [])
 
   return (
     <div className="user_page_rigth_container">
@@ -44,7 +119,7 @@ function Settings() {
         <SettingIcon size={30} className="user_page_icon" />
       </header>
       <div className="settings_container">
-        <form className="settings_container_top">
+        <form className="settings_container_top" onSubmit={handleSubmit}>
           <div className="settings_container_top_info">
             <div className="settings_container_top_info_user">
               <div className="settings_img_user_container">
@@ -58,39 +133,42 @@ function Settings() {
               </div>
               <div className="settings_details_user_container">
                 <span className="settings_user_id">#0012AD98</span>
-                <small className="settings_user_type">Vendedor</small>
+                <small className="settings_user_type">{values.user_role}</small>
               </div>
             </div>
-            <div className="settings_container_top_info_state">
+            {/* <div className="settings_container_top_info_state">
               <button type="button" className="btn btn_primary">Cambiar estado</button>
-            </div>
+            </div> */}
           </div>
           <div className="settings_container_top_changes">
-            <InputEdit type="text" name="nameUser" value={values.nameUser} labelString={"Nombre(s)"} onChange={handleValues} />
-            <InputEdit type="text" name="lastnameP" value={values.lastnameP} labelString={"Apellido paterno"} onChange={handleValues} />
-            <InputEdit type="text" name="lastnameM" value={values.lastnameM} labelString={"Apellido materno"} onChange={handleValues} />
-            <InputEdit type="tel" name="phone" value={values.phone} labelString={"Teléfono"} onChange={handleValues} />
-            <InputEdit type="email" name="email" value={values.email} labelString={"Correo electrónico"} onChange={handleValues} />
+            <InputEdit type="text" name="full_name" value={values.full_name} labelString={"Nombre(s)"} onChange={handleValues} />
+            <InputEdit type="text" name="last_name_p" value={values.last_name_p} labelString={"Apellido paterno"} onChange={handleValues} />
+            <InputEdit type="text" name="last_name_m" value={values.last_name_m} labelString={"Apellido materno"} onChange={handleValues} />
+            <InputEdit type="tel" name="phone" value={values.phone && values.phone} labelString={"Teléfono"} onChange={handleValues} />
+            <InputEdit type="email" name="email" value={values.email} labelString={"Correo electrónico"} onChange={handleValues} disabled={true} />
           </div>
           <div className="settings_container_top_password">
             <label className="form_input">
               <span className="form_input_icon">
                 <KeyRound size={20} className="form_icon" />
               </span>
-              <input className="input" type="password" name="password" id="password" placeholder="Contraseña" />
+              <input className="input" type="password" name="password" id="password" placeholder="Contraseña" autoComplete="off" aria-autocomplete="off" />
             </label>
             <label className="form_input">
               <span className="form_input_icon">
                 <KeyRound size={20} className="form_icon" />
               </span>
-              <input className="input" type="password" name="passwordConfirm" id="passwordConfirm" placeholder="Confirmar contraseña" />
+              <input className="input" type="password" name="passwordConfirm" id="passwordConfirm" placeholder="Confirmar contraseña" autoComplete="off" aria-autocomplete="off" />
             </label>
             <button type="submit" className="btn btn_primary">Guardar cambios</button>
           </div>
         </form>
         <div className="settings_container_bottom">
           <span className="settings_date">Último acceso 9-feb-2024</span>
-          <button type="button" onClick={handleModal}>Eliminar mi cuenta</button>
+          <div>
+            <button type="button" onClick={handleSubmit}>Desactivar mi cuenta</button>
+            <button type="button" onClick={handleModal}>Eliminar mi cuenta</button>
+          </div>
         </div>
       </div>
 
@@ -98,6 +176,13 @@ function Settings() {
         isShow &&
         <UsePortals>
           <DeleteAccount handleModal={handleModal} isShow={isShow} />
+        </UsePortals>
+      }
+
+      {
+        isShow2 &&
+        <UsePortals>
+          <DisabledAccount handleModal={handleModal2} isShow={isShow2} />
         </UsePortals>
       }
     </div>

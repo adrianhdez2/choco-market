@@ -4,7 +4,6 @@ import { Link, useNavigate } from "react-router-dom"
 import InputField from "../components/form/InputField"
 import Button from "../components/form/Button"
 import axios from "axios"
-
 function SignUp() {
   const navigate = useNavigate()
   const [values, setValues] = useState({
@@ -51,7 +50,7 @@ function SignUp() {
         }
       })
       .catch(err => {
-        setError(err.response?.data?.error || "Error de inicio de sesión")
+        setError(err.response?.data?.error || "Error al momento de guardar los datos")
         setLoading(false)
       })
   }
