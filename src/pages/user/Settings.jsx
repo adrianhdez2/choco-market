@@ -26,25 +26,23 @@ function Settings() {
   }
 
   const handleSubmit = (e) => {
-    e.preventDefault()
+    e.preventDefault();
 
     const formData = new FormData();
-    formData.append('img_user', selectedFile);
+    formData.append('img_user', selectedFile, 'image.webp');
 
-    axios.post('http://localhost:8000/api/users/upload', formData, {
+    axios.post('http://localhost:3001/users/upload', formData, {
       headers: {
         'Content-Type': 'multipart/form-data',
       },
     })
-      .then((response) => {
-        console.log('Imagen subida exitosamente:', response.data);
-        // Manejar la respuesta exitosa aquí
+      .then((res) => {
+        if (res.data.status) return window.location.reload()
       })
       .catch((error) => {
         console.error('Error al subir la imagen:', error);
-        // Manejar el error aquí
       });
-  }
+  };
 
   const handleFileChange = (event) => {
     const files = event.target.files;
@@ -65,13 +63,15 @@ function Settings() {
   };
 
   const [values, setValues] = useState({
+    user_id: '0012AD98',
     full_name: 'Antonio de Jesús',
     last_name_p: 'Loya',
     last_name_m: 'Castillo',
     phone: '000 000 00 00',
     email: 'ejemplo@ejemplo.com',
     picture: '',
-    user_role: ''
+    user_role: '',
+    last_login: ''
   })
 
   const handleValues = (e) => {
@@ -92,10 +92,10 @@ function Settings() {
 
   useEffect(() => {
     setLoading(true)
-    axios.get('http://localhost:8000/api/users/verify')
+    axios.get('http://localhost:3001/users/verify')
       .then(res => {
         if (res.data.status) {
-          axios.post('http://localhost:8000/api/users/user', { status: res.data.status })
+          axios.post('http://localhost:3001/users/user', { status: res.data.status })
             .then(res => {
               setValues(res.data)
               setImagePreviews(res.data.picture)
@@ -132,7 +132,7 @@ function Settings() {
                 </label>
               </div>
               <div className="settings_details_user_container">
-                <span className="settings_user_id">#0012AD98</span>
+                <span className="settings_user_id">{values.full_name + ' ' + values.last_name_p + ' ' + values.last_name_m}</span>
                 <small className="settings_user_type">{values.user_role}</small>
               </div>
             </div>
@@ -144,11 +144,11 @@ function Settings() {
             <InputEdit type="text" name="full_name" value={values.full_name} labelString={"Nombre(s)"} onChange={handleValues} />
             <InputEdit type="text" name="last_name_p" value={values.last_name_p} labelString={"Apellido paterno"} onChange={handleValues} />
             <InputEdit type="text" name="last_name_m" value={values.last_name_m} labelString={"Apellido materno"} onChange={handleValues} />
-            <InputEdit type="tel" name="phone" value={values.phone && values.phone} labelString={"Teléfono"} onChange={handleValues} />
+            {/* <InputEdit type="tel" name="phone" value={values.phone} labelString={"Teléfono"} onChange={handleValues} required={false}/> */}
             <InputEdit type="email" name="email" value={values.email} labelString={"Correo electrónico"} onChange={handleValues} disabled={true} />
           </div>
           <div className="settings_container_top_password">
-            <label className="form_input">
+            {/* <label className="form_input">
               <span className="form_input_icon">
                 <KeyRound size={20} className="form_icon" />
               </span>
@@ -159,16 +159,14 @@ function Settings() {
                 <KeyRound size={20} className="form_icon" />
               </span>
               <input className="input" type="password" name="passwordConfirm" id="passwordConfirm" placeholder="Confirmar contraseña" autoComplete="off" aria-autocomplete="off" />
-            </label>
+            </label> */}
             <button type="submit" className="btn btn_primary">Guardar cambios</button>
           </div>
         </form>
         <div className="settings_container_bottom">
-          <span className="settings_date">Último acceso 9-feb-2024</span>
-          <div>
-            <button type="button" onClick={handleSubmit}>Desactivar mi cuenta</button>
-            <button type="button" onClick={handleModal}>Eliminar mi cuenta</button>
-          </div>
+          {/* <span className="settings_date">Último acceso 9-feb-2024</span> */}
+          {/* <button type="button" onClick={handleSubmit}>Desactivar mi cuenta</button> */}
+          <button type="button" onClick={handleModal}>Eliminar mi cuenta</button>
         </div>
       </div>
 
