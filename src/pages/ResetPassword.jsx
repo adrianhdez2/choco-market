@@ -20,13 +20,13 @@ function ResetPassword() {
         e.preventDefault()
 
         setLoading(true)
-        axios.post(`http://localhost:8000/api/users/reset-password/${token}`, values)
+        axios.post(`http://localhost:3001/users/user/${token}`, values)
             .then(res => {
                 setEstate(res.data.status);
                 setLoading(false)
             })
             .catch(err => {
-                setError(err.response?.data?.error || "Error de inicio de sesión")
+                setError(err.response?.data?.error || "Error al reestablecer la contraseña")
                 setLoading(false)
                 setEstate(false)
             })
