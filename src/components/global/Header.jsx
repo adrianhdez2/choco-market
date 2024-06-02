@@ -9,6 +9,8 @@ import axios from "axios"
 
 function Header() {
     const [login, setLogin] = useState(false)
+    const [image, setImage] = useState('')
+    const [alt, setAlt] = useState('')
     const [isShow, setIsShow] = useState(false)
     const [classActive, setClassActive] = useState('')
     const [isWebNotif, setWebNotif] = useState(false)
@@ -84,7 +86,21 @@ function Header() {
     useEffect(() => {
         axios.get("http://localhost:3001/users/verify")
             .then(res => {
-                res.data.status ? setLogin(true) : setLogin(false)
+                if (res.data.status) {
+                    axios.post('http://localhost:3001/users/user', { status: res.data.status })
+                        .then(res => {
+                            setImage(res.data.picture)
+                            setAlt(res.data.full_name)
+                        })
+                        .catch(error => {
+                            console.log("Error obtener los datos de usuario:", error.response ? error.response.data : error.message);
+                        });
+                        setLogin(true)
+                }else{
+                    setLogin(false)
+                }
+
+
             })
             .catch(error => console.log("Error en la verficación de usuario: ", error.response ? error.response.data : error.message));
     }, [navigate]);
@@ -107,7 +123,7 @@ function Header() {
                             <ShoppingCart size={24} className="header_icon" />
                         </Link>
                         <Link to={"/user"} className='header_btns_user_img'>
-                            <img src="/profile.jpg" alt="Imágen del usuario" />
+                            <img src={image} alt={`Imagen de ${alt}`} />
                         </Link>
                         <button onClick={handleMenu} className="header_btns_user_menu">
                             <MenuIcon size={24} className="menu_icon" />
