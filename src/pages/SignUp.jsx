@@ -1,4 +1,4 @@
-import { User, KeyRound, Mail } from "lucide-react"
+import { User, KeyRound, Mail, Check } from "lucide-react"
 import { useEffect, useState } from "react"
 import { Link, useNavigate } from "react-router-dom"
 import InputField from "../components/form/InputField"
@@ -17,6 +17,7 @@ function SignUp() {
 
   const [error, setError] = useState("")
   const [loading, setLoading] = useState(false)
+  const [estate, setEstate] = useState(false)
 
   const handleValues = (e) => {
     let { target } = e
@@ -34,9 +35,10 @@ function SignUp() {
     e.preventDefault()
     setLoading(true)
 
-    axios.post("http://localhost:8000/api/users/register", values)
+    axios.post("http://localhost:3001/auth/register", values)
       .then(res => {
-        if (res.status == 200) {
+        console.log(res);
+        if (res.data.status) {
           setValues({
             names: '',
             lastnameP: '',
@@ -45,13 +47,15 @@ function SignUp() {
             password: '',
             passwordConfirm: ''
           })
-          navigate('/login')
           setLoading(false)
+          setEstate(res.data.status);
         }
       })
       .catch(err => {
+        console.log(err);
         setError(err.response?.data?.error || "Error al momento de guardar los datos")
         setLoading(false)
+        setEstate(false)
       })
   }
 
@@ -65,6 +69,18 @@ function SignUp() {
       return () => clearTimeout(timer);
     }
   }, [error]);
+
+  useEffect(() => {
+    if (estate) {
+      const time = setTimeout(() => {
+        setEstate(false)
+        navigate('/login')
+      }, [1000])
+
+      return () => clearTimeout(time);
+    }
+
+  }, [estate])
 
   return (
     <div className="container_form_general">
@@ -89,7 +105,22 @@ function SignUp() {
             <InputField type={"password"} name="password" value={values.password} placeholder="Contraseña" onChange={handleValues} icon={KeyRound} />
             <InputField type={"password"} name="passwordConfirm" value={values.passwordConfirm} placeholder="Confirmar contraseña" onChange={handleValues} icon={KeyRound} />
           </div>
-          <Button loading={loading} title={'Registrarme'} />
+          <button
+            className="btn btn_primary"
+            type="submit"
+            disabled={loading || estate ? true : undefined}
+          >
+            {
+
+              loading ?
+                <div className="loading"></div>
+                :
+                estate ?
+                  <Check />
+                  :
+                  'Registrarme'
+            }
+          </button>
         </form>
         <p className="form_link_question">¿Ya tienes cuenta?
           <Link to={"/login"} id="form_link_account">Entrar</Link>
