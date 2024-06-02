@@ -1,4 +1,4 @@
-function InputEdit({ name, type, onChange, value, labelString, edit, onFocus, disabled = false }) {
+function InputEdit({ name, type, onChange, value, labelString, edit, onFocus, disabled = false, required = true }) {
     return (
         <div className="settings_container_inputs">
             <label className="settings_input_label">{labelString}:</label>
@@ -7,7 +7,7 @@ function InputEdit({ name, type, onChange, value, labelString, edit, onFocus, di
                 type={type}
                 name={name}
                 id={name}
-                required
+                required={required ? true : undefined}
                 value={value}
                 onChange={onChange}
                 pattern={type === "tel" ? '[0-9]{10}' : undefined}
