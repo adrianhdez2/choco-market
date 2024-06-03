@@ -22,6 +22,7 @@ import ForgotPassword from './pages/ForgotPassword';
 import ResetPassword from './pages/ResetPassword';
 import { PrivateRoutes } from './utils/PrivateRoute';
 import { PublicRoutes } from './utils/PublicRoutes';
+import Security from './pages/user/Security';
 
 function App() {
   return (
@@ -29,24 +30,25 @@ function App() {
       <FilterProvider>
         <Header />
         <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/login" element={<PublicRoutes element={<Login />} />} />
-          <Route path="/signup" element={<PublicRoutes element={<SignUp />}/>} />
-          <Route path="/forgotPassword" element={<PublicRoutes element={<ForgotPassword />} />} />
-          <Route path="/resetPassword/:token" element={<PublicRoutes element={<ResetPassword />} />} />
-          <Route path="/cart" element={<Cart />} />
-          <Route path="/products/details/:id" element={<Details />} />
+          <Route path='/' element={<Home />} />
+          <Route path='/login' element={<PublicRoutes element={<Login />} />} />
+          <Route path='/signup' element={<PublicRoutes element={<SignUp />}/>} />
+          <Route path='/forgotPassword' element={<PublicRoutes element={<ForgotPassword />} />} />
+          <Route path='/resetPassword/:token' element={<PublicRoutes element={<ResetPassword />} />} />
+          <Route path='/cart' element={<Cart />} />
+          <Route path='/products/details/:id' element={<Details />} />
           <Route path='/search' element={<Search />} />
-          <Route path="/user" element={<PrivateRoutes element={<User />} />} >
+          <Route path='/user' element={<PrivateRoutes element={<User />} />} >
             <Route index element={<HomeUser />} />
-            <Route path="compras" element={<Purchases />} />
-            <Route path="compras/:id" element={<DetailsPurch />} />
-            <Route path="settings" element={<Settings />} />
-            <Route path="productos" element={<ProductList />} />
-            <Route path="productos/add/new" element={<AddProduct />} />
-            <Route path="productos/:idProducto/edit" element={<ProductDetails />} />
+            <Route path='shopping' element={<Purchases />} />
+            <Route path='shopping/:id' element={<DetailsPurch />} />
+            <Route path='security' element={<Security/>} />
+            <Route path='settings' element={<Settings />} />
+            <Route path='products' element={<ProductList />} />
+            <Route path='products/add/new' element={<AddProduct />} />
+            <Route path='products/:idProducto/edit' element={<ProductDetails />} />
           </Route>
-          <Route path="*" element={<Error />} />
+          <Route path='*' element={<Error />} />
         </Routes>
         <Footer />
       </FilterProvider>
