@@ -2,7 +2,6 @@ import { User, KeyRound, Mail, Check } from "lucide-react"
 import { useEffect, useState } from "react"
 import { Link, useNavigate } from "react-router-dom"
 import InputField from "../components/form/InputField"
-import Button from "../components/form/Button"
 import axios from "axios"
 function SignUp() {
   const navigate = useNavigate()
@@ -37,8 +36,9 @@ function SignUp() {
 
     axios.post("http://localhost:3001/auth/register", values)
       .then(res => {
-        console.log(res);
         if (res.data.status) {
+          setLoading(false)
+          setEstate(res.data.status);
           setValues({
             names: '',
             lastnameP: '',
@@ -47,12 +47,9 @@ function SignUp() {
             password: '',
             passwordConfirm: ''
           })
-          setLoading(false)
-          setEstate(res.data.status);
         }
       })
       .catch(err => {
-        console.log(err);
         setError(err.response?.data?.error || "Error al momento de guardar los datos")
         setLoading(false)
         setEstate(false)
