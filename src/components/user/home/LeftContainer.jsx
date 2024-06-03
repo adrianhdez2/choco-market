@@ -61,8 +61,9 @@ export default function LeftContainer() {
             </div>
             <div className="user_left_container_links">
                 <NavLink className={({ isActive }) => isActive ? 'background_select' : ''} to={"/user"} end>Principal</NavLink>
-                <NavLink className={({ isActive }) => isActive ? 'background_select' : ''} to={"/user/compras"}>Mis compras</NavLink>
-                <NavLink className={({ isActive }) => isActive ? 'background_select' : ''} to={"/user/productos"}>Mis productos</NavLink>
+                <NavLink className={({ isActive }) => isActive ? 'background_select' : ''} to={"/user/shopping"}>Mis compras</NavLink>
+                <NavLink className={({ isActive }) => isActive ? 'background_select' : ''} to={"/user/products"}>Mis productos</NavLink>
+                <NavLink className={({ isActive }) => isActive ? 'background_select' : ''} to={"/user/security"}>Seguridad</NavLink>
                 <NavLink className={({ isActive }) => isActive ? 'background_select' : ''} to={"/user/settings"}>Ajustes</NavLink>
             </div>
             <div className="user_left_container_button">
