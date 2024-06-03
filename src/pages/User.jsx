@@ -1,7 +1,7 @@
 import { Outlet } from "react-router-dom"
 import LeftContainer from "../components/user/home/LeftContainer"
-const User = () => {
 
+const User = () => {
     return (
         <section id="user_page">
             <div className="user_left">

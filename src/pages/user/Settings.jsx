@@ -4,7 +4,6 @@ import InputEdit from "../../components/form/InputEdit"
 import UsePortals from '../../customHooks/UsePortals'
 import DeleteAccount from "../../components/portals/DeleteAccount"
 import DisabledAccount from "../../components/portals/DisabledAccount"
-import { UseImagePreviews } from "../../customHooks/UseImagePreviews"
 import axios from "axios"
 
 function Settings() {
@@ -86,10 +85,6 @@ function Settings() {
     setValues(newValues);
   }
 
-  // const handleFileChange = (event) => {
-  //   UseImagePreviews(event, setImagePreviews)
-  // }
-
   useEffect(() => {
     setLoading(true)
     axios.get('http://localhost:3001/users/verify')
@@ -148,18 +143,6 @@ function Settings() {
             <InputEdit type="email" name="email" value={values.email} labelString={"Correo electrónico"} onChange={handleValues} disabled={true} />
           </div>
           <div className="settings_container_top_password">
-            {/* <label className="form_input">
-              <span className="form_input_icon">
-                <KeyRound size={20} className="form_icon" />
-              </span>
-              <input className="input" type="password" name="password" id="password" placeholder="Contraseña" autoComplete="off" aria-autocomplete="off" />
-            </label>
-            <label className="form_input">
-              <span className="form_input_icon">
-                <KeyRound size={20} className="form_icon" />
-              </span>
-              <input className="input" type="password" name="passwordConfirm" id="passwordConfirm" placeholder="Confirmar contraseña" autoComplete="off" aria-autocomplete="off" />
-            </label> */}
             <button type="submit" className="btn btn_primary">Guardar cambios</button>
           </div>
         </form>
