@@ -12,14 +12,18 @@ export default function Security() {
 
     const handleSubmit = (e) => {
         e.preventDefault()
-
+        setLoading(true)
 
         axios.get('http://localhost:3001/auth/validate')
             .then(res => {
+                setLoading(false)
+                setEstate(res.data.status);
                 console.log(res);
             })
             .catch(err => {
                 console.log(err);
+                setLoading(false)
+                setEstate(false)
             })
     }
 
