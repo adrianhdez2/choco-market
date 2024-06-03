@@ -3,7 +3,7 @@ import { Link } from "react-router-dom"
 
 function CardPurchases() {
     return (
-        <Link to={"/user/compras/1231J123"} className="purchases_container">
+        <Link to={"/user/shopping/1231J123"} className="purchases_container">
             <div className="purchases_container_img">
                 <img src="/profile.jpg" alt="" />
             </div>

@@ -49,7 +49,7 @@ function ProductList() {
           ))
         }
       </article>
-      <Link to={"/user/productos/add/new"} className="user_page_right_add_product"><Plus size={30} /></Link>
+      <Link to={"/user/products/add/new"} className="user_page_right_add_product"><Plus size={30} /></Link>
     </section>
   )
 }

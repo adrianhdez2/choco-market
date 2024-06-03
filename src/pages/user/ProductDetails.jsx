@@ -14,7 +14,7 @@ function ProductDetails() {
             if (newProduct) {
                 setProduct(newProduct);
             } else {
-                navigate('/user/productos')
+                navigate('/user/products')
             }
         }
     }, [idProducto, loading, navigate, products]);
