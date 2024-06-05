@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 function OrdersCards({ user }) {
     const { img, name, order, div, edi } = user
     return (
-        <Link to={`/orders/${order}`} className="card_orders">
+        <Link to={`/user/shopping/${order}`} className="card_orders">
             <div className="card_orders_top">
                 <div className="card_orders_top_title">
                     <h4 className="orders_title">Tortas</h4>

@@ -719,8 +719,7 @@ a {
 }
 
 .login .btn .loading,
-.container_form_password .btn .loading,
-.security_container_top .btn .loading {
+.container_form_password .btn .loading {
     border-top-color: var(--white);
 }
 
@@ -2196,34 +2195,117 @@ input[type="number"]::-webkit-outer-spin-button {
 
 /* USER - SEGURIDAD */
 
-.security_container {
+.security_container{
     width: 100%;
     height: 100%;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    justify-content: flex-start;
-    overflow-y: auto;
+    justify-content: space-between;
+    padding-top: 20px;
 }
 
 .security_container_top {
     width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+}
+
+.security_container_form {
+    width: 100%;
     display: flex;
     align-items: center;
-    justify-content: start;
-    column-gap: 10px;
+    justify-content: flex-start;
+    column-gap: 15px;
+    margin-bottom: 5px;
 }
 
 .note_security {
-    margin-top: 10px;
+    color: var(--black-50);
+}
+
+.note_security span {
+    color: red;
+}
+
+.security_container_bottom {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+.security_container_bottom > button{
+    color: var(--white);    
+    padding: 10px;
+    background-color: var(--primary-400);
+    border-radius: 10px;
+    border: none;
+    outline: none;
+    font-size: 16px;
+    transition: all .3s ease-in-out;
+    margin-right: 10px;
+}
+
+.security_container_bottom >  button:not(:disabled):hover,
+.security_container_bottom > button:not(:disabled):active {
+    cursor: pointer;
+    background-color: var(--primary-800);
+}
+
+.security_container_bottom > button:disabled {
+    background-color: var(--primary-300);
+}
+
+.security_container_form .form_input .input:-webkit-autofill,
+.security_container_form .form_input .input:-webkit-autofill:hover,
+.security_container_form .form_input .input:-webkit-autofill:focus {
+    -webkit-box-shadow: 0 0 0px 1000px var(--background-color) inset;
+}
+
+.security_container_form .btn .loading {
+    border-top-color: var(--white);
+}
+
+.security_alert a {
+    color: var(--black);
+    text-decoration: underline;
 }
 
 
+/* USER - VERIFY EMAIL */
 
-.security_container_top .form_input .input:-webkit-autofill,
-.security_container_top .form_input .input:-webkit-autofill:hover,
-.security_container_top .form_input .input:-webkit-autofill:focus {
-    -webkit-box-shadow: 0 0 0px 1000px var(--background-color) inset;
+.verify_email_section {
+    max-width: var(--max-width);
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 60px 0;
+}
+
+.email_message {
+    width: 100%;
+    text-align: center;
+    background-color: var(--black-14);
+    padding: 20px 10px;
+}
+
+.button_email {
+    margin-top: 20px;
+    padding: 10px 15px;
+    color: var(--primary-400);
+}
+
+.button_email:hover,
+.button_email:active {
+    color: var(--primary-800);
+    text-decoration: underline;
 }
 
 
@@ -2557,8 +2639,7 @@ input[type="number"]::-webkit-outer-spin-button {
         width: 100%;
     }
 
-    .settings_container_top_password,
-    .security_container_top {
+    .settings_container_top_password {
         height: 100%;
         flex-direction: column;
         align-items: start;

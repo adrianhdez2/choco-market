@@ -23,6 +23,7 @@ import ResetPassword from './pages/ResetPassword';
 import { PrivateRoutes } from './utils/PrivateRoute';
 import { PublicRoutes } from './utils/PublicRoutes';
 import Security from './pages/user/Security';
+import VerifyEmail from './pages/user/VerifyEmail';
 
 function App() {
   return (
@@ -32,9 +33,10 @@ function App() {
         <Routes>
           <Route path='/' element={<Home />} />
           <Route path='/login' element={<PublicRoutes element={<Login />} />} />
-          <Route path='/signup' element={<PublicRoutes element={<SignUp />}/>} />
+          <Route path='/signup' element={<PublicRoutes element={<SignUp />} />} />
           <Route path='/forgotPassword' element={<PublicRoutes element={<ForgotPassword />} />} />
           <Route path='/resetPassword/:token' element={<PublicRoutes element={<ResetPassword />} />} />
+          <Route path='/verify/:token' element={<PrivateRoutes element={<VerifyEmail />} />} />
           <Route path='/cart' element={<Cart />} />
           <Route path='/products/details/:id' element={<Details />} />
           <Route path='/search' element={<Search />} />
@@ -42,7 +44,7 @@ function App() {
             <Route index element={<HomeUser />} />
             <Route path='shopping' element={<Purchases />} />
             <Route path='shopping/:id' element={<DetailsPurch />} />
-            <Route path='security' element={<Security/>} />
+            <Route path='security' element={<Security />} />
             <Route path='settings' element={<Settings />} />
             <Route path='products' element={<ProductList />} />
             <Route path='products/add/new' element={<AddProduct />} />
